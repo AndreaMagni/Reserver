@@ -13,6 +13,8 @@ namespace Reserver
         private bool logged = false;
         private int idutente = -1;
 
+        protected string getUserInfo;
+
         public Reserver()
         {
             InitializeComponent();
@@ -44,15 +46,15 @@ namespace Reserver
                 try
                 {
                     connection.Open();
-                    string query = string.Format("SELECT idutente, denominazione FROM utenti WHERE username = '{0}' and psw = '{1}'", metroTextBoxLoginUsername.Text, metroTextBoxLoginPassword.Text);
-                    FbCommand select = new FbCommand(query, connection);
-                    FbDataReader readerUtente = select.ExecuteReader();
-                    if (readerUtente.Read())
+                    string getUserInfo = string.Format("SELECT idutente, denominazione FROM utenti WHERE username = '{0}' and psw = '{1}'", metroTextBoxLoginUsername.Text, metroTextBoxLoginPassword.Text);
+                    FbCommand select = new FbCommand(getUserInfo, connection);
+                    FbDataReader readerUserInfo = select.ExecuteReader();
+                    if (readerUserInfo.Read())
                     {
-                        idutente = readerUtente.GetInt32(0);
-                        metroLabelCurrentUser.Text = readerUtente.GetString(1);
+                        idutente = readerUserInfo.GetInt32(0);
+                        metroLabelCurrentUser.Text = readerUserInfo.GetString(1);
+                        metroPanelPageServerStatus.BringToFront();
                         logged = true;
-                        MessageBox.Show("Utente censito a sistema", "Stato connessione", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                     }
                     else
                     {
@@ -70,7 +72,7 @@ namespace Reserver
             }
         }
 
-        private void MetroPanelButtonServerStatus_Click(object sender, EventArgs e)
+        private void MetroLabelButtonServerStatus_Click(object sender, EventArgs e)
         {
             if (logged)
             {
@@ -83,8 +85,7 @@ namespace Reserver
             }
         }
 
-
-        private void MetroPanelButtonReserve_Click(object sender, EventArgs e)
+        private void MetroLabelButtonReserve_Click(object sender, EventArgs e)
         {
             if (logged)
             {
@@ -97,7 +98,7 @@ namespace Reserver
             }
         }
 
-        private void MetroPanelButtonHistory_Click(object sender, EventArgs e)
+        private void MetroLabelButtonHistory_Click(object sender, EventArgs e)
         {
             if (logged)
             {
@@ -108,6 +109,36 @@ namespace Reserver
                 MessageBox.Show("Per visualizzare la pagina è necessario effettuare il login", "Necessario login", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                 metroPanelPageLogin.BringToFront();
             }
+        }
+
+        private void metroLabelButtonServerStatus_MouseEnter(object sender, EventArgs e)
+        {
+            metroLabelButtonServerStatus.BackColor = Color.FromArgb(39, 39, 58);
+        }
+
+        private void metroLabelButtonServerStatus_MouseLeave(object sender, EventArgs e)
+        {
+            metroLabelButtonServerStatus.BackColor = Color.FromArgb(51, 51, 76);
+        }
+
+        private void metroLabelButtonReserve_MouseEnter(object sender, EventArgs e)
+        {
+            metroLabelButtonReserve.BackColor = Color.FromArgb(39, 39, 58);
+        }
+
+        private void metroLabelButtonReserve_MouseLeave(object sender, EventArgs e)
+        {
+            metroLabelButtonReserve.BackColor = Color.FromArgb(51, 51, 76);
+        }
+
+        private void metroLabelButtonHistory_MouseEnter(object sender, EventArgs e)
+        {
+            metroLabelButtonHistory.BackColor = Color.FromArgb(39, 39, 58);
+        }
+
+        private void metroLabelButtonHistory_MouseLeave(object sender, EventArgs e)
+        {
+            metroLabelButtonHistory.BackColor = Color.FromArgb(51, 51, 76);
         }
     }
 }

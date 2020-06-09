@@ -1,4 +1,6 @@
-﻿namespace Reserver
+﻿using System.Drawing;
+
+namespace Reserver
 {
     partial class Reserver
     {
@@ -30,11 +32,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reserver));
             this.metroPanelSideMenu = new MetroFramework.Controls.MetroPanel();
-            this.metroPanelButtonHistory = new MetroFramework.Controls.MetroPanel();
             this.metroLabelButtonHistory = new MetroFramework.Controls.MetroLabel();
-            this.metroPanelButtonReserve = new MetroFramework.Controls.MetroPanel();
             this.metroLabelButtonReserve = new MetroFramework.Controls.MetroLabel();
-            this.metroPanelButtonServerStatus = new MetroFramework.Controls.MetroPanel();
             this.metroLabelButtonServerStatus = new MetroFramework.Controls.MetroLabel();
             this.metroPanelLogo = new MetroFramework.Controls.MetroPanel();
             this.metroLabelCurrentUser = new MetroFramework.Controls.MetroLabel();
@@ -48,9 +47,6 @@
             this.metroPanelPageHistory = new MetroFramework.Controls.MetroPanel();
             this.metroPanelPageReserve = new MetroFramework.Controls.MetroPanel();
             this.metroPanelSideMenu.SuspendLayout();
-            this.metroPanelButtonHistory.SuspendLayout();
-            this.metroPanelButtonReserve.SuspendLayout();
-            this.metroPanelButtonServerStatus.SuspendLayout();
             this.metroPanelLogo.SuspendLayout();
             this.groupBoxLoginPassword.SuspendLayout();
             this.groupBoxLoginUsername.SuspendLayout();
@@ -61,9 +57,9 @@
             // 
             this.metroPanelSideMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.metroPanelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
-            this.metroPanelSideMenu.Controls.Add(this.metroPanelButtonHistory);
-            this.metroPanelSideMenu.Controls.Add(this.metroPanelButtonReserve);
-            this.metroPanelSideMenu.Controls.Add(this.metroPanelButtonServerStatus);
+            this.metroPanelSideMenu.Controls.Add(this.metroLabelButtonHistory);
+            this.metroPanelSideMenu.Controls.Add(this.metroLabelButtonReserve);
+            this.metroPanelSideMenu.Controls.Add(this.metroLabelButtonServerStatus);
             this.metroPanelSideMenu.HorizontalScrollbarBarColor = true;
             this.metroPanelSideMenu.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanelSideMenu.HorizontalScrollbarSize = 10;
@@ -76,86 +72,47 @@
             this.metroPanelSideMenu.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanelSideMenu.VerticalScrollbarSize = 10;
             // 
-            // metroPanelButtonHistory
-            // 
-            this.metroPanelButtonHistory.Controls.Add(this.metroLabelButtonHistory);
-            this.metroPanelButtonHistory.HorizontalScrollbarBarColor = true;
-            this.metroPanelButtonHistory.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanelButtonHistory.HorizontalScrollbarSize = 10;
-            this.metroPanelButtonHistory.Location = new System.Drawing.Point(10, 222);
-            this.metroPanelButtonHistory.Name = "metroPanelButtonHistory";
-            this.metroPanelButtonHistory.Size = new System.Drawing.Size(180, 100);
-            this.metroPanelButtonHistory.TabIndex = 4;
-            this.metroPanelButtonHistory.UseCustomBackColor = true;
-            this.metroPanelButtonHistory.VerticalScrollbarBarColor = true;
-            this.metroPanelButtonHistory.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanelButtonHistory.VerticalScrollbarSize = 10;
-            this.metroPanelButtonHistory.Click += new System.EventHandler(this.MetroPanelButtonHistory_Click);
-            // 
             // metroLabelButtonHistory
             // 
-            this.metroLabelButtonHistory.AutoSize = true;
-            this.metroLabelButtonHistory.Location = new System.Drawing.Point(41, 34);
+            this.metroLabelButtonHistory.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabelButtonHistory.Location = new System.Drawing.Point(10, 222);
             this.metroLabelButtonHistory.Name = "metroLabelButtonHistory";
-            this.metroLabelButtonHistory.Size = new System.Drawing.Size(89, 19);
+            this.metroLabelButtonHistory.Size = new System.Drawing.Size(182, 100);
             this.metroLabelButtonHistory.TabIndex = 4;
             this.metroLabelButtonHistory.Text = "Storico Rilasci";
+            this.metroLabelButtonHistory.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroLabelButtonHistory.UseCustomBackColor = true;
-            this.metroLabelButtonHistory.Click += new System.EventHandler(this.MetroPanelButtonHistory_Click);
-            // 
-            // metroPanelButtonReserve
-            // 
-            this.metroPanelButtonReserve.Controls.Add(this.metroLabelButtonReserve);
-            this.metroPanelButtonReserve.HorizontalScrollbarBarColor = true;
-            this.metroPanelButtonReserve.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanelButtonReserve.HorizontalScrollbarSize = 10;
-            this.metroPanelButtonReserve.Location = new System.Drawing.Point(10, 116);
-            this.metroPanelButtonReserve.Name = "metroPanelButtonReserve";
-            this.metroPanelButtonReserve.Size = new System.Drawing.Size(180, 100);
-            this.metroPanelButtonReserve.TabIndex = 3;
-            this.metroPanelButtonReserve.UseCustomBackColor = true;
-            this.metroPanelButtonReserve.VerticalScrollbarBarColor = true;
-            this.metroPanelButtonReserve.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanelButtonReserve.VerticalScrollbarSize = 10;
-            this.metroPanelButtonReserve.Click += new System.EventHandler(this.MetroPanelButtonReserve_Click);
+            this.metroLabelButtonHistory.Click += new System.EventHandler(this.MetroLabelButtonHistory_Click);
+            this.metroLabelButtonHistory.MouseEnter += new System.EventHandler(this.metroLabelButtonHistory_MouseEnter);
+            this.metroLabelButtonHistory.MouseLeave += new System.EventHandler(this.metroLabelButtonHistory_MouseLeave);
             // 
             // metroLabelButtonReserve
             // 
-            this.metroLabelButtonReserve.AutoSize = true;
-            this.metroLabelButtonReserve.Location = new System.Drawing.Point(48, 36);
+            this.metroLabelButtonReserve.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabelButtonReserve.Location = new System.Drawing.Point(10, 116);
             this.metroLabelButtonReserve.Name = "metroLabelButtonReserve";
-            this.metroLabelButtonReserve.Size = new System.Drawing.Size(82, 19);
+            this.metroLabelButtonReserve.Size = new System.Drawing.Size(182, 98);
             this.metroLabelButtonReserve.TabIndex = 3;
             this.metroLabelButtonReserve.Text = "Prenotazioni";
+            this.metroLabelButtonReserve.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroLabelButtonReserve.UseCustomBackColor = true;
-            this.metroLabelButtonReserve.Click += new System.EventHandler(this.MetroPanelButtonReserve_Click);
-            // 
-            // metroPanelButtonServerStatus
-            // 
-            this.metroPanelButtonServerStatus.Controls.Add(this.metroLabelButtonServerStatus);
-            this.metroPanelButtonServerStatus.HorizontalScrollbarBarColor = true;
-            this.metroPanelButtonServerStatus.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanelButtonServerStatus.HorizontalScrollbarSize = 10;
-            this.metroPanelButtonServerStatus.Location = new System.Drawing.Point(10, 10);
-            this.metroPanelButtonServerStatus.Name = "metroPanelButtonServerStatus";
-            this.metroPanelButtonServerStatus.Size = new System.Drawing.Size(180, 100);
-            this.metroPanelButtonServerStatus.TabIndex = 2;
-            this.metroPanelButtonServerStatus.UseCustomBackColor = true;
-            this.metroPanelButtonServerStatus.VerticalScrollbarBarColor = true;
-            this.metroPanelButtonServerStatus.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanelButtonServerStatus.VerticalScrollbarSize = 10;
-            this.metroPanelButtonServerStatus.Click += new System.EventHandler(this.MetroPanelButtonServerStatus_Click);
+            this.metroLabelButtonReserve.Click += new System.EventHandler(this.MetroLabelButtonReserve_Click);
+            this.metroLabelButtonReserve.MouseEnter += new System.EventHandler(this.metroLabelButtonReserve_MouseEnter);
+            this.metroLabelButtonReserve.MouseLeave += new System.EventHandler(this.metroLabelButtonReserve_MouseLeave);
             // 
             // metroLabelButtonServerStatus
             // 
-            this.metroLabelButtonServerStatus.AutoSize = true;
-            this.metroLabelButtonServerStatus.Location = new System.Drawing.Point(49, 37);
+            this.metroLabelButtonServerStatus.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabelButtonServerStatus.Location = new System.Drawing.Point(10, 10);
             this.metroLabelButtonServerStatus.Name = "metroLabelButtonServerStatus";
-            this.metroLabelButtonServerStatus.Size = new System.Drawing.Size(81, 19);
+            this.metroLabelButtonServerStatus.Size = new System.Drawing.Size(182, 98);
             this.metroLabelButtonServerStatus.TabIndex = 2;
             this.metroLabelButtonServerStatus.Text = "Stato Server";
+            this.metroLabelButtonServerStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroLabelButtonServerStatus.UseCustomBackColor = true;
-            this.metroLabelButtonServerStatus.Click += new System.EventHandler(this.MetroPanelButtonServerStatus_Click);
+            this.metroLabelButtonServerStatus.Click += new System.EventHandler(this.MetroLabelButtonServerStatus_Click);
+            this.metroLabelButtonServerStatus.MouseEnter += new System.EventHandler(this.metroLabelButtonServerStatus_MouseEnter);
+            this.metroLabelButtonServerStatus.MouseLeave += new System.EventHandler(this.metroLabelButtonServerStatus_MouseLeave);
             // 
             // metroPanelLogo
             // 
@@ -363,12 +320,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Reserver";
             this.metroPanelSideMenu.ResumeLayout(false);
-            this.metroPanelButtonHistory.ResumeLayout(false);
-            this.metroPanelButtonHistory.PerformLayout();
-            this.metroPanelButtonReserve.ResumeLayout(false);
-            this.metroPanelButtonReserve.PerformLayout();
-            this.metroPanelButtonServerStatus.ResumeLayout(false);
-            this.metroPanelButtonServerStatus.PerformLayout();
             this.metroPanelLogo.ResumeLayout(false);
             this.groupBoxLoginPassword.ResumeLayout(false);
             this.groupBoxLoginUsername.ResumeLayout(false);
@@ -382,21 +333,18 @@
         private System.Windows.Forms.GroupBox groupBoxLoginPassword;
         private System.Windows.Forms.GroupBox groupBoxLoginUsername;
         private MetroFramework.Controls.MetroButton metroButtonLogin;
-        private MetroFramework.Controls.MetroLabel metroLabelButtonServerStatus;
         private MetroFramework.Controls.MetroLabel metroLabelButtonReserve;
         private MetroFramework.Controls.MetroLabel metroLabelButtonHistory;
         private MetroFramework.Controls.MetroLabel metroLabelCurrentUser;
         private MetroFramework.Controls.MetroPanel metroPanelLogo;
         private MetroFramework.Controls.MetroPanel metroPanelSideMenu;
-        private MetroFramework.Controls.MetroPanel metroPanelButtonHistory;
-        private MetroFramework.Controls.MetroPanel metroPanelButtonReserve;
-        private MetroFramework.Controls.MetroPanel metroPanelButtonServerStatus;
         private MetroFramework.Controls.MetroPanel metroPanelPageLogin;
         private MetroFramework.Controls.MetroPanel metroPanelPageHistory;
         private MetroFramework.Controls.MetroPanel metroPanelPageReserve;
         private MetroFramework.Controls.MetroPanel metroPanelPageServerStatus;
         private MetroFramework.Controls.MetroTextBox metroTextBoxLoginPassword;
         private MetroFramework.Controls.MetroTextBox metroTextBoxLoginUsername;
+        private MetroFramework.Controls.MetroLabel metroLabelButtonServerStatus;
     }
 }
 
