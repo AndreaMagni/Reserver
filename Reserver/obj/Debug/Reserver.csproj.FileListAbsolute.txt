@@ -11,4 +11,9 @@ C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\bin\Debug\MetroFramework.Design
 C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\bin\Debug\MetroFramework.dll
 C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\bin\Debug\MetroFramework.Fonts.dll
 C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\obj\Debug\Reserver.csproj.CopyComplete
+C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\obj\Debug\Reserver.ServerStatus.resources
+C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\obj\Debug\Reserver.ReleaseHistory.resources
+C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\obj\Debug\Reserver.Login.resources
 C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\obj\Debug\Reserver.csprojAssemblyReference.cache
+C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\obj\Debug\Reserver.SlotReservation.resources
+C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\obj\Debug\Reserver.AcceptanceTests.resources
