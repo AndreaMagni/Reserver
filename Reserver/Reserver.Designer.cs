@@ -77,9 +77,9 @@ namespace Reserver
             this.metroLabelAcceptanceTests.Text = "Collaudi";
             this.metroLabelAcceptanceTests.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroLabelAcceptanceTests.UseCustomBackColor = true;
-            this.metroLabelAcceptanceTests.Click += new System.EventHandler(this.metroLabelAcceptanceTests_Click);
-            this.metroLabelAcceptanceTests.MouseEnter += new System.EventHandler(this.metroLabelTest_MouseEnter);
-            this.metroLabelAcceptanceTests.MouseLeave += new System.EventHandler(this.metroLabelTest_MouseLeave);
+            this.metroLabelAcceptanceTests.Click += new System.EventHandler(this.SideMenuButton_Click);
+            this.metroLabelAcceptanceTests.MouseEnter += new System.EventHandler(this.SideMenuButton_MouseEnter);
+            this.metroLabelAcceptanceTests.MouseLeave += new System.EventHandler(this.SideMenuButton_MouseLeave);
             // 
             // metroLabelButtonHistory
             // 
@@ -91,9 +91,9 @@ namespace Reserver
             this.metroLabelButtonHistory.Text = "Storico Rilasci";
             this.metroLabelButtonHistory.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroLabelButtonHistory.UseCustomBackColor = true;
-            this.metroLabelButtonHistory.Click += new System.EventHandler(this.MetroLabelButtonHistory_Click);
-            this.metroLabelButtonHistory.MouseEnter += new System.EventHandler(this.metroLabelTest_MouseEnter);
-            this.metroLabelButtonHistory.MouseLeave += new System.EventHandler(this.metroLabelTest_MouseLeave);
+            this.metroLabelButtonHistory.Click += new System.EventHandler(this.SideMenuButton_Click);
+            this.metroLabelButtonHistory.MouseEnter += new System.EventHandler(this.SideMenuButton_MouseEnter);
+            this.metroLabelButtonHistory.MouseLeave += new System.EventHandler(this.SideMenuButton_MouseLeave);
             // 
             // metroLabelButtonReserve
             // 
@@ -105,9 +105,9 @@ namespace Reserver
             this.metroLabelButtonReserve.Text = "Prenotazioni";
             this.metroLabelButtonReserve.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroLabelButtonReserve.UseCustomBackColor = true;
-            this.metroLabelButtonReserve.Click += new System.EventHandler(this.MetroLabelButtonReserve_Click);
-            this.metroLabelButtonReserve.MouseEnter += new System.EventHandler(this.metroLabelTest_MouseEnter);
-            this.metroLabelButtonReserve.MouseLeave += new System.EventHandler(this.metroLabelTest_MouseLeave);
+            this.metroLabelButtonReserve.Click += new System.EventHandler(this.SideMenuButton_Click);
+            this.metroLabelButtonReserve.MouseEnter += new System.EventHandler(this.SideMenuButton_MouseEnter);
+            this.metroLabelButtonReserve.MouseLeave += new System.EventHandler(this.SideMenuButton_MouseLeave);
             // 
             // metroLabelButtonServerStatus
             // 
@@ -119,9 +119,9 @@ namespace Reserver
             this.metroLabelButtonServerStatus.Text = "Stato Server";
             this.metroLabelButtonServerStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroLabelButtonServerStatus.UseCustomBackColor = true;
-            this.metroLabelButtonServerStatus.Click += new System.EventHandler(this.MetroLabelButtonServerStatus_Click);
-            this.metroLabelButtonServerStatus.MouseEnter += new System.EventHandler(this.metroLabelTest_MouseEnter);
-            this.metroLabelButtonServerStatus.MouseLeave += new System.EventHandler(this.metroLabelTest_MouseLeave);
+            this.metroLabelButtonServerStatus.Click += new System.EventHandler(this.SideMenuButton_Click);
+            this.metroLabelButtonServerStatus.MouseEnter += new System.EventHandler(this.SideMenuButton_MouseEnter);
+            this.metroLabelButtonServerStatus.MouseLeave += new System.EventHandler(this.SideMenuButton_MouseLeave);
             // 
             // pageSlotReservations
             // 
@@ -198,7 +198,7 @@ namespace Reserver
             // pageAcceptanceTests
             // 
             this.pageAcceptanceTests.BackColor = System.Drawing.Color.SlateGray;
-            this.pageAcceptanceTests.Location = new System.Drawing.Point(210, 91);
+            this.pageAcceptanceTests.Location = new System.Drawing.Point(210, 90);
             this.pageAcceptanceTests.Name = "pageAcceptanceTests";
             this.pageAcceptanceTests.ParentForm = null;
             this.pageAcceptanceTests.Size = new System.Drawing.Size(680, 400);

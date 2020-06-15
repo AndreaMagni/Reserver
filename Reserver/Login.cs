@@ -11,7 +11,6 @@ namespace Reserver
         public Login()
         {
             InitializeComponent();
-            //Reserver myParent = (Reserver)this.ParentForm;
         }
 
         private void metroButtonLogin_Click_1(object sender, EventArgs e)
@@ -21,21 +20,21 @@ namespace Reserver
                 MessageBox.Show("Errore parent form", "Errore parent form", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
             }
 
-            using (FbConnection connection = new FbConnection(ParentForm.ConnectionStringExternalDB))
+            using (FbConnection connection = new FbConnection(ParentForm.ConnectionString))
             {
                 try
                 {
                     connection.Open();
-                    string getUserInfo = string.Format("SELECT idutente, denominazione FROM utenti WHERE username = '{0}' and psw = '{1}'", metroTextBoxLoginUsername.Text, metroTextBoxLoginPassword.Text);
-                    FbCommand select = new FbCommand(getUserInfo, connection);
-                    FbDataReader readerUserInfo = select.ExecuteReader();
+                    string queryUserInfo = string.Format("SELECT idutente, denominazione FROM utenti WHERE username = '{0}' and psw = '{1}'", metroTextBoxLoginUsername.Text, metroTextBoxLoginPassword.Text);
+                    FbCommand getUserInfo = new FbCommand(queryUserInfo, connection);
+                    FbDataReader readerUserInfo = getUserInfo.ExecuteReader();
                     if (readerUserInfo.Read())
                     {
-                        ParentForm.IDUtente = readerUserInfo.GetInt32(0);
-                        ParentForm.CurrentUser = readerUserInfo.GetString(1);
-                        ParentForm.PageLogin = false;
+                        ParentForm.IsLogged = true;
+                        ParentForm.CurrentUserID = readerUserInfo.GetInt32(0);
+                        ParentForm.CurrentUserName = readerUserInfo.GetString(1);
+                        ParentForm.PageLoginVisibility = false;
                         ParentForm.PageServerStatusVisibility = true;
-                        ParentForm.Logged = true;
                     }
                     else
                     {

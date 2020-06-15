@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -24,26 +25,26 @@ namespace Reserver
         }
 
         #region Getter and Setter
-        public string CurrentUser
+        public string CurrentUserName
         {
             set { metroLabelCurrentUser.Text = value; }
             get { return metroLabelCurrentUser.Text; }
         }
-        public int IDUtente
+        public int CurrentUserID
         {
             set { idutente = value; }
             get { return idutente; }
         }
-        public bool Logged
+        public bool IsLogged
         {
             set { logged = value; }
             get { return logged; }
         }
-        public string ConnectionStringExternalDB
+        public string ConnectionString
         {
             get { return connectionStringExternalDB; }
         }
-        public bool PageLogin
+        public bool PageLoginVisibility
         {
             set { pageLogin.Visible = value; }
             get { return pageLogin.Visible; }
@@ -63,7 +64,7 @@ namespace Reserver
             set { pageReleaseHistory.Visible = value; }
             get { return pageReleaseHistory.Visible; }
         }
-        public bool PageAcceptanceTests
+        public bool PageAcceptanceTestsVisibility
         {
             set { pageAcceptanceTests.Visible = value; }
             get { return pageAcceptanceTests.Visible; }
@@ -71,115 +72,68 @@ namespace Reserver
         #endregion Getter and Setter
 
         #region Side menu behavior
-        private void MetroLabelButtonServerStatus_Click(object sender, EventArgs e)
+        private void SideMenuButton_Click(object sender, EventArgs e)
         {
-            if (logged)
+            if(logged)
             {
-                SetPageVisibility(false, true, false, false, false);
+                string buttonLabelName = ((Control)sender).Name;
+                LoadPage(buttonLabelName);
             }
             else
             {
                 MessageBox.Show("Per visualizzare la pagina è necessario effettuare il login", "Necessario login", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
-                SetPageVisibility(true, false, false, false, false);
+                LoadPage("");
             }
         }
 
-        private void MetroLabelButtonReserve_Click(object sender, EventArgs e)
-        {
-            if (logged)
-            {
-                SetPageVisibility(false, false, true, false, false);
-            }
-            else
-            {
-                MessageBox.Show("Per visualizzare la pagina è necessario effettuare il login", "Necessario login", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
-                SetPageVisibility(true, false, false, false, false);
-            }
-        }
-
-        private void MetroLabelButtonHistory_Click(object sender, EventArgs e)
-        {
-            if (logged)
-            {
-                SetPageVisibility(false, false, false, true, false);
-            }
-            else
-            {
-                MessageBox.Show("Per visualizzare la pagina è necessario effettuare il login", "Necessario login", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
-                SetPageVisibility(true, false, false, false, false);
-            }
-        }
-
-        private void metroLabelAcceptanceTests_Click(object sender, EventArgs e)
-        {
-            if (logged)
-            {
-                SetPageVisibility(false, false, false, false, true);
-            }
-            else
-            {
-                MessageBox.Show("Per visualizzare la pagina è necessario effettuare il login", "Necessario login", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
-                SetPageVisibility(true, false, false, false, false);
-            }
-        }
-
-        // TEST SEMBRA OK
-        private void metroLabelTest_MouseEnter(object sender, EventArgs e)
+        private void SideMenuButton_MouseEnter(object sender, EventArgs e)
         {
             string labelName = ((Control)sender).Name;
             MetroFramework.Controls.MetroLabel metroLabel = this.Controls.Find(labelName, true).FirstOrDefault() as MetroFramework.Controls.MetroLabel;
             metroLabel.BackColor = Color.FromArgb(39, 39, 58);
         }
 
-        private void metroLabelTest_MouseLeave(object sender, EventArgs e)
+        private void SideMenuButton_MouseLeave(object sender, EventArgs e)
         {
             string labelName = ((Control)sender).Name;
             MetroFramework.Controls.MetroLabel metroLabel = this.Controls.Find(labelName, true).FirstOrDefault() as MetroFramework.Controls.MetroLabel;
             metroLabel.BackColor = Color.FromArgb(51, 51, 76);
         }
-        // TEST SEMBRA OK
 
-            /*
-        private void metroLabelButtonServerStatus_MouseEnter(object sender, EventArgs e)
+        private void LoadPage(string buttonName)
         {
-            metroLabelButtonServerStatus.BackColor = Color.FromArgb(39, 39, 58);
+            switch (buttonName)
+            {
+                case "metroLabelButtonServerStatus":
+                    SetPageVisibility(false, true, false, false, false);
+                    break;
+
+                case "metroLabelButtonReserve":
+                    SetPageVisibility(false, false, true, false, false);
+                    break;
+
+                case "metroLabelButtonHistory":
+                    SetPageVisibility(false, false, false, true, false);
+                    break;
+
+                case "metroLabelAcceptanceTests":
+                    SetPageVisibility(false, false, false, false, true);
+                    break;
+
+                default:
+                    SetPageVisibility(true, false, false, false, false);
+                    break;
+            }
         }
 
-        private void metroLabelButtonServerStatus_MouseLeave(object sender, EventArgs e)
+        private void SetPageVisibility(bool login, bool serverStatus, bool slotReservation, bool releaseHistory, bool acceptanceTests)
         {
-            metroLabelButtonServerStatus.BackColor = Color.FromArgb(51, 51, 76);
+            PageLoginVisibility = login;
+            PageServerStatusVisibility = serverStatus;
+            PageSlotReservationsVisibility = slotReservation;
+            PageReleaseHistoryVisibility = releaseHistory;
+            PageAcceptanceTestsVisibility = acceptanceTests;
         }
-
-        private void metroLabelButtonReserve_MouseEnter(object sender, EventArgs e)
-        {
-            metroLabelButtonReserve.BackColor = Color.FromArgb(39, 39, 58);
-        }
-
-        private void metroLabelButtonReserve_MouseLeave(object sender, EventArgs e)
-        {
-            metroLabelButtonReserve.BackColor = Color.FromArgb(51, 51, 76);
-        }
-
-        private void metroLabelButtonHistory_MouseEnter(object sender, EventArgs e)
-        {
-            metroLabelButtonHistory.BackColor = Color.FromArgb(39, 39, 58);
-        }
-
-        private void metroLabelButtonHistory_MouseLeave(object sender, EventArgs e)
-        {
-            metroLabelButtonHistory.BackColor = Color.FromArgb(51, 51, 76);
-        }
-
-        private void metroLabelAcceptanceTests_MouseEnter(object sender, EventArgs e)
-        {
-            metroLabelAcceptanceTests.BackColor = Color.FromArgb(39, 39, 58);
-        }
-
-        private void metroLabelAcceptanceTests_MouseLeave(object sender, EventArgs e)
-        {
-            metroLabelAcceptanceTests.BackColor = Color.FromArgb(51, 51, 76);
-        }
-        */
         #endregion  Side menu behavior
 
         #region Form movement
@@ -197,15 +151,6 @@ namespace Reserver
             }
         }
         #endregion Form movement
-        
-        private void SetPageVisibility(bool login, bool serverStatus, bool slotReservation, bool releaseHistory, bool acceptanceTests)
-        {
-            PageLogin = login;
-            PageServerStatusVisibility = serverStatus;
-            PageSlotReservationsVisibility = slotReservation;
-            PageReleaseHistoryVisibility = releaseHistory;
-            PageAcceptanceTests = acceptanceTests;
-        }
 
     }
 }
