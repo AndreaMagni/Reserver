@@ -36,14 +36,14 @@ namespace Reserver
             this.metroLabelButtonHistory = new MetroFramework.Controls.MetroLabel();
             this.metroLabelButtonReserve = new MetroFramework.Controls.MetroLabel();
             this.metroLabelButtonServerStatus = new MetroFramework.Controls.MetroLabel();
-            this.pageSlotReservations = new SlotReservation();
             this.metroPanelLogo = new MetroFramework.Controls.MetroPanel();
             this.metroLabelCurrentUser = new MetroFramework.Controls.MetroLabel();
-            this.pageServerStatus = new ServerStatus();
-            this.pageReleaseHistory = new ReleaseHistory();
             this.pageLogin = new Login();
-            this.pageAcceptanceTests = new AcceptanceTests();
             this.metroPanelSideMenu.SuspendLayout();
+            this.pageReleaseHistory = new ReleaseHistory();
+            this.pageSlotReservations = new SlotReservation();
+            this.pageAcceptanceTests = new AcceptanceTests();
+            this.pageServerStatus = new ServerStatus();
             this.metroPanelLogo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -223,7 +223,6 @@ namespace Reserver
             this.metroPanelSideMenu.ResumeLayout(false);
             this.metroPanelLogo.ResumeLayout(false);
             this.ResumeLayout(false);
-
         }
 
         #endregion
