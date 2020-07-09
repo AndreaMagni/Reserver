@@ -16,3 +16,4 @@ C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\obj\Debug\Reserver.ReleaseHisto
 C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\obj\Debug\Reserver.Login.resources
 C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\obj\Debug\Reserver.SlotReservation.resources
 C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\obj\Debug\Reserver.AcceptanceTests.resources
+C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\obj\Debug\Reserver.csprojAssemblyReference.cache
