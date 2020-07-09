@@ -37,7 +37,7 @@
             this.BackColor = System.Drawing.Color.SlateGray;
             this.Name = "ServerStatus";
             this.Size = new System.Drawing.Size(680, 400);
-            this.VisibleChanged += new System.EventHandler(this.VisibleChange);
+            this.Load += new System.EventHandler(this.ServerStatus_Load);
             this.ResumeLayout(false);
 
         }

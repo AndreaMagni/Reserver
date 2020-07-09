@@ -34,6 +34,7 @@ namespace Reserver
                         ParentForm.CurrentUserID = readerUserInfo.GetInt32(0);
                         ParentForm.CurrentUserName = readerUserInfo.GetString(1);
                         ParentForm.PageLoginVisibility = false;
+                        ParentForm.pageServerStatus.FirstTimeLoad();
                         ParentForm.PageServerStatusVisibility = true;
                     }
                     else

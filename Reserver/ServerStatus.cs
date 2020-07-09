@@ -11,28 +11,49 @@ namespace Reserver
     {
         new public Reserver ParentForm { get; set; }
 
-        private bool firstTime = true;
-        private Timer serverStatusTimer;
+        //private bool firstTime = false;
+        //private Timer serverStatusTimer;
 
         public ServerStatus()
         {
             InitializeComponent();
+            //firstTime = true;
+            //this.Visible = false;
         }
 
-        public void InitTimer()
+        //public void InitTimer()
+        //{
+        //    serverStatusTimer = new Timer();
+        //    serverStatusTimer.Tick += new EventHandler(ServerStatusTimer_Tick);
+        //    serverStatusTimer.Interval = 10000;
+        //    serverStatusTimer.Start();
+        //}
+
+        //private void ServerStatusTimer_Tick(object sender, EventArgs e)
+        //{
+        //    UpdateStatus();
+        //}
+
+        //private void VisibleChange(object sender, EventArgs e)
+        //{
+        //    bool visible = this.Visible;
+
+        //    if (firstTime && visible)
+        //    {
+        //        FirstTimeLoad();
+        //        firstTime = false;
+        //    }
+        //}
+
+        private void ServerStatus_Load(object sender, EventArgs e)
         {
-            serverStatusTimer = new Timer();
-            serverStatusTimer.Tick += new EventHandler(ServerStatusTimer_Tick);
-            serverStatusTimer.Interval = 30000;
-            serverStatusTimer.Start();
+            //if(ParentForm.IsLogged)
+            //{
+            //    FirstTimeLoad();
+            //}
         }
 
-        private void ServerStatusTimer_Tick(object sender, EventArgs e)
-        {
-            UpdateStatus();
-        }
-
-        private void FirstTimeLoad()
+        public void FirstTimeLoad()
         {
             if (ParentForm == null)
             {
@@ -69,15 +90,16 @@ namespace Reserver
                         Button button = new Button();
                         button.Left = left + 100;
                         button.Top = top;
-                        button.Name = "button" + row["CODICE"].ToString();
+                        button.Name = row["CODICE"].ToString();
                         button.Text = "Rilascia";
+                        button.Click += new EventHandler(this.ReleaseButton_Click);
                         this.Controls.Add(button);
 
                         Label panelLabel = new Label();
                         panelLabel.Left = left + 200;
                         panelLabel.Top = top;
                         panelLabel.Size = new Size(25, 25);
-                        panelLabel.Name = "panel" + row["CODICE"].ToString();
+                        panelLabel.Name = "status" + row["CODICE"].ToString();
                         panelLabel.BackColor = (row["STATO"].ToString() == "OCCUPATO") ? Color.Red : Color.Green;
                         this.Controls.Add(panelLabel);
 
@@ -97,11 +119,6 @@ namespace Reserver
 
         private void UpdateStatus()
         {
-            if (ParentForm == null)
-            {
-                MessageBox.Show("Errore parent form", "Errore parent form", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
-            }
-
             using (FbConnection connection = new FbConnection(ParentForm.ConnectionString))
             {
                 try
@@ -118,8 +135,8 @@ namespace Reserver
 
                     foreach (DataRow row in tableStatusInfo.Rows)
                     {
-                        string label = "panel" + row["CODICE"].ToString();
-                        Label panelLabel = this.Controls.Find(label, true).FirstOrDefault() as Label;
+                        string label = row["CODICE"].ToString();
+                        Label panelLabel = this.Controls.Find("status" + label, true).FirstOrDefault() as Label;
                         panelLabel.Visible = true;
                         panelLabel.BackColor = (row["STATO"].ToString() == "OCCUPATO") ? Color.Red : Color.Green;
                     }
@@ -135,21 +152,74 @@ namespace Reserver
             }
         }
 
-        private void VisibleChange(object sender, EventArgs e)
+        //private void VisibleChange(object sender, EventArgs e)
+        //{
+        //    bool visible = this.Visible;
+
+        //    if (firstTime && visible)
+        //    {
+        //        FirstTimeLoad();
+        //        firstTime = false;
+        //    }
+
+        //    if (visible)
+        //    {
+        //        InitTimer();
+        //    }
+        //}
+
+        private void ReleaseButton_Click(object sender, EventArgs e)
         {
-            bool visible = this.Visible;
+            string labelName = ((Control)sender).Name;
+            int serverID = -1;
 
-            if (firstTime && visible)
+            using (FbConnection connection = new FbConnection(ParentForm.ConnectionString))
             {
-                FirstTimeLoad();
-                firstTime = false;
-            }
+                try
+                {
+                    int serverId;
+                    string serverStatus;
 
-            if (visible)
-            {
-                InitTimer();
+                    connection.Open();
+
+                    serverID = 1;
+
+                    /*
+                    string queryStatusInfo = string.Format(@"INSERT INTO STORICORILASCI (IDSERVER, IDUTENTE, STATO, DATAINIZIO) VALUES ({0}, {1}, {2}, '{3}')", serverID, ParentForm.CurrentUserID, 1, DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss"));
+                    FbCommand getStatusInfo = new FbCommand(queryStatusInfo, connection);
+                    getStatusInfo.ExecuteNonQuery();
+                    */
+                    string queryGetServerID = string.Format(@"SELECT s.idserver, ss.stato FROM servers s JOIN statiservers ss ON ss.idserver = s.idserver WHERE s.codice = '{0}'", labelName);
+                    FbCommand getServerID = new FbCommand(queryGetServerID, connection);
+                    FbDataReader readerGetServerID = getServerID.ExecuteReader();
+                    serverID = readerGetServerID.GetInt32(0);
+                    serverId = readerGetServerID.GetInt32(0);
+                    serverStatus = readerGetServerID.GetString(1);
+
+                    if (serverStatus == "OCCUPATO")
+                    {
+                        MessageBox.Show("Rilascio in corso, aspettare o effettuare una prenotazione", "Rilascio", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+                    }
+                    else
+                    {
+                        string queryStatusInfo = string.Format(@"
+                        INSERT INTO STORICORILASCI (IDSERVER, IDUTENTE, STATO)
+                        VALUES ({0}, {1}, {2})", serverID, ParentForm.CurrentUserID, 1);
+                        FbCommand getStatusInfo = new FbCommand(queryStatusInfo, connection);
+                        getStatusInfo.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Richiesta al database fallita", "Errore DB", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+                }
+                finally
+                {
+                    connection.Close();
+                }
             }
         }
+
 
         //private void metroButton1_Click(object sender, EventArgs e)
         //{

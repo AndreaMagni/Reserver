@@ -212,12 +212,12 @@ namespace Reserver
             this.ClientSize = new System.Drawing.Size(900, 500);
             this.ControlBox = false;
             this.Controls.Add(this.pageAcceptanceTests);
-            this.Controls.Add(this.pageServerStatus);
             this.Controls.Add(this.pageReleaseHistory);
             this.Controls.Add(this.metroPanelLogo);
             this.Controls.Add(this.pageLogin);
             this.Controls.Add(this.metroPanelSideMenu);
             this.Controls.Add(this.pageSlotReservations);
+            this.Controls.Add(this.pageServerStatus);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Reserver";
             this.metroPanelSideMenu.ResumeLayout(false);
@@ -234,7 +234,7 @@ namespace Reserver
         private MetroFramework.Controls.MetroLabel metroLabelButtonServerStatus;
         private SlotReservation pageSlotReservations;
         private Login pageLogin;
-        private ServerStatus pageServerStatus;
+        public ServerStatus pageServerStatus;
         private ReleaseHistory pageReleaseHistory;
         private MetroFramework.Controls.MetroLabel metroLabelAcceptanceTests;
         private AcceptanceTests pageAcceptanceTests;
