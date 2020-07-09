@@ -28,101 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.metroDateTime8 = new MetroFramework.Controls.MetroDateTime();
-            this.metroDateTime5 = new MetroFramework.Controls.MetroDateTime();
-            this.metroDateTime7 = new MetroFramework.Controls.MetroDateTime();
-            this.metroDateTime6 = new MetroFramework.Controls.MetroDateTime();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.metroComboBox5 = new MetroFramework.Controls.MetroComboBox();
-            this.metroComboBox6 = new MetroFramework.Controls.MetroComboBox();
-            this.metroDateTime3 = new MetroFramework.Controls.MetroDateTime();
-            this.metroComboBox7 = new MetroFramework.Controls.MetroComboBox();
-            this.metroComboBox8 = new MetroFramework.Controls.MetroComboBox();
-            this.metroDateTime4 = new MetroFramework.Controls.MetroDateTime();
-            this.button2 = new System.Windows.Forms.Button();
-            this.metroComboBox3 = new MetroFramework.Controls.MetroComboBox();
-            this.metroComboBox4 = new MetroFramework.Controls.MetroComboBox();
-            this.metroDateTime2 = new MetroFramework.Controls.MetroDateTime();
-            this.metroComboBox2 = new MetroFramework.Controls.MetroComboBox();
-            this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
-            this.metroDateTime1 = new MetroFramework.Controls.MetroDateTime();
-            this.button1 = new System.Windows.Forms.Button();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.metroDateTimeEndDate = new MetroFramework.Controls.MetroDateTime();
+            this.metroComboBoxEndHour = new MetroFramework.Controls.MetroComboBox();
+            this.metroComboBoxStartHour = new MetroFramework.Controls.MetroComboBox();
+            this.metroDateTimeStartDate = new MetroFramework.Controls.MetroDateTime();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.metroTextBoxAcceptanceTestDescription = new MetroFramework.Controls.MetroTextBox();
+            this.metroButtonSave = new MetroFramework.Controls.MetroButton();
+            this.metroComboBoxServers = new MetroFramework.Controls.MetroComboBox();
+            this.metroGridAcceptanceTests = new MetroFramework.Controls.MetroGrid();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.metroGridAcceptanceTests)).BeginInit();
             this.SuspendLayout();
             // 
-            // metroDateTime8
+            // metroDateTimeEndDate
             // 
-            this.metroDateTime8.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.metroDateTime8.CustomFormat = "";
-            this.metroDateTime8.FontSize = MetroFramework.MetroDateTimeSize.Small;
-            this.metroDateTime8.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.metroDateTime8.Location = new System.Drawing.Point(325, 178);
-            this.metroDateTime8.MinimumSize = new System.Drawing.Size(0, 25);
-            this.metroDateTime8.Name = "metroDateTime8";
-            this.metroDateTime8.Size = new System.Drawing.Size(90, 25);
-            this.metroDateTime8.TabIndex = 40;
+            this.metroDateTimeEndDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.metroDateTimeEndDate.CustomFormat = "";
+            this.metroDateTimeEndDate.FontSize = MetroFramework.MetroDateTimeSize.Small;
+            this.metroDateTimeEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.metroDateTimeEndDate.Location = new System.Drawing.Point(221, 59);
+            this.metroDateTimeEndDate.Margin = new System.Windows.Forms.Padding(5);
+            this.metroDateTimeEndDate.MinimumSize = new System.Drawing.Size(0, 25);
+            this.metroDateTimeEndDate.Name = "metroDateTimeEndDate";
+            this.metroDateTimeEndDate.Size = new System.Drawing.Size(90, 25);
+            this.metroDateTimeEndDate.TabIndex = 25;
             // 
-            // metroDateTime5
+            // metroComboBoxEndHour
             // 
-            this.metroDateTime5.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.metroDateTime5.CustomFormat = "";
-            this.metroDateTime5.FontSize = MetroFramework.MetroDateTimeSize.Small;
-            this.metroDateTime5.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.metroDateTime5.Location = new System.Drawing.Point(153, 131);
-            this.metroDateTime5.MinimumSize = new System.Drawing.Size(0, 25);
-            this.metroDateTime5.Name = "metroDateTime5";
-            this.metroDateTime5.Size = new System.Drawing.Size(90, 25);
-            this.metroDateTime5.TabIndex = 39;
-            // 
-            // metroDateTime7
-            // 
-            this.metroDateTime7.CustomFormat = "";
-            this.metroDateTime7.FontSize = MetroFramework.MetroDateTimeSize.Small;
-            this.metroDateTime7.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.metroDateTime7.Location = new System.Drawing.Point(153, 178);
-            this.metroDateTime7.MinimumSize = new System.Drawing.Size(0, 25);
-            this.metroDateTime7.Name = "metroDateTime7";
-            this.metroDateTime7.Size = new System.Drawing.Size(90, 25);
-            this.metroDateTime7.TabIndex = 38;
-            // 
-            // metroDateTime6
-            // 
-            this.metroDateTime6.CustomFormat = "";
-            this.metroDateTime6.FontSize = MetroFramework.MetroDateTimeSize.Small;
-            this.metroDateTime6.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.metroDateTime6.Location = new System.Drawing.Point(325, 129);
-            this.metroDateTime6.MinimumSize = new System.Drawing.Size(0, 25);
-            this.metroDateTime6.Name = "metroDateTime6";
-            this.metroDateTime6.Size = new System.Drawing.Size(90, 25);
-            this.metroDateTime6.TabIndex = 37;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(28, 180);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(110, 25);
-            this.button4.TabIndex = 36;
-            this.button4.Text = "button3";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(28, 131);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(110, 25);
-            this.button3.TabIndex = 35;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // metroComboBox5
-            // 
-            this.metroComboBox5.FontSize = MetroFramework.MetroComboBoxSize.Small;
-            this.metroComboBox5.FormattingEnabled = true;
-            this.metroComboBox5.ItemHeight = 19;
-            this.metroComboBox5.Items.AddRange(new object[] {
+            this.metroComboBoxEndHour.FontSize = MetroFramework.MetroComboBoxSize.Small;
+            this.metroComboBoxEndHour.FormattingEnabled = true;
+            this.metroComboBoxEndHour.ItemHeight = 19;
+            this.metroComboBoxEndHour.Items.AddRange(new object[] {
             "06:00",
             "07:00",
             "08:00",
@@ -138,18 +78,19 @@
             "18:00",
             "19:00",
             "20:00"});
-            this.metroComboBox5.Location = new System.Drawing.Point(248, 131);
-            this.metroComboBox5.Name = "metroComboBox5";
-            this.metroComboBox5.Size = new System.Drawing.Size(60, 25);
-            this.metroComboBox5.TabIndex = 34;
-            this.metroComboBox5.UseSelectable = true;
+            this.metroComboBoxEndHour.Location = new System.Drawing.Point(321, 59);
+            this.metroComboBoxEndHour.Margin = new System.Windows.Forms.Padding(5);
+            this.metroComboBoxEndHour.Name = "metroComboBoxEndHour";
+            this.metroComboBoxEndHour.Size = new System.Drawing.Size(60, 25);
+            this.metroComboBoxEndHour.TabIndex = 24;
+            this.metroComboBoxEndHour.UseSelectable = true;
             // 
-            // metroComboBox6
+            // metroComboBoxStartHour
             // 
-            this.metroComboBox6.FontSize = MetroFramework.MetroComboBoxSize.Small;
-            this.metroComboBox6.FormattingEnabled = true;
-            this.metroComboBox6.ItemHeight = 19;
-            this.metroComboBox6.Items.AddRange(new object[] {
+            this.metroComboBoxStartHour.FontSize = MetroFramework.MetroComboBoxSize.Small;
+            this.metroComboBoxStartHour.FormattingEnabled = true;
+            this.metroComboBoxStartHour.ItemHeight = 19;
+            this.metroComboBoxStartHour.Items.AddRange(new object[] {
             "06:00",
             "07:00",
             "08:00",
@@ -165,313 +106,172 @@
             "18:00",
             "19:00",
             "20:00"});
-            this.metroComboBox6.Location = new System.Drawing.Point(421, 129);
-            this.metroComboBox6.Name = "metroComboBox6";
-            this.metroComboBox6.Size = new System.Drawing.Size(60, 25);
-            this.metroComboBox6.TabIndex = 33;
-            this.metroComboBox6.UseSelectable = true;
+            this.metroComboBoxStartHour.Location = new System.Drawing.Point(108, 59);
+            this.metroComboBoxStartHour.Margin = new System.Windows.Forms.Padding(5);
+            this.metroComboBoxStartHour.Name = "metroComboBoxStartHour";
+            this.metroComboBoxStartHour.Size = new System.Drawing.Size(60, 25);
+            this.metroComboBoxStartHour.TabIndex = 23;
+            this.metroComboBoxStartHour.UseSelectable = true;
             // 
-            // metroDateTime3
+            // metroDateTimeStartDate
             // 
-            this.metroDateTime3.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.metroDateTime3.CustomFormat = "";
-            this.metroDateTime3.FontSize = MetroFramework.MetroDateTimeSize.Small;
-            this.metroDateTime3.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.metroDateTime3.Location = new System.Drawing.Point(153, 81);
-            this.metroDateTime3.MinimumSize = new System.Drawing.Size(0, 25);
-            this.metroDateTime3.Name = "metroDateTime3";
-            this.metroDateTime3.Size = new System.Drawing.Size(90, 25);
-            this.metroDateTime3.TabIndex = 32;
-            // 
-            // metroComboBox7
-            // 
-            this.metroComboBox7.FontSize = MetroFramework.MetroComboBoxSize.Small;
-            this.metroComboBox7.FormattingEnabled = true;
-            this.metroComboBox7.ItemHeight = 19;
-            this.metroComboBox7.Items.AddRange(new object[] {
-            "06:00",
-            "07:00",
-            "08:00",
-            "09:00",
-            "10:00",
-            "11:00",
-            "12:00",
-            "13:00",
-            "14:00",
-            "15:00",
-            "16:00",
-            "17:00",
-            "18:00",
-            "19:00",
-            "20:00"});
-            this.metroComboBox7.Location = new System.Drawing.Point(249, 178);
-            this.metroComboBox7.Name = "metroComboBox7";
-            this.metroComboBox7.Size = new System.Drawing.Size(60, 25);
-            this.metroComboBox7.TabIndex = 31;
-            this.metroComboBox7.UseSelectable = true;
-            // 
-            // metroComboBox8
-            // 
-            this.metroComboBox8.FontSize = MetroFramework.MetroComboBoxSize.Small;
-            this.metroComboBox8.FormattingEnabled = true;
-            this.metroComboBox8.ItemHeight = 19;
-            this.metroComboBox8.Items.AddRange(new object[] {
-            "06:00",
-            "07:00",
-            "08:00",
-            "09:00",
-            "10:00",
-            "11:00",
-            "12:00",
-            "13:00",
-            "14:00",
-            "15:00",
-            "16:00",
-            "17:00",
-            "18:00",
-            "19:00",
-            "20:00"});
-            this.metroComboBox8.Location = new System.Drawing.Point(421, 178);
-            this.metroComboBox8.Name = "metroComboBox8";
-            this.metroComboBox8.Size = new System.Drawing.Size(60, 25);
-            this.metroComboBox8.TabIndex = 30;
-            this.metroComboBox8.UseSelectable = true;
-            // 
-            // metroDateTime4
-            // 
-            this.metroDateTime4.CustomFormat = "";
-            this.metroDateTime4.FontSize = MetroFramework.MetroDateTimeSize.Small;
-            this.metroDateTime4.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.metroDateTime4.Location = new System.Drawing.Point(325, 81);
-            this.metroDateTime4.MinimumSize = new System.Drawing.Size(0, 25);
-            this.metroDateTime4.Name = "metroDateTime4";
-            this.metroDateTime4.Size = new System.Drawing.Size(90, 25);
-            this.metroDateTime4.TabIndex = 29;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(28, 81);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(110, 25);
-            this.button2.TabIndex = 28;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // metroComboBox3
-            // 
-            this.metroComboBox3.FontSize = MetroFramework.MetroComboBoxSize.Small;
-            this.metroComboBox3.FormattingEnabled = true;
-            this.metroComboBox3.ItemHeight = 19;
-            this.metroComboBox3.Items.AddRange(new object[] {
-            "06:00",
-            "07:00",
-            "08:00",
-            "09:00",
-            "10:00",
-            "11:00",
-            "12:00",
-            "13:00",
-            "14:00",
-            "15:00",
-            "16:00",
-            "17:00",
-            "18:00",
-            "19:00",
-            "20:00"});
-            this.metroComboBox3.Location = new System.Drawing.Point(248, 81);
-            this.metroComboBox3.Name = "metroComboBox3";
-            this.metroComboBox3.Size = new System.Drawing.Size(60, 25);
-            this.metroComboBox3.TabIndex = 27;
-            this.metroComboBox3.UseSelectable = true;
-            // 
-            // metroComboBox4
-            // 
-            this.metroComboBox4.DisplayMember = "06:00";
-            this.metroComboBox4.FontSize = MetroFramework.MetroComboBoxSize.Small;
-            this.metroComboBox4.FormattingEnabled = true;
-            this.metroComboBox4.ItemHeight = 19;
-            this.metroComboBox4.Items.AddRange(new object[] {
-            "06:00",
-            "07:00",
-            "08:00",
-            "09:00",
-            "10:00",
-            "11:00",
-            "12:00",
-            "13:00",
-            "14:00",
-            "15:00",
-            "16:00",
-            "17:00",
-            "18:00",
-            "19:00",
-            "20:00"});
-            this.metroComboBox4.Location = new System.Drawing.Point(421, 81);
-            this.metroComboBox4.Name = "metroComboBox4";
-            this.metroComboBox4.Size = new System.Drawing.Size(60, 25);
-            this.metroComboBox4.TabIndex = 26;
-            this.metroComboBox4.UseSelectable = true;
-            // 
-            // metroDateTime2
-            // 
-            this.metroDateTime2.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.metroDateTime2.CustomFormat = "";
-            this.metroDateTime2.FontSize = MetroFramework.MetroDateTimeSize.Small;
-            this.metroDateTime2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.metroDateTime2.Location = new System.Drawing.Point(307, 15);
-            this.metroDateTime2.MinimumSize = new System.Drawing.Size(0, 25);
-            this.metroDateTime2.Name = "metroDateTime2";
-            this.metroDateTime2.Size = new System.Drawing.Size(90, 25);
-            this.metroDateTime2.TabIndex = 25;
-            // 
-            // metroComboBox2
-            // 
-            this.metroComboBox2.FontSize = MetroFramework.MetroComboBoxSize.Small;
-            this.metroComboBox2.FormattingEnabled = true;
-            this.metroComboBox2.ItemHeight = 19;
-            this.metroComboBox2.Items.AddRange(new object[] {
-            "06:00",
-            "07:00",
-            "08:00",
-            "09:00",
-            "10:00",
-            "11:00",
-            "12:00",
-            "13:00",
-            "14:00",
-            "15:00",
-            "16:00",
-            "17:00",
-            "18:00",
-            "19:00",
-            "20:00"});
-            this.metroComboBox2.Location = new System.Drawing.Point(403, 15);
-            this.metroComboBox2.Name = "metroComboBox2";
-            this.metroComboBox2.Size = new System.Drawing.Size(60, 25);
-            this.metroComboBox2.TabIndex = 24;
-            this.metroComboBox2.UseSelectable = true;
-            // 
-            // metroComboBox1
-            // 
-            this.metroComboBox1.FontSize = MetroFramework.MetroComboBoxSize.Small;
-            this.metroComboBox1.FormattingEnabled = true;
-            this.metroComboBox1.ItemHeight = 19;
-            this.metroComboBox1.Items.AddRange(new object[] {
-            "06:00",
-            "07:00",
-            "08:00",
-            "09:00",
-            "10:00",
-            "11:00",
-            "12:00",
-            "13:00",
-            "14:00",
-            "15:00",
-            "16:00",
-            "17:00",
-            "18:00",
-            "19:00",
-            "20:00"});
-            this.metroComboBox1.Location = new System.Drawing.Point(230, 15);
-            this.metroComboBox1.Name = "metroComboBox1";
-            this.metroComboBox1.Size = new System.Drawing.Size(60, 25);
-            this.metroComboBox1.TabIndex = 23;
-            this.metroComboBox1.UseSelectable = true;
-            // 
-            // metroDateTime1
-            // 
-            this.metroDateTime1.CustomFormat = "";
-            this.metroDateTime1.FontSize = MetroFramework.MetroDateTimeSize.Small;
-            this.metroDateTime1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.metroDateTime1.Location = new System.Drawing.Point(135, 15);
-            this.metroDateTime1.MinimumSize = new System.Drawing.Size(0, 25);
-            this.metroDateTime1.Name = "metroDateTime1";
-            this.metroDateTime1.Size = new System.Drawing.Size(90, 25);
-            this.metroDateTime1.TabIndex = 22;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(10, 15);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 25);
-            this.button1.TabIndex = 21;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.metroDateTimeStartDate.CustomFormat = "";
+            this.metroDateTimeStartDate.FontSize = MetroFramework.MetroDateTimeSize.Small;
+            this.metroDateTimeStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.metroDateTimeStartDate.Location = new System.Drawing.Point(8, 59);
+            this.metroDateTimeStartDate.Margin = new System.Windows.Forms.Padding(5);
+            this.metroDateTimeStartDate.MinimumSize = new System.Drawing.Size(0, 25);
+            this.metroDateTimeStartDate.Name = "metroDateTimeStartDate";
+            this.metroDateTimeStartDate.Size = new System.Drawing.Size(90, 25);
+            this.metroDateTimeStartDate.TabIndex = 22;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.metroDateTime1);
-            this.groupBox1.Controls.Add(this.metroComboBox1);
-            this.groupBox1.Controls.Add(this.metroComboBox2);
-            this.groupBox1.Controls.Add(this.metroDateTime2);
+            this.groupBox1.Controls.Add(this.metroTextBoxAcceptanceTestDescription);
+            this.groupBox1.Controls.Add(this.metroButtonSave);
+            this.groupBox1.Controls.Add(this.metroComboBoxServers);
+            this.groupBox1.Controls.Add(this.metroDateTimeStartDate);
+            this.groupBox1.Controls.Add(this.metroComboBoxStartHour);
+            this.groupBox1.Controls.Add(this.metroComboBoxEndHour);
+            this.groupBox1.Controls.Add(this.metroDateTimeEndDate);
             this.groupBox1.Location = new System.Drawing.Point(18, 15);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(641, 50);
+            this.groupBox1.Size = new System.Drawing.Size(641, 92);
             this.groupBox1.TabIndex = 41;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Omnitest ASP";
+            this.groupBox1.Text = "Nuovo Collaudo";
             // 
-            // textBox1
+            // metroTextBoxAcceptanceTestDescription
             // 
-            this.textBox1.Location = new System.Drawing.Point(485, 18);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(150, 20);
-            this.textBox1.TabIndex = 42;
+            // 
+            // 
+            // 
+            this.metroTextBoxAcceptanceTestDescription.CustomButton.Image = null;
+            this.metroTextBoxAcceptanceTestDescription.CustomButton.Location = new System.Drawing.Point(294, 1);
+            this.metroTextBoxAcceptanceTestDescription.CustomButton.Name = "";
+            this.metroTextBoxAcceptanceTestDescription.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.metroTextBoxAcceptanceTestDescription.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroTextBoxAcceptanceTestDescription.CustomButton.TabIndex = 1;
+            this.metroTextBoxAcceptanceTestDescription.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroTextBoxAcceptanceTestDescription.CustomButton.UseSelectable = true;
+            this.metroTextBoxAcceptanceTestDescription.CustomButton.Visible = false;
+            this.metroTextBoxAcceptanceTestDescription.Lines = new string[0];
+            this.metroTextBoxAcceptanceTestDescription.Location = new System.Drawing.Point(221, 21);
+            this.metroTextBoxAcceptanceTestDescription.Margin = new System.Windows.Forms.Padding(5);
+            this.metroTextBoxAcceptanceTestDescription.MaxLength = 32767;
+            this.metroTextBoxAcceptanceTestDescription.Name = "metroTextBoxAcceptanceTestDescription";
+            this.metroTextBoxAcceptanceTestDescription.PasswordChar = '\0';
+            this.metroTextBoxAcceptanceTestDescription.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.metroTextBoxAcceptanceTestDescription.SelectedText = "";
+            this.metroTextBoxAcceptanceTestDescription.SelectionLength = 0;
+            this.metroTextBoxAcceptanceTestDescription.SelectionStart = 0;
+            this.metroTextBoxAcceptanceTestDescription.ShortcutsEnabled = true;
+            this.metroTextBoxAcceptanceTestDescription.Size = new System.Drawing.Size(316, 23);
+            this.metroTextBoxAcceptanceTestDescription.TabIndex = 44;
+            this.metroTextBoxAcceptanceTestDescription.UseSelectable = true;
+            this.metroTextBoxAcceptanceTestDescription.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.metroTextBoxAcceptanceTestDescription.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // metroButtonSave
+            // 
+            this.metroButtonSave.Cursor = System.Windows.Forms.Cursors.Default;
+            this.metroButtonSave.Location = new System.Drawing.Point(558, 61);
+            this.metroButtonSave.Margin = new System.Windows.Forms.Padding(5);
+            this.metroButtonSave.Name = "metroButtonSave";
+            this.metroButtonSave.Size = new System.Drawing.Size(75, 23);
+            this.metroButtonSave.TabIndex = 43;
+            this.metroButtonSave.Text = "Salva";
+            this.metroButtonSave.UseSelectable = true;
+            this.metroButtonSave.Click += new System.EventHandler(this.metroButtonSave_Click);
+            // 
+            // metroComboBoxServers
+            // 
+            this.metroComboBoxServers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.metroComboBoxServers.FormattingEnabled = true;
+            this.metroComboBoxServers.ItemHeight = 23;
+            this.metroComboBoxServers.Location = new System.Drawing.Point(8, 19);
+            this.metroComboBoxServers.Margin = new System.Windows.Forms.Padding(5);
+            this.metroComboBoxServers.Name = "metroComboBoxServers";
+            this.metroComboBoxServers.Size = new System.Drawing.Size(182, 29);
+            this.metroComboBoxServers.TabIndex = 43;
+            this.metroComboBoxServers.UseSelectable = true;
+            // 
+            // metroGridAcceptanceTests
+            // 
+            this.metroGridAcceptanceTests.AllowUserToAddRows = false;
+            this.metroGridAcceptanceTests.AllowUserToDeleteRows = false;
+            this.metroGridAcceptanceTests.AllowUserToResizeRows = false;
+            this.metroGridAcceptanceTests.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.metroGridAcceptanceTests.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.metroGridAcceptanceTests.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.metroGridAcceptanceTests.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(180)))), ((int)(((byte)(197)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(180)))), ((int)(((byte)(197)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGridAcceptanceTests.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.metroGridAcceptanceTests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(134)))), ((int)(((byte)(163)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.metroGridAcceptanceTests.DefaultCellStyle = dataGridViewCellStyle2;
+            this.metroGridAcceptanceTests.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.metroGridAcceptanceTests.EnableHeadersVisualStyles = false;
+            this.metroGridAcceptanceTests.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.metroGridAcceptanceTests.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.metroGridAcceptanceTests.Location = new System.Drawing.Point(18, 127);
+            this.metroGridAcceptanceTests.Name = "metroGridAcceptanceTests";
+            this.metroGridAcceptanceTests.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(180)))), ((int)(((byte)(197)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(180)))), ((int)(((byte)(197)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGridAcceptanceTests.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.metroGridAcceptanceTests.RowHeadersWidth = 15;
+            this.metroGridAcceptanceTests.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.metroGridAcceptanceTests.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.metroGridAcceptanceTests.Size = new System.Drawing.Size(640, 254);
+            this.metroGridAcceptanceTests.TabIndex = 42;
+            this.metroGridAcceptanceTests.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.metroGridAcceptanceTests_CellContentDoubleClick);
+            this.metroGridAcceptanceTests.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.metroGridAcceptanceTests_CellLeave);
             // 
             // AcceptanceTests
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.SlateGray;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(134)))), ((int)(((byte)(163)))));
+            this.Controls.Add(this.metroGridAcceptanceTests);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.metroDateTime8);
-            this.Controls.Add(this.metroDateTime5);
-            this.Controls.Add(this.metroDateTime7);
-            this.Controls.Add(this.metroDateTime6);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.metroComboBox5);
-            this.Controls.Add(this.metroComboBox6);
-            this.Controls.Add(this.metroDateTime3);
-            this.Controls.Add(this.metroComboBox7);
-            this.Controls.Add(this.metroComboBox8);
-            this.Controls.Add(this.metroDateTime4);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.metroComboBox3);
-            this.Controls.Add(this.metroComboBox4);
             this.Name = "AcceptanceTests";
             this.Size = new System.Drawing.Size(680, 400);
+            this.Load += new System.EventHandler(this.AcceptanceTests_Load);
+            this.Enter += new System.EventHandler(this.AcceptanceTests_Enter);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.metroGridAcceptanceTests)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private MetroFramework.Controls.MetroDateTime metroDateTime8;
-        private MetroFramework.Controls.MetroDateTime metroDateTime5;
-        private MetroFramework.Controls.MetroDateTime metroDateTime7;
-        private MetroFramework.Controls.MetroDateTime metroDateTime6;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private MetroFramework.Controls.MetroComboBox metroComboBox5;
-        private MetroFramework.Controls.MetroComboBox metroComboBox6;
-        private MetroFramework.Controls.MetroDateTime metroDateTime3;
-        private MetroFramework.Controls.MetroComboBox metroComboBox7;
-        private MetroFramework.Controls.MetroComboBox metroComboBox8;
-        private MetroFramework.Controls.MetroDateTime metroDateTime4;
-        private System.Windows.Forms.Button button2;
-        private MetroFramework.Controls.MetroComboBox metroComboBox3;
-        private MetroFramework.Controls.MetroComboBox metroComboBox4;
-        private MetroFramework.Controls.MetroDateTime metroDateTime2;
-        private MetroFramework.Controls.MetroComboBox metroComboBox2;
-        private MetroFramework.Controls.MetroComboBox metroComboBox1;
-        private MetroFramework.Controls.MetroDateTime metroDateTime1;
-        private System.Windows.Forms.Button button1;
+        private MetroFramework.Controls.MetroDateTime metroDateTimeEndDate;
+        private MetroFramework.Controls.MetroComboBox metroComboBoxEndHour;
+        private MetroFramework.Controls.MetroComboBox metroComboBoxStartHour;
+        private MetroFramework.Controls.MetroDateTime metroDateTimeStartDate;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private MetroFramework.Controls.MetroComboBox metroComboBoxServers;
+        private MetroFramework.Controls.MetroButton metroButtonSave;
+        private MetroFramework.Controls.MetroTextBox metroTextBoxAcceptanceTestDescription;
+        private MetroFramework.Controls.MetroGrid metroGridAcceptanceTests;
     }
 }
