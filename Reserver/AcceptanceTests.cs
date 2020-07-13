@@ -127,8 +127,7 @@ namespace Reserver
                 {
                     connection.Open();
                     using (FbDataAdapter dataAdapterGrid = new FbDataAdapter(@"
-                        select c.IDCOLLAUDO, 
-                            s.DESCRIZIONE as Ambiente, 
+                        select s.DESCRIZIONE as Ambiente, 
                             c.DESCRIZIONE, 
                             c.INIZIOCOLLAUDO as inizio_collaudo, 
                             c.FINECOLLAUDO as fine_collaudo, 
