@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tulpep.NotificationWindow;
 
 namespace Reserver
 {
@@ -17,6 +11,18 @@ namespace Reserver
         public SlotReservation()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Properties.Resources.info;
+            popup.ImagePadding = new Padding(10);
+            popup.ContentPadding = new Padding(10);
+            popup.TitlePadding = new Padding(10);
+            popup.TitleText = "Test prenotazioni";
+            popup.ContentText = "Il tuo slot per rilasciare è ora disponibile per i prossimi minuti";
+            popup.Popup();
         }
     }
 }

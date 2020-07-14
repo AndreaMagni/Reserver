@@ -33,8 +33,8 @@ namespace Reserver
                         ParentForm.IsLogged = true;
                         ParentForm.CurrentUserID = readerUserInfo.GetInt32(0);
                         ParentForm.CurrentUserName = readerUserInfo.GetString(1);
+                        ParentForm.pageServerStatus.FirstTimeLoad(); // Mettendolo qui evito delay 
                         ParentForm.PageLoginVisibility = false;
-                        ParentForm.pageServerStatus.FirstTimeLoad();
                         ParentForm.PageServerStatusVisibility = true;
                     }
                     else

@@ -37,3 +37,4 @@ D:\Reserver\Reserver\obj\Debug\Reserver.csproj.CoreCompileInputs.cache
 D:\Reserver\Reserver\obj\Debug\Reserver.csproj.CopyComplete
 D:\Reserver\Reserver\obj\Debug\Reserver.exe
 D:\Reserver\Reserver\obj\Debug\Reserver.pdb
+C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\bin\Debug\Tulpep.NotificationWindow.dll

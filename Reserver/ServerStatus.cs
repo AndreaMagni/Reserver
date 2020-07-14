@@ -237,41 +237,6 @@ namespace Reserver
         {
             UpdateStatus();
         }
-
-        private void UpdateStatus()
-        {
-            using (FbConnection connection = new FbConnection(ParentForm.ConnectionString))
-            {
-                try
-                {
-                    connection.Open();
-                    string queryStatusInfo = string.Format(@"
-                        SELECT r.STATO, s.CODICE
-                        FROM STATISERVERS r
-                        JOIN SERVERS s ON s.IDSERVER = r.IDSERVER");
-                    FbCommand getStatusInfo = new FbCommand(queryStatusInfo, connection);
-                    FbDataAdapter dataReader = new FbDataAdapter(getStatusInfo);
-                    DataTable tableStatusInfo = new DataTable();
-                    dataReader.Fill(tableStatusInfo);
-
-                    foreach (DataRow row in tableStatusInfo.Rows)
-                    {
-                        string label = row["CODICE"].ToString();
-                        Label panelLabel = this.Controls.Find("status" + label, true).FirstOrDefault() as Label;
-                        panelLabel.Visible = true;
-                        panelLabel.BackColor = (row["STATO"].ToString() == "OCCUPATO") ? Color.Red : Color.Green;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Richiesta al database fallita", "Errore DB", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
-                }
-                finally
-                {
-                    connection.Close();
-                }
-            }
-        }
         */
 
     }
