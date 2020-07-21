@@ -156,7 +156,7 @@ namespace Reserver
             }
         }
 
-        private void metroGridAcceptanceTests_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        /*private void metroGridAcceptanceTests_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if(e.ColumnIndex == 5)
             {
@@ -192,6 +192,6 @@ namespace Reserver
                     }
                 }
             }
-        }
+        }*/
     }
 }
