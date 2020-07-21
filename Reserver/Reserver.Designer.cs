@@ -37,14 +37,18 @@ namespace Reserver
             this.metroLabelButtonReserve = new MetroFramework.Controls.MetroLabel();
             this.metroLabelButtonServerStatus = new MetroFramework.Controls.MetroLabel();
             this.metroPanelLogo = new MetroFramework.Controls.MetroPanel();
+            this.minimizeProgram = new System.Windows.Forms.Label();
+            this.closeProgram = new System.Windows.Forms.Label();
+            this.avatarBox = new System.Windows.Forms.PictureBox();
             this.metroLabelCurrentUser = new MetroFramework.Controls.MetroLabel();
             this.pageLogin = new Login();
-            this.metroPanelSideMenu.SuspendLayout();
             this.pageReleaseHistory = new ReleaseHistory();
             this.pageSlotReservations = new SlotReservation();
             this.pageAcceptanceTests = new AcceptanceTests();
             this.pageServerStatus = new ServerStatus();
+            this.metroPanelSideMenu.SuspendLayout();
             this.metroPanelLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.avatarBox)).BeginInit();
             this.SuspendLayout();
             // 
             // metroPanelSideMenu
@@ -123,20 +127,14 @@ namespace Reserver
             this.metroLabelButtonServerStatus.MouseEnter += new System.EventHandler(this.SideMenuButton_MouseEnter);
             this.metroLabelButtonServerStatus.MouseLeave += new System.EventHandler(this.SideMenuButton_MouseLeave);
             // 
-            // pageSlotReservations
-            // 
-            this.pageSlotReservations.BackColor = System.Drawing.Color.SlateGray;
-            this.pageSlotReservations.Location = new System.Drawing.Point(210, 90);
-            this.pageSlotReservations.Name = "pageSlotReservations";
-            this.pageSlotReservations.ParentForm = null;
-            this.pageSlotReservations.Size = new System.Drawing.Size(680, 400);
-            this.pageSlotReservations.TabIndex = 5;
-            // 
             // metroPanelLogo
             // 
             this.metroPanelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
             this.metroPanelLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("metroPanelLogo.BackgroundImage")));
             this.metroPanelLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.metroPanelLogo.Controls.Add(this.minimizeProgram);
+            this.metroPanelLogo.Controls.Add(this.closeProgram);
+            this.metroPanelLogo.Controls.Add(this.avatarBox);
             this.metroPanelLogo.Controls.Add(this.metroLabelCurrentUser);
             this.metroPanelLogo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.metroPanelLogo.HorizontalScrollbarBarColor = true;
@@ -153,6 +151,37 @@ namespace Reserver
             this.metroPanelLogo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.metroPanelLogo_MouseDown);
             this.metroPanelLogo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.metroPanelLogo_MouseMove);
             // 
+            // minimizeProgram
+            // 
+            this.minimizeProgram.AutoSize = true;
+            this.minimizeProgram.Location = new System.Drawing.Point(854, 9);
+            this.minimizeProgram.Name = "minimizeProgram";
+            this.minimizeProgram.Size = new System.Drawing.Size(14, 13);
+            this.minimizeProgram.TabIndex = 8;
+            this.minimizeProgram.Text = "_";
+            this.minimizeProgram.Click += new System.EventHandler(this.minimizeProgram_Click);
+            // 
+            // closeProgram
+            // 
+            this.closeProgram.AutoSize = true;
+            this.closeProgram.Location = new System.Drawing.Point(875, 9);
+            this.closeProgram.Name = "closeProgram";
+            this.closeProgram.Size = new System.Drawing.Size(15, 13);
+            this.closeProgram.TabIndex = 7;
+            this.closeProgram.Text = "X";
+            this.closeProgram.Click += new System.EventHandler(this.closeProgram_Click);
+            // 
+            // avatarBox
+            // 
+            this.avatarBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.avatarBox.ImageLocation = "";
+            this.avatarBox.Location = new System.Drawing.Point(467, 5);
+            this.avatarBox.Name = "avatarBox";
+            this.avatarBox.Size = new System.Drawing.Size(64, 64);
+            this.avatarBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.avatarBox.TabIndex = 6;
+            this.avatarBox.TabStop = false;
+            // 
             // metroLabelCurrentUser
             // 
             this.metroLabelCurrentUser.BackColor = System.Drawing.Color.Transparent;
@@ -168,14 +197,14 @@ namespace Reserver
             this.metroLabelCurrentUser.UseCustomBackColor = true;
             this.metroLabelCurrentUser.UseCustomForeColor = true;
             // 
-            // pageServerStatus
+            // pageLogin
             // 
-            this.pageServerStatus.BackColor = System.Drawing.Color.SlateGray;
-            this.pageServerStatus.Location = new System.Drawing.Point(210, 90);
-            this.pageServerStatus.Name = "pageServerStatus";
-            this.pageServerStatus.ParentForm = null;
-            this.pageServerStatus.Size = new System.Drawing.Size(680, 400);
-            this.pageServerStatus.TabIndex = 5;
+            this.pageLogin.BackColor = System.Drawing.Color.SlateGray;
+            this.pageLogin.Location = new System.Drawing.Point(210, 90);
+            this.pageLogin.Name = "pageLogin";
+            this.pageLogin.ParentForm = null;
+            this.pageLogin.Size = new System.Drawing.Size(680, 400);
+            this.pageLogin.TabIndex = 6;
             // 
             // pageReleaseHistory
             // 
@@ -186,14 +215,14 @@ namespace Reserver
             this.pageReleaseHistory.Size = new System.Drawing.Size(680, 400);
             this.pageReleaseHistory.TabIndex = 5;
             // 
-            // pageLogin
+            // pageSlotReservations
             // 
-            this.pageLogin.BackColor = System.Drawing.Color.SlateGray;
-            this.pageLogin.Location = new System.Drawing.Point(210, 90);
-            this.pageLogin.Name = "pageLogin";
-            this.pageLogin.ParentForm = null;
-            this.pageLogin.Size = new System.Drawing.Size(680, 400);
-            this.pageLogin.TabIndex = 6;
+            this.pageSlotReservations.BackColor = System.Drawing.Color.SlateGray;
+            this.pageSlotReservations.Location = new System.Drawing.Point(210, 90);
+            this.pageSlotReservations.Name = "pageSlotReservations";
+            this.pageSlotReservations.ParentForm = null;
+            this.pageSlotReservations.Size = new System.Drawing.Size(680, 400);
+            this.pageSlotReservations.TabIndex = 5;
             // 
             // pageAcceptanceTests
             // 
@@ -203,6 +232,15 @@ namespace Reserver
             this.pageAcceptanceTests.ParentForm = null;
             this.pageAcceptanceTests.Size = new System.Drawing.Size(680, 400);
             this.pageAcceptanceTests.TabIndex = 6;
+            // 
+            // pageServerStatus
+            // 
+            this.pageServerStatus.BackColor = System.Drawing.Color.SlateGray;
+            this.pageServerStatus.Location = new System.Drawing.Point(210, 90);
+            this.pageServerStatus.Name = "pageServerStatus";
+            this.pageServerStatus.ParentForm = null;
+            this.pageServerStatus.Size = new System.Drawing.Size(680, 400);
+            this.pageServerStatus.TabIndex = 5;
             // 
             // Reserver
             // 
@@ -222,7 +260,10 @@ namespace Reserver
             this.Name = "Reserver";
             this.metroPanelSideMenu.ResumeLayout(false);
             this.metroPanelLogo.ResumeLayout(false);
+            this.metroPanelLogo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.avatarBox)).EndInit();
             this.ResumeLayout(false);
+
         }
 
         #endregion
@@ -238,6 +279,9 @@ namespace Reserver
         private ReleaseHistory pageReleaseHistory;
         private MetroFramework.Controls.MetroLabel metroLabelAcceptanceTests;
         private AcceptanceTests pageAcceptanceTests;
+        private System.Windows.Forms.PictureBox avatarBox;
+        private System.Windows.Forms.Label closeProgram;
+        private System.Windows.Forms.Label minimizeProgram;
     }
 }
 
