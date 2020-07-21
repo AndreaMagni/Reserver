@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using FirebirdSql.Data.FirebirdClient;
 using System.IO;
+using System.Drawing.Printing;
 
 namespace Reserver
 {
@@ -15,6 +16,7 @@ namespace Reserver
         public ServerStatus()
         {
             InitializeComponent();
+            buttonUpdateStatus.Image = ResizeImage(buttonUpdateStatus.Image, new Size(20, 20));
         }
 
         public static Image ResizeImage(Image imgToResize, Size size)
@@ -40,31 +42,34 @@ namespace Reserver
                 {
                     connection.Open();
                     string queryStatusInfo = string.Format(@"
-                        SELECT s.DESCRIZIONE, r.STATO, s.CODICE
+                        SELECT  s.DESCRIZIONE, r.STATO, s.CODICE, u.DENOMINAZIONE, u.AVATAR, sr.DATAINIZIO
                         FROM STATISERVERS r
-                        JOIN SERVERS s ON s.IDSERVER = r.IDSERVER");
+                        JOIN SERVERS s ON s.IDSERVER = r.IDSERVER
+                        LEFT OUTER JOIN UTENTI u ON u.IDUTENTE = r.IDUTENTE
+                        left outer join STORICORILASCI sr on sr.IDSERVER = r.IDSERVER and u.IDUTENTE = sr.IDUTENTE and sr.DATAFINE is null ");
                     FbCommand getStatusInfo = new FbCommand(queryStatusInfo, connection);
                     FbDataAdapter dataReader = new FbDataAdapter(getStatusInfo);
                     DataTable tableStatusInfo = new DataTable();
                     dataReader.Fill(tableStatusInfo);
 
-                    int top = 50;
+                    int top = 25;
 
                     foreach (DataRow row in tableStatusInfo.Rows)
                     {
-                        int left = 100;
+                        int left = 20;
 
-                        Label label = new Label();
-                        label.Left = left;
-                        label.Top = top;
-                        label.Name = "label" + row["CODICE"].ToString();
-                        label.Text = row["DESCRIZIONE"].ToString();
-                        this.Controls.Add(label);
+                        GroupBox serverGroupBox = new GroupBox();
+                        serverGroupBox.Text = row["DESCRIZIONE"].ToString();
+                        serverGroupBox.Top = top;
+                        serverGroupBox.Left = 70;
+                        serverGroupBox.Size = new Size(540, 70);
+                        serverGroupBox.Name = "groupBox" + row["CODICE"].ToString();
+                        this.Controls.Add(serverGroupBox);
 
                         Button button = new Button();
-                        button.Left = left + 100;
+                        button.Left = left;
                         button.Size = new Size(200, 25);
-                        button.Top = top;
+                        button.Top = 15;
                         button.Name = row["CODICE"].ToString();
                         // Inizio verifica utenti con rilasci attivi che hanno chiuso l'applicazione
                         string queryCheckRilasciAttivi = string.Format(@"SELECT * FROM servers s JOIN storicorilasci sr ON s.IDSERVER = sr.IDSERVER WHERE s.codice = '{0}' AND sr.idutente = {1} AND sr.attivo = 1", row["CODICE"].ToString(), ParentForm.CurrentUserID);
@@ -80,21 +85,47 @@ namespace Reserver
                         }
                         // Fine verifica
                         button.Click += new EventHandler(this.ReleaseButton_Click);
-                        this.Controls.Add(button);
+                        serverGroupBox.Controls.Add(button);
+                                             
 
-                        Label panelLabel = new Label();
-                        panelLabel.Left = left + 350;
-                        panelLabel.Top = top;
-                        panelLabel.Size = new Size(50, 50);
-                        panelLabel.Name = "status" + row["CODICE"].ToString();
-                        Image img = Image.FromFile(Directory.GetCurrentDirectory() + "\\avatar\\andrea.magni.png");
-                        img = ResizeImage(img, new Size(50, 50));
-                        SetToolTip(panelLabel, "Andrea Magni");
-                        panelLabel.Image = img;
-                        panelLabel.BackColor = (row["STATO"].ToString() == "OCCUPATO") ? Color.Red : Color.Green;
-                        this.Controls.Add(panelLabel);
+                        Label statusLabel = new Label();
+                        statusLabel.Left = left + 220;
+                        statusLabel.Top = 15;
+                        statusLabel.Size = new Size(25, 25);
+                        statusLabel.Name = "status" + row["CODICE"].ToString();
+                        Image statusImg = (row["STATO"].ToString() == "OCCUPATO") ? Image.FromFile(Directory.GetCurrentDirectory() + "\\img\\busy.png") : Image.FromFile(Directory.GetCurrentDirectory() + "\\img\\free.png");
+                        statusImg = ResizeImage(statusImg, new Size(25, 25));
+                        statusLabel.Image = statusImg;
+                        //statusLabel.BackColor = (row["STATO"].ToString() == "OCCUPATO") ? Color.Red : Color.Green;
+                        serverGroupBox.Controls.Add(statusLabel);
 
-                        top += panelLabel.Height + 5;
+
+                        Label dateLabel = new Label();
+                        dateLabel.Left = left + 280;
+                        dateLabel.Top = 15;
+                        dateLabel.Name = "date" + row["CODICE"].ToString();
+                        dateLabel.AutoSize = true;
+
+                        Label avatarLabel = new Label();
+                        avatarLabel.Left = left + 460;
+                        avatarLabel.Top = 15;
+                        avatarLabel.Size = new Size(50, 50);
+                        avatarLabel.Name = "icon" + row["CODICE"].ToString();
+
+                        if (row["STATO"].ToString() == "OCCUPATO")
+                        {                            
+                            dateLabel.Text = row["DATAINIZIO"].ToString();
+                            
+                            Image img = Image.FromFile(Directory.GetCurrentDirectory() + row["AVATAR"].ToString());
+                            img = ResizeImage(img, new Size(50, 50));
+                            SetToolTip(avatarLabel, row["DENOMINAZIONE"].ToString());
+                            avatarLabel.Image = img;
+                            
+                        }
+                        serverGroupBox.Controls.Add(dateLabel); 
+                        serverGroupBox.Controls.Add(avatarLabel);
+
+                        top += serverGroupBox.Height + 10;
                     }
                 }
                 catch (Exception ex)
@@ -121,10 +152,12 @@ namespace Reserver
                     if (buttonText == "Rilascia")
                     {
                         IniziaRilascio(connection, buttonName);
+                        updateStatus();
                     }
                     else
                     {
                         ConcludiRilascio(connection, buttonName);
+                        updateStatus();
                     }
                 }
                 catch (Exception ex)
@@ -208,6 +241,11 @@ namespace Reserver
 
         private void ButtonUpdateStatus_Click(object sender, EventArgs e)
         {
+            updateStatus();
+        }
+
+        private void updateStatus()
+        {
             using (FbConnection connection = new FbConnection(ParentForm.ConnectionString))
             {
                 try
@@ -223,7 +261,22 @@ namespace Reserver
                     while (readerGetServerID.Read())
                     {
                         Label currentLabel = this.Controls.Find("status" + readerGetServerID.GetString(1), true).FirstOrDefault() as Label;
-                        currentLabel.BackColor = (readerGetServerID.GetString(0) == "OCCUPATO") ? Color.Red : Color.Green;
+                        Image statusImg = (readerGetServerID.GetString(0) == "OCCUPATO") ? Image.FromFile(Directory.GetCurrentDirectory() + "\\img\\busy.png") : Image.FromFile(Directory.GetCurrentDirectory() + "\\img\\free.png");
+                        statusImg = ResizeImage(statusImg, new Size(25, 25));
+                        currentLabel.Image = statusImg;
+
+                        Label currentDateLabel = this.Controls.Find("date" + readerGetServerID.GetString(1), true).FirstOrDefault() as Label;
+                        Label currentIconLabel = this.Controls.Find("icon" + readerGetServerID.GetString(1), true).FirstOrDefault() as Label;
+
+                        if (readerGetServerID.GetString(0) == "OCCUPATO")
+                        {
+
+                        }
+                        else
+                        {
+                            currentDateLabel.Text = string.Empty;
+                            currentIconLabel.Image = null;
+                        }
                     }
                 }
                 catch (Exception ex)

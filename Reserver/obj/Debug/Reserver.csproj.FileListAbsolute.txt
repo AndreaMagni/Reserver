@@ -38,3 +38,4 @@ D:\Reserver\Reserver\obj\Debug\Reserver.exe
 D:\Reserver\Reserver\obj\Debug\Reserver.pdb
 C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\bin\Debug\Tulpep.NotificationWindow.dll
 D:\Reserver\Reserver\bin\Debug\Tulpep.NotificationWindow.dll
+D:\Reserver\Reserver\obj\Debug\Reserver.csprojAssemblyReference.cache

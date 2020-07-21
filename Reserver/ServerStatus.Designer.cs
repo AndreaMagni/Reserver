@@ -33,12 +33,14 @@
             // 
             // buttonUpdateStatus
             // 
-            this.buttonUpdateStatus.Location = new System.Drawing.Point(609, 18);
+            this.buttonUpdateStatus.BackColor = System.Drawing.Color.Transparent;
+            this.buttonUpdateStatus.Image = global::Reserver.Properties.Resources.refresh;
+            this.buttonUpdateStatus.Location = new System.Drawing.Point(633, 353);
+            this.buttonUpdateStatus.Margin = new System.Windows.Forms.Padding(15);
             this.buttonUpdateStatus.Name = "buttonUpdateStatus";
-            this.buttonUpdateStatus.Size = new System.Drawing.Size(54, 23);
+            this.buttonUpdateStatus.Size = new System.Drawing.Size(32, 32);
             this.buttonUpdateStatus.TabIndex = 0;
-            this.buttonUpdateStatus.Text = "Update";
-            this.buttonUpdateStatus.UseVisualStyleBackColor = true;
+            this.buttonUpdateStatus.UseVisualStyleBackColor = false;
             this.buttonUpdateStatus.Click += new System.EventHandler(this.ButtonUpdateStatus_Click);
             // 
             // ServerStatus
