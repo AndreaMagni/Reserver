@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -29,6 +30,11 @@ namespace Reserver
         {
             set { metroLabelCurrentUser.Text = value; }
             get { return metroLabelCurrentUser.Text; }
+        }
+        public string CurrentAvatar
+        {
+            set { avatarBox.ImageLocation = value; }
+            get { return avatarBox.ImageLocation; }
         }
         public int CurrentUserID
         {
@@ -152,5 +158,22 @@ namespace Reserver
         }
         #endregion Form movement
 
+        #region Generic Methods
+        public void SetToolTip(string username)
+        {
+            ToolTip toolTip = new ToolTip();
+            toolTip.SetToolTip(this.avatarBox, username);
+        }
+
+        private void closeProgram_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void minimizeProgram_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+        #endregion Generic Methods
     }
 }

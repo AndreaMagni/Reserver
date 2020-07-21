@@ -4,6 +4,7 @@ using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using FirebirdSql.Data.FirebirdClient;
+using System.IO;
 
 namespace Reserver
 {
@@ -14,6 +15,16 @@ namespace Reserver
         public ServerStatus()
         {
             InitializeComponent();
+        }
+
+        public static Image ResizeImage(Image imgToResize, Size size)
+        {
+            return (Image)(new Bitmap(imgToResize, size));
+        }
+        public static void SetToolTip(Control control, string username)
+        {
+            ToolTip toolTip = new ToolTip();
+            toolTip.SetToolTip(control, username);
         }
 
         public void FirstTimeLoad()
@@ -74,12 +85,16 @@ namespace Reserver
                         Label panelLabel = new Label();
                         panelLabel.Left = left + 350;
                         panelLabel.Top = top;
-                        panelLabel.Size = new Size(25, 25);
+                        panelLabel.Size = new Size(50, 50);
                         panelLabel.Name = "status" + row["CODICE"].ToString();
+                        Image img = Image.FromFile(Directory.GetCurrentDirectory() + "\\avatar\\andrea.magni.png");
+                        img = ResizeImage(img, new Size(50, 50));
+                        SetToolTip(panelLabel, "Andrea Magni");
+                        panelLabel.Image = img;
                         panelLabel.BackColor = (row["STATO"].ToString() == "OCCUPATO") ? Color.Red : Color.Green;
                         this.Controls.Add(panelLabel);
 
-                        top += button.Height + 5;
+                        top += panelLabel.Height + 5;
                     }
                 }
                 catch (Exception ex)
@@ -136,7 +151,7 @@ namespace Reserver
 
                 if (serverStatus == "LIBERO")
                 {
-                    string queryUpdateServerStatus = string.Format(@"UPDATE STATISERVERS SET STATO = 'OCCUPATO' WHERE IDSERVER = {0}", serverID);
+                    string queryUpdateServerStatus = string.Format(@"UPDATE STATISERVERS SET STATO = 'OCCUPATO', IDUTENTE = {1} WHERE IDSERVER = {0}", serverID, ParentForm.CurrentUserID);
                     FbCommand updateServerStatus = new FbCommand(queryUpdateServerStatus, connection);
                     updateServerStatus.ExecuteNonQuery();
 
@@ -146,7 +161,7 @@ namespace Reserver
                     Label currentLabel = this.Controls.Find("status" + buttonName, true).FirstOrDefault() as Label;
                     currentLabel.BackColor = Color.Red;
 
-                    string queryStatusInfo = string.Format(@"INSERT INTO STORICORILASCI (IDSERVER, IDUTENTE, attivo, DESCRIZIONE, DATAINIZIO) VALUES ({0}, {1}, {2}, '', '{3}')", serverID, ParentForm.CurrentUserID, 1, DateTime.Now);
+                    string queryStatusInfo = string.Format(@"INSERT INTO STORICORILASCI (IDSERVER, IDUTENTE, attivo, DESCRIZIONE, DATAINIZIO) VALUES ({0}, {1}, {2}, '', '{3}')", serverID, ParentForm.CurrentUserID, 1, DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss"));
                     FbCommand getStatusInfo = new FbCommand(queryStatusInfo, connection);
                     getStatusInfo.ExecuteNonQuery();
                 }
@@ -171,7 +186,7 @@ namespace Reserver
             {
                 int serverID = readerGetServerID.GetInt32(0);
 
-                string queryUpdateServerStatus = string.Format(@"UPDATE STATISERVERS SET STATO = 'LIBERO' WHERE IDSERVER = {0}", serverID);
+                string queryUpdateServerStatus = string.Format(@"UPDATE STATISERVERS SET STATO = 'LIBERO', IDUTENTE = null WHERE IDSERVER = {0}", serverID);
                 FbCommand updateServerStatus = new FbCommand(queryUpdateServerStatus, connection);
                 updateServerStatus.ExecuteNonQuery();
 
@@ -181,7 +196,7 @@ namespace Reserver
                 Label currentLabel = this.Controls.Find("status" + buttonName, true).FirstOrDefault() as Label;
                 currentLabel.BackColor = Color.Green;
 
-                string queryStatusInfo = string.Format(@"UPDATE storicorilasci SET attivo = 0, datafine = '{0}' WHERE idserver = {1} AND idutente = {2} AND attivo = 1", DateTime.Now, serverID, ParentForm.CurrentUserID);
+                string queryStatusInfo = string.Format(@"UPDATE storicorilasci SET attivo = 0, datafine = '{0}' WHERE idserver = {1} AND idutente = {2} AND attivo = 1", DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss"), serverID, ParentForm.CurrentUserID);
                 FbCommand getStatusInfo = new FbCommand(queryStatusInfo, connection);
                 getStatusInfo.ExecuteNonQuery();
             }
