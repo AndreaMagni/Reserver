@@ -129,9 +129,9 @@ namespace Reserver
                     using (FbDataAdapter dataAdapterGrid = new FbDataAdapter(@"
                         select s.DESCRIZIONE as Ambiente, 
                             c.DESCRIZIONE, 
-                            c.INIZIOCOLLAUDO as inizio_collaudo, 
-                            c.FINECOLLAUDO as fine_collaudo, 
-                            u.DENOMINAZIONE as Utente_inserimento, 
+                            c.INIZIOCOLLAUDO as Inizio, 
+                            c.FINECOLLAUDO as Fine, 
+                            u.DENOMINAZIONE as Utente, 
                             c.STATO
                         from collaudi c
                         join servers s on s.IDSERVER = c.IDSERVER
@@ -139,6 +139,11 @@ namespace Reserver
                         where c.STATO != 'ANNULLATO'
                         and c.FINECOLLAUDO > CURRENT_TIMESTAMP
                         order by c.INIZIOCOLLAUDO ASC", connection))
+                        /*      
+                        c.INIZIOCOLLAUDO as inizio_collaudo, 
+                        c.FINECOLLAUDO as fine_collaudo, 
+                        u.DENOMINAZIONE as Utente_inserimento, 
+                        */
                     {
                         DataTable dataTableGrid = new DataTable();
                         dataAdapterGrid.Fill(dataTableGrid);

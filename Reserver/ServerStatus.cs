@@ -46,7 +46,7 @@ namespace Reserver
                         FROM STATISERVERS r
                         JOIN SERVERS s ON s.IDSERVER = r.IDSERVER
                         LEFT OUTER JOIN UTENTI u ON u.IDUTENTE = r.IDUTENTE
-                        left outer join STORICORILASCI sr on sr.IDSERVER = r.IDSERVER and u.IDUTENTE = sr.IDUTENTE and sr.DATAFINE is null ");
+                        left outer join STORICORILASCI sr on sr.IDSERVER = r.IDSERVER and u.IDUTENTE = sr.IDUTENTE and sr.DATAFINE is null");
                     FbCommand getStatusInfo = new FbCommand(queryStatusInfo, connection);
                     FbDataAdapter dataReader = new FbDataAdapter(getStatusInfo);
                     DataTable tableStatusInfo = new DataTable();
@@ -69,7 +69,7 @@ namespace Reserver
                         Button button = new Button();
                         button.Left = left;
                         button.Size = new Size(200, 25);
-                        button.Top = 15;
+                        button.Top = 25;
                         button.Name = row["CODICE"].ToString();
                         // Inizio verifica utenti con rilasci attivi che hanno chiuso l'applicazione
                         string queryCheckRilasciAttivi = string.Format(@"SELECT * FROM servers s JOIN storicorilasci sr ON s.IDSERVER = sr.IDSERVER WHERE s.codice = '{0}' AND sr.idutente = {1} AND sr.attivo = 1", row["CODICE"].ToString(), ParentForm.CurrentUserID);
@@ -90,7 +90,7 @@ namespace Reserver
 
                         Label statusLabel = new Label();
                         statusLabel.Left = left + 220;
-                        statusLabel.Top = 15;
+                        statusLabel.Top = 25;
                         statusLabel.Size = new Size(25, 25);
                         statusLabel.Name = "status" + row["CODICE"].ToString();
                         Image statusImg = (row["STATO"].ToString() == "OCCUPATO") ? Image.FromFile(Directory.GetCurrentDirectory() + "\\img\\busy.png") : Image.FromFile(Directory.GetCurrentDirectory() + "\\img\\free.png");
@@ -102,13 +102,13 @@ namespace Reserver
 
                         Label dateLabel = new Label();
                         dateLabel.Left = left + 280;
-                        dateLabel.Top = 15;
+                        dateLabel.Top = 30;
                         dateLabel.Name = "date" + row["CODICE"].ToString();
                         dateLabel.AutoSize = true;
 
                         Label avatarLabel = new Label();
                         avatarLabel.Left = left + 460;
-                        avatarLabel.Top = 15;
+                        avatarLabel.Top = 10;
                         avatarLabel.Size = new Size(50, 50);
                         avatarLabel.Name = "icon" + row["CODICE"].ToString();
 
@@ -192,7 +192,7 @@ namespace Reserver
                     currentButton.Text = "Rilascio concluso";
 
                     Label currentLabel = this.Controls.Find("status" + buttonName, true).FirstOrDefault() as Label;
-                    currentLabel.BackColor = Color.Red;
+                    currentLabel.BackColor = Color.Red; // FIXED: currentLabel.BackColor = Color.Transparent; in UpdateStatus()
 
                     string queryStatusInfo = string.Format(@"INSERT INTO STORICORILASCI (IDSERVER, IDUTENTE, attivo, DESCRIZIONE, DATAINIZIO) VALUES ({0}, {1}, {2}, '', '{3}')", serverID, ParentForm.CurrentUserID, 1, DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss"));
                     FbCommand getStatusInfo = new FbCommand(queryStatusInfo, connection);
@@ -227,7 +227,7 @@ namespace Reserver
                 currentButton.Text = "Rilascia";
 
                 Label currentLabel = this.Controls.Find("status" + buttonName, true).FirstOrDefault() as Label;
-                currentLabel.BackColor = Color.Green;
+                currentLabel.BackColor = Color.Green; // FIXED: currentLabel.BackColor = Color.Transparent; in UpdateStatus()
 
                 string queryStatusInfo = string.Format(@"UPDATE storicorilasci SET attivo = 0, datafine = '{0}' WHERE idserver = {1} AND idutente = {2} AND attivo = 1", DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss"), serverID, ParentForm.CurrentUserID);
                 FbCommand getStatusInfo = new FbCommand(queryStatusInfo, connection);
@@ -252,9 +252,11 @@ namespace Reserver
                 {
                     connection.Open();
                     string queryStatusInfo = string.Format(@"
-                        SELECT r.STATO, s.CODICE
+                        SELECT r.STATO, s.CODICE, u.DENOMINAZIONE, u.AVATAR, sr.DATAINIZIO
                         FROM STATISERVERS r
-                        JOIN SERVERS s ON s.IDSERVER = r.IDSERVER");
+                        JOIN SERVERS s ON s.IDSERVER = r.IDSERVER
+                        LEFT OUTER JOIN UTENTI u ON u.IDUTENTE = r.IDUTENTE
+                        left outer join STORICORILASCI sr on sr.IDSERVER = r.IDSERVER and u.IDUTENTE = sr.IDUTENTE and sr.DATAFINE is null");
                     FbCommand getStatusInfo = new FbCommand(queryStatusInfo, connection);
                     FbDataReader readerGetServerID = getStatusInfo.ExecuteReader();
 
@@ -263,6 +265,7 @@ namespace Reserver
                         Label currentLabel = this.Controls.Find("status" + readerGetServerID.GetString(1), true).FirstOrDefault() as Label;
                         Image statusImg = (readerGetServerID.GetString(0) == "OCCUPATO") ? Image.FromFile(Directory.GetCurrentDirectory() + "\\img\\busy.png") : Image.FromFile(Directory.GetCurrentDirectory() + "\\img\\free.png");
                         statusImg = ResizeImage(statusImg, new Size(25, 25));
+                        currentLabel.BackColor = Color.Transparent;
                         currentLabel.Image = statusImg;
 
                         Label currentDateLabel = this.Controls.Find("date" + readerGetServerID.GetString(1), true).FirstOrDefault() as Label;
@@ -270,7 +273,10 @@ namespace Reserver
 
                         if (readerGetServerID.GetString(0) == "OCCUPATO")
                         {
-
+                            currentDateLabel.Text = readerGetServerID.GetString(4);
+                            Image updatedStatusImg = Image.FromFile(Directory.GetCurrentDirectory() + readerGetServerID.GetString(3));
+                            updatedStatusImg = ResizeImage(updatedStatusImg, new Size(50, 50));
+                            currentIconLabel.Image = updatedStatusImg;
                         }
                         else
                         {

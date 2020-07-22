@@ -77,7 +77,7 @@ namespace Reserver
                 {
                     connection.Open();
                     using (FbDataAdapter dataAdapterGrid = new FbDataAdapter(@"
-                        select s.DESCRIZIONE as Ambiente, sr.DESCRIZIONE, u.DENOMINAZIONE, sr.DATAINIZIO, sr.DATAFINE
+                        select s.DESCRIZIONE as Ambiente, u.DENOMINAZIONE, sr.DATAINIZIO, sr.DATAFINE
                         from STORICORILASCI sr 
                         join SERVERS s on s.IDSERVER = sr.IDSERVER
                         join utenti u on u.IDUTENTE = sr.IDUTENTE

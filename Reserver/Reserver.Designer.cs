@@ -34,7 +34,6 @@ namespace Reserver
             this.metroPanelSideMenu = new MetroFramework.Controls.MetroPanel();
             this.metroLabelAcceptanceTests = new MetroFramework.Controls.MetroLabel();
             this.metroLabelButtonHistory = new MetroFramework.Controls.MetroLabel();
-            this.metroLabelButtonReserve = new MetroFramework.Controls.MetroLabel();
             this.metroLabelButtonServerStatus = new MetroFramework.Controls.MetroLabel();
             this.metroPanelLogo = new MetroFramework.Controls.MetroPanel();
             this.minimizeProgram = new System.Windows.Forms.Label();
@@ -57,7 +56,6 @@ namespace Reserver
             this.metroPanelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.metroPanelSideMenu.Controls.Add(this.metroLabelAcceptanceTests);
             this.metroPanelSideMenu.Controls.Add(this.metroLabelButtonHistory);
-            this.metroPanelSideMenu.Controls.Add(this.metroLabelButtonReserve);
             this.metroPanelSideMenu.Controls.Add(this.metroLabelButtonServerStatus);
             this.metroPanelSideMenu.HorizontalScrollbarBarColor = true;
             this.metroPanelSideMenu.HorizontalScrollbarHighlightOnWheel = false;
@@ -74,9 +72,9 @@ namespace Reserver
             // metroLabelAcceptanceTests
             // 
             this.metroLabelAcceptanceTests.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabelAcceptanceTests.Location = new System.Drawing.Point(10, 340);
+            this.metroLabelAcceptanceTests.Location = new System.Drawing.Point(10, 276);
             this.metroLabelAcceptanceTests.Name = "metroLabelAcceptanceTests";
-            this.metroLabelAcceptanceTests.Size = new System.Drawing.Size(182, 71);
+            this.metroLabelAcceptanceTests.Size = new System.Drawing.Size(182, 133);
             this.metroLabelAcceptanceTests.TabIndex = 5;
             this.metroLabelAcceptanceTests.Text = "Collaudi";
             this.metroLabelAcceptanceTests.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -88,9 +86,9 @@ namespace Reserver
             // metroLabelButtonHistory
             // 
             this.metroLabelButtonHistory.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabelButtonHistory.Location = new System.Drawing.Point(10, 222);
+            this.metroLabelButtonHistory.Location = new System.Drawing.Point(10, 143);
             this.metroLabelButtonHistory.Name = "metroLabelButtonHistory";
-            this.metroLabelButtonHistory.Size = new System.Drawing.Size(182, 100);
+            this.metroLabelButtonHistory.Size = new System.Drawing.Size(182, 133);
             this.metroLabelButtonHistory.TabIndex = 4;
             this.metroLabelButtonHistory.Text = "Storico Rilasci";
             this.metroLabelButtonHistory.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -99,26 +97,12 @@ namespace Reserver
             this.metroLabelButtonHistory.MouseEnter += new System.EventHandler(this.SideMenuButton_MouseEnter);
             this.metroLabelButtonHistory.MouseLeave += new System.EventHandler(this.SideMenuButton_MouseLeave);
             // 
-            // metroLabelButtonReserve
-            // 
-            this.metroLabelButtonReserve.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabelButtonReserve.Location = new System.Drawing.Point(10, 116);
-            this.metroLabelButtonReserve.Name = "metroLabelButtonReserve";
-            this.metroLabelButtonReserve.Size = new System.Drawing.Size(182, 98);
-            this.metroLabelButtonReserve.TabIndex = 3;
-            this.metroLabelButtonReserve.Text = "Prenotazioni";
-            this.metroLabelButtonReserve.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.metroLabelButtonReserve.UseCustomBackColor = true;
-            this.metroLabelButtonReserve.Click += new System.EventHandler(this.SideMenuButton_Click);
-            this.metroLabelButtonReserve.MouseEnter += new System.EventHandler(this.SideMenuButton_MouseEnter);
-            this.metroLabelButtonReserve.MouseLeave += new System.EventHandler(this.SideMenuButton_MouseLeave);
-            // 
             // metroLabelButtonServerStatus
             // 
             this.metroLabelButtonServerStatus.FontWeight = MetroFramework.MetroLabelWeight.Bold;
             this.metroLabelButtonServerStatus.Location = new System.Drawing.Point(10, 10);
             this.metroLabelButtonServerStatus.Name = "metroLabelButtonServerStatus";
-            this.metroLabelButtonServerStatus.Size = new System.Drawing.Size(182, 98);
+            this.metroLabelButtonServerStatus.Size = new System.Drawing.Size(182, 133);
             this.metroLabelButtonServerStatus.TabIndex = 2;
             this.metroLabelButtonServerStatus.Text = "Stato Server";
             this.metroLabelButtonServerStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -267,7 +251,6 @@ namespace Reserver
         }
 
         #endregion
-        private MetroFramework.Controls.MetroLabel metroLabelButtonReserve;
         private MetroFramework.Controls.MetroLabel metroLabelButtonHistory;
         private MetroFramework.Controls.MetroLabel metroLabelCurrentUser;
         private MetroFramework.Controls.MetroPanel metroPanelLogo;

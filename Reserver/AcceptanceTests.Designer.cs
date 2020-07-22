@@ -201,8 +201,9 @@
             // 
             this.metroGridAcceptanceTests.AllowUserToAddRows = false;
             this.metroGridAcceptanceTests.AllowUserToDeleteRows = false;
+            this.metroGridAcceptanceTests.AllowUserToResizeColumns = false;
             this.metroGridAcceptanceTests.AllowUserToResizeRows = false;
-            this.metroGridAcceptanceTests.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.metroGridAcceptanceTests.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.metroGridAcceptanceTests.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.metroGridAcceptanceTests.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.metroGridAcceptanceTests.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
