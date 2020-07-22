@@ -57,6 +57,8 @@ namespace Reserver
                         metroComboBoxUsers.DisplayMember = "denominazione";
                         metroComboBoxUsers.ValueMember = "idutente";
                     }
+
+                    metroGridReleaseHistory_Load(sender, e);
                 }
                 catch (Exception)
                 {
