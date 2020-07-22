@@ -277,6 +277,7 @@ namespace Reserver
                             Image updatedStatusImg = Image.FromFile(Directory.GetCurrentDirectory() + readerGetServerID.GetString(3));
                             updatedStatusImg = ResizeImage(updatedStatusImg, new Size(50, 50));
                             currentIconLabel.Image = updatedStatusImg;
+                            SetToolTip(currentIconLabel, readerGetServerID.GetString(2));
                         }
                         else
                         {
