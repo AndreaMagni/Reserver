@@ -31,11 +31,11 @@ namespace Reserver
             set { metroLabelCurrentUser.Text = value; }
             get { return metroLabelCurrentUser.Text; }
         }
-        public string CurrentAvatar
-        {
-            set { avatarBox.ImageLocation = value; }
-            get { return avatarBox.ImageLocation; }
-        }
+        //public string CurrentAvatar
+        //{
+        //    set { avatarBox.ImageLocation = value; }
+        //    get { return avatarBox.ImageLocation; }
+        //}
         public int CurrentUserID
         {
             set { idutente = value; }
@@ -84,6 +84,7 @@ namespace Reserver
             {
                 string buttonLabelName = ((Control)sender).Name;
                 LoadPage(buttonLabelName);
+                SetActivePage(buttonLabelName);
             }
             else
             {
@@ -95,34 +96,46 @@ namespace Reserver
         private void SideMenuButton_MouseEnter(object sender, EventArgs e)
         {
             string labelName = ((Control)sender).Name;
+            string pictureBoxName = labelName + "Image";
             MetroFramework.Controls.MetroLabel metroLabel = this.Controls.Find(labelName, true).FirstOrDefault() as MetroFramework.Controls.MetroLabel;
             metroLabel.BackColor = Color.FromArgb(39, 39, 58);
+            PictureBox pictureBox = this.Controls.Find(pictureBoxName, true).FirstOrDefault() as PictureBox;
+            pictureBox.BackColor = Color.FromArgb(39, 39, 58);
+            //string activeName = labelName + "Active";
+            //MetroFramework.Controls.MetroLabel metroLabelActive = this.Controls.Find(activeName, true).FirstOrDefault() as MetroFramework.Controls.MetroLabel;
+            //metroLabelActive.BackColor = Color.FromArgb(39, 39, 58);
         }
 
         private void SideMenuButton_MouseLeave(object sender, EventArgs e)
         {
             string labelName = ((Control)sender).Name;
+            string pictureBoxName = labelName + "Image";
             MetroFramework.Controls.MetroLabel metroLabel = this.Controls.Find(labelName, true).FirstOrDefault() as MetroFramework.Controls.MetroLabel;
-            metroLabel.BackColor = Color.FromArgb(51, 51, 76);
+            metroLabel.BackColor = Color.FromArgb(51, 51, 76); 
+            PictureBox pictureBox = this.Controls.Find(pictureBoxName, true).FirstOrDefault() as PictureBox;
+            pictureBox.BackColor = Color.FromArgb(51, 51, 76);
+            //string activeName = labelName + "Active";
+            //MetroFramework.Controls.MetroLabel metroLabelActive = this.Controls.Find(activeName, true).FirstOrDefault() as MetroFramework.Controls.MetroLabel;
+            //metroLabelActive.BackColor = Color.FromArgb(51, 51, 76);
         }
 
         private void LoadPage(string buttonName)
         {
             switch (buttonName)
             {
-                case "metroLabelButtonServerStatus":
+                case "buttonServerStatus":
                     SetPageVisibility(false, true, false, false, false);
                     break;
 
-                case "metroLabelButtonReserve":
+                case "buttonReserve":
                     SetPageVisibility(false, false, true, false, false);
                     break;
 
-                case "metroLabelButtonHistory":
+                case "buttonHistory":
                     SetPageVisibility(false, false, false, true, false);
                     break;
 
-                case "metroLabelAcceptanceTests":
+                case "buttonAcceptanceTests":
                     SetPageVisibility(false, false, false, false, true);
                     break;
 
@@ -130,6 +143,20 @@ namespace Reserver
                     SetPageVisibility(true, false, false, false, false);
                     break;
             }
+        }
+
+        private void SetActivePage(string buttonName)
+        {
+            MetroFramework.Controls.MetroLabel metroLabelServerStatus = this.Controls.Find("buttonServerStatusActive", true).FirstOrDefault() as MetroFramework.Controls.MetroLabel;
+            metroLabelServerStatus.BackColor = Color.FromArgb(51, 51, 76);
+            MetroFramework.Controls.MetroLabel metroLabelHistory = this.Controls.Find("buttonHistoryActive", true).FirstOrDefault() as MetroFramework.Controls.MetroLabel;
+            metroLabelHistory.BackColor = Color.FromArgb(51, 51, 76);
+            MetroFramework.Controls.MetroLabel metroLabelAcceptanceTests = this.Controls.Find("buttonAcceptanceTestsActive", true).FirstOrDefault() as MetroFramework.Controls.MetroLabel;
+            metroLabelAcceptanceTests.BackColor = Color.FromArgb(51, 51, 76);
+
+            string labelName = buttonName + "Active";
+            MetroFramework.Controls.MetroLabel metroLabel = this.Controls.Find(labelName, true).FirstOrDefault() as MetroFramework.Controls.MetroLabel;
+            metroLabel.BackColor = Color.FromArgb(39, 39, 58);
         }
 
         private void SetPageVisibility(bool login, bool serverStatus, bool slotReservation, bool releaseHistory, bool acceptanceTests)
@@ -159,11 +186,11 @@ namespace Reserver
         #endregion Form movement
 
         #region Generic Methods
-        public void SetToolTip(string username)
-        {
-            ToolTip toolTip = new ToolTip();
-            toolTip.SetToolTip(this.avatarBox, username);
-        }
+        //public void SetToolTip(string username)
+        //{
+        //    ToolTip toolTip = new ToolTip();
+        //    toolTip.SetToolTip(this.avatarBox, username);
+        //}
 
         private void closeProgram_Click(object sender, EventArgs e)
         {
@@ -175,5 +202,10 @@ namespace Reserver
             this.WindowState = FormWindowState.Minimized;
         }
         #endregion Generic Methods
+
+        private void buttonServerStatusActive_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
