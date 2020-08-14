@@ -127,7 +127,9 @@ namespace Reserver
                 {
                     connection.Open();
                     using (FbDataAdapter dataAdapterGrid = new FbDataAdapter(@"
-                        select s.DESCRIZIONE as Ambiente, 
+                        select 
+                            c.IDCOLLAUDO,
+                            s.DESCRIZIONE as Ambiente, 
                             c.DESCRIZIONE, 
                             c.INIZIOCOLLAUDO as Inizio, 
                             c.FINECOLLAUDO as Fine, 
@@ -159,6 +161,53 @@ namespace Reserver
                     connection.Close();
                 }
             }
+        }
+
+        private void metroGridAcceptanceTests_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int selectedRow = metroGridAcceptanceTests.CurrentCell.RowIndex;
+            string gridValue = metroGridAcceptanceTests.CurrentCell.Value.ToString();
+            string idCollaudo = metroGridAcceptanceTests.Rows[selectedRow].Cells[1].Value.ToString();
+            //metroGridAcceptanceTests.Rows.RemoveAt(selectedRow);
+            //DataGridViewRow row = metroGridAcceptanceTests.Rows[selectedRow];
+
+            switch (gridValue)
+            {
+                case "Concludi":
+                    using (FbConnection connection = new FbConnection(ParentForm.ConnectionString))
+                    {
+                        try
+                        {
+                            connection.Open();
+                            string queryUpdateServerStatus = string.Format(@"UPDATE COLLAUDI SET STATO = 'OCCUPATO', IDUTENTE = {1} WHERE IDSERVER = {0}", serverID, ParentForm.CurrentUserID);
+                            FbCommand updateServerStatus = new FbCommand(queryUpdateServerStatus, connection);
+                            updateServerStatus.ExecuteNonQuery();
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("Richiesta al database fallita", "Errore DB", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+                        }
+                        finally
+                        {
+                            connection.Close();
+                        }
+                    }
+                    break;
+
+                case "Annulla":
+                    break;
+
+                case "Cancella":
+                    break;
+
+                default:
+                    break;
+            }
+            
+
+
+
+
         }
 
         /*private void metroGridAcceptanceTests_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)

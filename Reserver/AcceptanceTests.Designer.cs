@@ -40,6 +40,7 @@
             this.metroButtonSave = new MetroFramework.Controls.MetroButton();
             this.metroComboBoxServers = new MetroFramework.Controls.MetroComboBox();
             this.metroGridAcceptanceTests = new MetroFramework.Controls.MetroGrid();
+            this.CONCLUDI = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.metroGridAcceptanceTests)).BeginInit();
             this.SuspendLayout();
@@ -217,6 +218,8 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.metroGridAcceptanceTests.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.metroGridAcceptanceTests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.metroGridAcceptanceTests.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CONCLUDI});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -231,6 +234,7 @@
             this.metroGridAcceptanceTests.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.metroGridAcceptanceTests.Location = new System.Drawing.Point(18, 127);
             this.metroGridAcceptanceTests.Name = "metroGridAcceptanceTests";
+            this.metroGridAcceptanceTests.ReadOnly = true;
             this.metroGridAcceptanceTests.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(180)))), ((int)(((byte)(197)))));
@@ -245,6 +249,15 @@
             this.metroGridAcceptanceTests.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.metroGridAcceptanceTests.Size = new System.Drawing.Size(640, 254);
             this.metroGridAcceptanceTests.TabIndex = 42;
+            this.metroGridAcceptanceTests.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.metroGridAcceptanceTests_CellContentClick);
+            // 
+            // CONCLUDI
+            // 
+            this.CONCLUDI.HeaderText = "CONCLUDI";
+            this.CONCLUDI.Name = "CONCLUDI";
+            this.CONCLUDI.ReadOnly = true;
+            this.CONCLUDI.Text = "Concludi";
+            this.CONCLUDI.UseColumnTextForButtonValue = true;
             // 
             // AcceptanceTests
             // 
@@ -273,5 +286,6 @@
         private MetroFramework.Controls.MetroButton metroButtonSave;
         private MetroFramework.Controls.MetroTextBox metroTextBoxAcceptanceTestDescription;
         private MetroFramework.Controls.MetroGrid metroGridAcceptanceTests;
+        private System.Windows.Forms.DataGridViewButtonColumn CONCLUDI;
     }
 }
