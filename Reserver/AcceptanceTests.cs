@@ -170,7 +170,8 @@ namespace Reserver
                         try
                         {
                             connection.Open();
-                            string queryUpdateServerStatus = string.Format(@"UPDATE COLLAUDI SET STATO = 'OCCUPATO', IDUTENTE = {1} WHERE IDSERVER = {0}", serverID, ParentForm.CurrentUserID);
+                            //Fixare e decidere come impostare i vari tasti
+                            string queryUpdateServerStatus = string.Format(@"UPDATE COLLAUDI SET STATO = 'OCCUPATO', IDUTENTE = {0} WHERE IDSERVER = {1}", ParentForm.CurrentUserID, 1);
                             FbCommand updateServerStatus = new FbCommand(queryUpdateServerStatus, connection);
                             updateServerStatus.ExecuteNonQuery();
                         }
