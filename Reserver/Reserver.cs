@@ -24,98 +24,93 @@ namespace Reserver
         }
 
         #region Getter and Setter
-        public string CurrentUserName
-        {
-            set { metroLabelCurrentUser.Text = value; }
-            get { return metroLabelCurrentUser.Text; }
-        }
+
         //public string CurrentAvatar
         //{
         //    set { avatarBox.ImageLocation = value; }
         //    get { return avatarBox.ImageLocation; }
         //}
+
+        public string CurrentUserName
+        {
+            set { metroLabelCurrentUser.Text = value; }
+            get { return metroLabelCurrentUser.Text; }
+        }
+
         public int CurrentUserID
         {
             set { idutente = value; }
             get { return idutente; }
         }
+
         public bool IsLogged
         {
             set { logged = value; }
             get { return logged; }
         }
+
         public string ConnectionString
         {
             get { return connectionStringExternalDB; }
         }
+
         public bool PageLoginVisibility
         {
             set { pageLogin.Visible = value; }
             get { return pageLogin.Visible; }
         }
+
         public bool PageSlotReservationsVisibility
         {
             set { pageSlotReservations.Visible = value; }
             get { return pageSlotReservations.Visible; }
         }
+
         public bool PageServerStatusVisibility
         {
             set { pageServerStatus.Visible = value; }
             get { return pageServerStatus.Visible; }
         }
+
         public bool PageReleaseHistoryVisibility
         {
             set { pageReleaseHistory.Visible = value; }
             get { return pageReleaseHistory.Visible; }
         }
+
         public bool PageAcceptanceTestsVisibility
         {
             set { pageAcceptanceTests.Visible = value; }
             get { return pageAcceptanceTests.Visible; }
         }
+
         #endregion Getter and Setter
 
-        #region Side menu behavior
-        private void SideMenuButton_Click(object sender, EventArgs e)
+        #region Form movement
+
+        private void MetroPanelLogo_MouseDown(object sender, MouseEventArgs e)
         {
-            if(logged)
+            lastPoint = new Point(e.X, e.Y);
+        }
+
+        private void MetroPanelLogo_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
             {
-                string buttonLabelName = ((Control)sender).Name;
-                LoadPage(buttonLabelName);
-                SetActivePage(buttonLabelName);
-            }
-            else
-            {
-                MessageBox.Show("Per visualizzare la pagina è necessario effettuare il login", "Necessario login", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
-                LoadPage("");
+                this.Left += e.X - lastPoint.X;
+                this.Top += e.Y - lastPoint.Y;
             }
         }
 
-        private void SideMenuButton_MouseEnter(object sender, EventArgs e)
-        {
-            string labelName = ((Control)sender).Name;
-            string pictureBoxName = labelName + "Image";
-            MetroFramework.Controls.MetroLabel metroLabel = this.Controls.Find(labelName, true).FirstOrDefault() as MetroFramework.Controls.MetroLabel;
-            metroLabel.BackColor = Color.FromArgb(39, 39, 58);
-            PictureBox pictureBox = this.Controls.Find(pictureBoxName, true).FirstOrDefault() as PictureBox;
-            pictureBox.BackColor = Color.FromArgb(39, 39, 58);
-            //string activeName = labelName + "Active";
-            //MetroFramework.Controls.MetroLabel metroLabelActive = this.Controls.Find(activeName, true).FirstOrDefault() as MetroFramework.Controls.MetroLabel;
-            //metroLabelActive.BackColor = Color.FromArgb(39, 39, 58);
-        }
+        #endregion Form movement
 
-        private void SideMenuButton_MouseLeave(object sender, EventArgs e)
-        {
-            string labelName = ((Control)sender).Name;
-            string pictureBoxName = labelName + "Image";
-            MetroFramework.Controls.MetroLabel metroLabel = this.Controls.Find(labelName, true).FirstOrDefault() as MetroFramework.Controls.MetroLabel;
-            metroLabel.BackColor = Color.FromArgb(51, 51, 76); 
-            PictureBox pictureBox = this.Controls.Find(pictureBoxName, true).FirstOrDefault() as PictureBox;
-            pictureBox.BackColor = Color.FromArgb(51, 51, 76);
-            //string activeName = labelName + "Active";
-            //MetroFramework.Controls.MetroLabel metroLabelActive = this.Controls.Find(activeName, true).FirstOrDefault() as MetroFramework.Controls.MetroLabel;
-            //metroLabelActive.BackColor = Color.FromArgb(51, 51, 76);
-        }
+        #region Generic Methods
+
+        //public void SetToolTip(string username)
+        //{
+        //    ToolTip toolTip = new ToolTip();
+        //    toolTip.SetToolTip(this.avatarBox, username);
+        //}
 
         private void LoadPage(string buttonName)
         {
@@ -143,20 +138,6 @@ namespace Reserver
             }
         }
 
-        private void SetActivePage(string buttonName)
-        {
-            MetroFramework.Controls.MetroLabel metroLabelServerStatus = this.Controls.Find("buttonServerStatusActive", true).FirstOrDefault() as MetroFramework.Controls.MetroLabel;
-            metroLabelServerStatus.BackColor = Color.FromArgb(51, 51, 76);
-            MetroFramework.Controls.MetroLabel metroLabelHistory = this.Controls.Find("buttonHistoryActive", true).FirstOrDefault() as MetroFramework.Controls.MetroLabel;
-            metroLabelHistory.BackColor = Color.FromArgb(51, 51, 76);
-            MetroFramework.Controls.MetroLabel metroLabelAcceptanceTests = this.Controls.Find("buttonAcceptanceTestsActive", true).FirstOrDefault() as MetroFramework.Controls.MetroLabel;
-            metroLabelAcceptanceTests.BackColor = Color.FromArgb(51, 51, 76);
-
-            string labelName = buttonName + "Active";
-            MetroFramework.Controls.MetroLabel metroLabel = this.Controls.Find(labelName, true).FirstOrDefault() as MetroFramework.Controls.MetroLabel;
-            metroLabel.BackColor = Color.FromArgb(39, 39, 58);
-        }
-
         private void SetPageVisibility(bool login, bool serverStatus, bool slotReservation, bool releaseHistory, bool acceptanceTests)
         {
             PageLoginVisibility = login;
@@ -165,45 +146,73 @@ namespace Reserver
             PageReleaseHistoryVisibility = releaseHistory;
             PageAcceptanceTestsVisibility = acceptanceTests;
         }
-        #endregion  Side menu behavior
 
-        #region Form movement
-        private void metroPanelLogo_MouseDown(object sender, MouseEventArgs e)
-        {
-            lastPoint = new Point(e.X, e.Y);
-        }
-
-        private void metroPanelLogo_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                this.Left += e.X - lastPoint.X;
-                this.Top += e.Y - lastPoint.Y;
-            }
-        }
-        #endregion Form movement
-
-        #region Generic Methods
-        //public void SetToolTip(string username)
-        //{
-        //    ToolTip toolTip = new ToolTip();
-        //    toolTip.SetToolTip(this.avatarBox, username);
-        //}
-
-        private void closeProgram_Click(object sender, EventArgs e)
+        private void CloseProgram_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void minimizeProgram_Click(object sender, EventArgs e)
+        private void MinimizeProgram_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
         #endregion Generic Methods
 
-        private void buttonServerStatusActive_Click(object sender, EventArgs e)
-        {
+        #region Side menu behavior
 
+        private void SideMenuButton_Click(object sender, EventArgs e)
+        {
+            if (logged)
+            {
+                string buttonLabelName = ((Control)sender).Name;
+                LoadPage(buttonLabelName);
+                SideMenuButton_SetActivePage(buttonLabelName);
+            }
+            else
+            {
+                MessageBox.Show("Per visualizzare la pagina è necessario effettuare il login", "Attenzione", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                LoadPage("");
+            }
         }
+
+        private void SideMenuButton_MouseEnter(object sender, EventArgs e)
+        {
+            string labelName = ((Control)sender).Name;
+            string pictureBoxName = labelName + "Image";
+            MetroFramework.Controls.MetroLabel metroLabel = this.Controls.Find(labelName, true).FirstOrDefault() as MetroFramework.Controls.MetroLabel;
+            metroLabel.BackColor = Color.FromArgb(6, 46, 96);
+            PictureBox pictureBox = this.Controls.Find(pictureBoxName, true).FirstOrDefault() as PictureBox;
+            pictureBox.BackColor = Color.FromArgb(6, 46, 96);
+        }
+
+        private void SideMenuButton_MouseLeave(object sender, EventArgs e)
+        {
+            string labelName = ((Control)sender).Name;
+            string pictureBoxName = labelName + "Image";
+            MetroFramework.Controls.MetroLabel metroLabel = this.Controls.Find(labelName, true).FirstOrDefault() as MetroFramework.Controls.MetroLabel;
+            metroLabel.BackColor = Color.FromArgb(7, 67, 125);
+            PictureBox pictureBox = this.Controls.Find(pictureBoxName, true).FirstOrDefault() as PictureBox;
+            pictureBox.BackColor = Color.FromArgb(7, 67, 125);
+        }
+
+        public void SideMenuButton_SetActivePage(string buttonName)
+        {
+            MetroFramework.Controls.MetroLabel metroLabelServerStatus = this.Controls.Find("buttonServerStatusActive", true).FirstOrDefault() as MetroFramework.Controls.MetroLabel;
+            metroLabelServerStatus.BackColor = Color.FromArgb(7, 67, 125);
+            MetroFramework.Controls.MetroLabel metroLabelHistory = this.Controls.Find("buttonHistoryActive", true).FirstOrDefault() as MetroFramework.Controls.MetroLabel;
+            metroLabelHistory.BackColor = Color.FromArgb(7, 67, 125);
+            MetroFramework.Controls.MetroLabel metroLabelAcceptanceTests = this.Controls.Find("buttonAcceptanceTestsActive", true).FirstOrDefault() as MetroFramework.Controls.MetroLabel;
+            metroLabelAcceptanceTests.BackColor = Color.FromArgb(7, 67, 125);
+            string labelName = buttonName + "Active";
+            MetroFramework.Controls.MetroLabel metroLabel = this.Controls.Find(labelName, true).FirstOrDefault() as MetroFramework.Controls.MetroLabel;
+            metroLabel.BackColor = Color.FromArgb(6, 46, 96);
+        }
+
+        #endregion  Side menu behavior
+
     }
 }
+
+// Vecchi colori scuro Color.FromArgb(39, 39, 58);  // test 32, 90, 255  // test2 6, 46, 96
+// Vecchi colori chiaro Color.FromArgb(51, 51, 76); // test 17, 128, 255 // test2 7, 67, 125

@@ -123,7 +123,7 @@
             this.metroButtonFilter.TabIndex = 45;
             this.metroButtonFilter.Text = "Filtra";
             this.metroButtonFilter.UseSelectable = true;
-            this.metroButtonFilter.Click += new System.EventHandler(this.metroButtonFilter_Click);
+            this.metroButtonFilter.Click += new System.EventHandler(this.ButtonFilter_Click);
             // 
             // metroComboBoxServers
             // 
@@ -146,7 +146,7 @@
             this.Controls.Add(this.metroGridReleaseHistory);
             this.Name = "ReleaseHistory";
             this.Size = new System.Drawing.Size(680, 400);
-            this.Load += new System.EventHandler(this.metroGridReleaseHistory_Load);
+            this.Load += new System.EventHandler(this.GridReleaseHistory_Load);
             this.Enter += new System.EventHandler(this.ReleaseHistory_Enter);
             ((System.ComponentModel.ISupportInitialize)(this.metroGridReleaseHistory)).EndInit();
             this.groupBoxFilter.ResumeLayout(false);

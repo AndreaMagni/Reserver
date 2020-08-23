@@ -84,6 +84,7 @@ namespace Reserver
             // 
             // buttonAcceptanceTestsActive
             // 
+            this.buttonAcceptanceTestsActive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(67)))), ((int)(((byte)(125)))));
             this.buttonAcceptanceTestsActive.Location = new System.Drawing.Point(190, 280);
             this.buttonAcceptanceTestsActive.Name = "buttonAcceptanceTestsActive";
             this.buttonAcceptanceTestsActive.Size = new System.Drawing.Size(10, 140);
@@ -92,6 +93,7 @@ namespace Reserver
             // 
             // buttonHistoryActive
             // 
+            this.buttonHistoryActive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(67)))), ((int)(((byte)(125)))));
             this.buttonHistoryActive.Location = new System.Drawing.Point(190, 140);
             this.buttonHistoryActive.Name = "buttonHistoryActive";
             this.buttonHistoryActive.Size = new System.Drawing.Size(10, 140);
@@ -100,15 +102,16 @@ namespace Reserver
             // 
             // buttonServerStatusActive
             // 
+            this.buttonServerStatusActive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(67)))), ((int)(((byte)(125)))));
             this.buttonServerStatusActive.Location = new System.Drawing.Point(190, 0);
             this.buttonServerStatusActive.Name = "buttonServerStatusActive";
             this.buttonServerStatusActive.Size = new System.Drawing.Size(10, 140);
             this.buttonServerStatusActive.TabIndex = 14;
             this.buttonServerStatusActive.UseCustomBackColor = true;
-            this.buttonServerStatusActive.Click += new System.EventHandler(this.buttonServerStatusActive_Click);
             // 
             // buttonAcceptanceTests
             // 
+            this.buttonAcceptanceTests.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(67)))), ((int)(((byte)(125)))));
             this.buttonAcceptanceTests.FontSize = MetroFramework.MetroLabelSize.Small;
             this.buttonAcceptanceTests.FontWeight = MetroFramework.MetroLabelWeight.Bold;
             this.buttonAcceptanceTests.Location = new System.Drawing.Point(60, 280);
@@ -124,6 +127,7 @@ namespace Reserver
             // 
             // buttonAcceptanceTestsImage
             // 
+            this.buttonAcceptanceTestsImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(67)))), ((int)(((byte)(125)))));
             this.buttonAcceptanceTestsImage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonAcceptanceTestsImage.BackgroundImage")));
             this.buttonAcceptanceTestsImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.buttonAcceptanceTestsImage.Location = new System.Drawing.Point(0, 280);
@@ -134,6 +138,7 @@ namespace Reserver
             // 
             // buttonHistory
             // 
+            this.buttonHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(67)))), ((int)(((byte)(125)))));
             this.buttonHistory.FontSize = MetroFramework.MetroLabelSize.Small;
             this.buttonHistory.FontWeight = MetroFramework.MetroLabelWeight.Bold;
             this.buttonHistory.Location = new System.Drawing.Point(60, 140);
@@ -149,6 +154,7 @@ namespace Reserver
             // 
             // buttonHistoryImage
             // 
+            this.buttonHistoryImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(67)))), ((int)(((byte)(125)))));
             this.buttonHistoryImage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonHistoryImage.BackgroundImage")));
             this.buttonHistoryImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.buttonHistoryImage.Location = new System.Drawing.Point(0, 140);
@@ -159,6 +165,7 @@ namespace Reserver
             // 
             // buttonServerStatus
             // 
+            this.buttonServerStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(67)))), ((int)(((byte)(125)))));
             this.buttonServerStatus.FontSize = MetroFramework.MetroLabelSize.Small;
             this.buttonServerStatus.FontWeight = MetroFramework.MetroLabelWeight.Bold;
             this.buttonServerStatus.Location = new System.Drawing.Point(60, 0);
@@ -174,6 +181,7 @@ namespace Reserver
             // 
             // buttonServerStatusImage
             // 
+            this.buttonServerStatusImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(67)))), ((int)(((byte)(125)))));
             this.buttonServerStatusImage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonServerStatusImage.BackgroundImage")));
             this.buttonServerStatusImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.buttonServerStatusImage.Location = new System.Drawing.Point(0, 0);
@@ -184,7 +192,7 @@ namespace Reserver
             // 
             // metroPanelLogo
             // 
-            this.metroPanelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.metroPanelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(67)))), ((int)(((byte)(125)))));
             this.metroPanelLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("metroPanelLogo.BackgroundImage")));
             this.metroPanelLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.metroPanelLogo.Controls.Add(this.minimizeProgram);
@@ -202,8 +210,8 @@ namespace Reserver
             this.metroPanelLogo.VerticalScrollbarBarColor = true;
             this.metroPanelLogo.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanelLogo.VerticalScrollbarSize = 10;
-            this.metroPanelLogo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.metroPanelLogo_MouseDown);
-            this.metroPanelLogo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.metroPanelLogo_MouseMove);
+            this.metroPanelLogo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MetroPanelLogo_MouseDown);
+            this.metroPanelLogo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MetroPanelLogo_MouseMove);
             // 
             // minimizeProgram
             // 
@@ -215,7 +223,7 @@ namespace Reserver
             this.minimizeProgram.TabIndex = 8;
             this.minimizeProgram.Text = "_";
             this.minimizeProgram.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.minimizeProgram.Click += new System.EventHandler(this.minimizeProgram_Click);
+            this.minimizeProgram.Click += new System.EventHandler(this.MinimizeProgram_Click);
             // 
             // closeProgram
             // 
@@ -228,7 +236,7 @@ namespace Reserver
             this.closeProgram.TabIndex = 7;
             this.closeProgram.Text = "X";
             this.closeProgram.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.closeProgram.Click += new System.EventHandler(this.closeProgram_Click);
+            this.closeProgram.Click += new System.EventHandler(this.CloseProgram_Click);
             // 
             // metroLabelCurrentUser
             // 
@@ -247,47 +255,48 @@ namespace Reserver
             // 
             // pageLogin
             // 
-            this.pageLogin.BackColor = System.Drawing.Color.SlateGray;
-            this.pageLogin.Location = new System.Drawing.Point(210, 90);
+            this.pageLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(152)))));
+            this.pageLogin.Location = new System.Drawing.Point(200, 80);
             this.pageLogin.Name = "pageLogin";
             this.pageLogin.ParentForm = null;
-            this.pageLogin.Size = new System.Drawing.Size(680, 400);
+            this.pageLogin.Size = new System.Drawing.Size(700, 420);
             this.pageLogin.TabIndex = 6;
             // 
             // pageReleaseHistory
             // 
-            this.pageReleaseHistory.BackColor = System.Drawing.Color.SlateGray;
-            this.pageReleaseHistory.Location = new System.Drawing.Point(210, 90);
+            this.pageReleaseHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(152)))));
+            this.pageReleaseHistory.Location = new System.Drawing.Point(200, 80);
             this.pageReleaseHistory.Name = "pageReleaseHistory";
             this.pageReleaseHistory.ParentForm = null;
-            this.pageReleaseHistory.Size = new System.Drawing.Size(680, 400);
+            this.pageReleaseHistory.Size = new System.Drawing.Size(700, 420);
             this.pageReleaseHistory.TabIndex = 5;
             // 
             // pageSlotReservations
             // 
-            this.pageSlotReservations.BackColor = System.Drawing.Color.SlateGray;
-            this.pageSlotReservations.Location = new System.Drawing.Point(210, 90);
+            this.pageSlotReservations.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(152)))));
+            this.pageSlotReservations.Location = new System.Drawing.Point(200, 80);
             this.pageSlotReservations.Name = "pageSlotReservations";
             this.pageSlotReservations.ParentForm = null;
-            this.pageSlotReservations.Size = new System.Drawing.Size(680, 400);
+            this.pageSlotReservations.Size = new System.Drawing.Size(700, 420);
             this.pageSlotReservations.TabIndex = 5;
             // 
             // pageAcceptanceTests
             // 
-            this.pageAcceptanceTests.BackColor = System.Drawing.Color.SlateGray;
-            this.pageAcceptanceTests.Location = new System.Drawing.Point(210, 90);
+            this.pageAcceptanceTests.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(152)))));
+            this.pageAcceptanceTests.Location = new System.Drawing.Point(200, 80);
             this.pageAcceptanceTests.Name = "pageAcceptanceTests";
             this.pageAcceptanceTests.ParentForm = null;
-            this.pageAcceptanceTests.Size = new System.Drawing.Size(680, 400);
+            this.pageAcceptanceTests.Size = new System.Drawing.Size(700, 420);
             this.pageAcceptanceTests.TabIndex = 6;
             // 
             // pageServerStatus
             // 
-            this.pageServerStatus.BackColor = System.Drawing.Color.SlateGray;
-            this.pageServerStatus.Location = new System.Drawing.Point(210, 90);
+            this.pageServerStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(152)))));
+            this.pageServerStatus.Location = new System.Drawing.Point(200, 80);
+            this.pageServerStatus.Margin = new System.Windows.Forms.Padding(0);
             this.pageServerStatus.Name = "pageServerStatus";
             this.pageServerStatus.ParentForm = null;
-            this.pageServerStatus.Size = new System.Drawing.Size(680, 400);
+            this.pageServerStatus.Size = new System.Drawing.Size(700, 420);
             this.pageServerStatus.TabIndex = 5;
             // 
             // Reserver

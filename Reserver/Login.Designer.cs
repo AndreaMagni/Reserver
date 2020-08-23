@@ -45,7 +45,7 @@
             this.metroButtonLogin.TabIndex = 7;
             this.metroButtonLogin.Text = "Login";
             this.metroButtonLogin.UseSelectable = true;
-            this.metroButtonLogin.Click += new System.EventHandler(this.metroButtonLogin_Click_1);
+            this.metroButtonLogin.Click += new System.EventHandler(this.ButtonLogin_Click);
             // 
             // groupBoxLoginUsername
             // 
@@ -138,7 +138,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.SlateGray;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.Controls.Add(this.metroButtonLogin);
             this.Controls.Add(this.groupBoxLoginUsername);
             this.Controls.Add(this.groupBoxLoginPassword);

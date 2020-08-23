@@ -52,11 +52,11 @@ namespace Reserver
                         metroComboBoxUsers.ValueMember = "idutente";
                     }
 
-                    metroGridReleaseHistory_Load(sender, e);
+                    GridReleaseHistory_Load(sender, e);
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Richiesta al database fallita", "Errore DB", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    MessageBox.Show("Richiesta al database fallita", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                 }
                 finally
                 {
@@ -65,7 +65,7 @@ namespace Reserver
             }
         }
 
-        private void metroGridReleaseHistory_Load(object sender, EventArgs e)
+        private void GridReleaseHistory_Load(object sender, EventArgs e)
         {
             using (FbConnection connection = new FbConnection(ParentForm.ConnectionString))
             {
@@ -86,7 +86,7 @@ namespace Reserver
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Richiesta al database fallita", "Errore DB", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    MessageBox.Show("Richiesta al database fallita", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                 }
                 finally
                 {
@@ -95,7 +95,7 @@ namespace Reserver
             }
         }
 
-        private void metroButtonFilter_Click(object sender, EventArgs e)
+        private void ButtonFilter_Click(object sender, EventArgs e)
         {
             string filtro = "";
 

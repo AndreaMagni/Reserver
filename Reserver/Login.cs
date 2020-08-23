@@ -13,11 +13,11 @@ namespace Reserver
             InitializeComponent();
         }
 
-        private void metroButtonLogin_Click_1(object sender, EventArgs e)
+        private void ButtonLogin_Click(object sender, EventArgs e)
         {
             if (ParentForm == null)
             {
-                MessageBox.Show("Errore parent form", "Errore parent form", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Errore parent form", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             using (FbConnection connection = new FbConnection(ParentForm.ConnectionString))
@@ -36,17 +36,18 @@ namespace Reserver
                         //ParentForm.CurrentAvatar = Directory.GetCurrentDirectory() + readerUserInfo.GetString(2);
                         //ParentForm.SetToolTip(readerUserInfo.GetString(1));
                         ParentForm.pageServerStatus.FirstTimeLoad();
+                        ParentForm.SideMenuButton_SetActivePage("buttonServerStatus");
                         ParentForm.PageLoginVisibility = false;
                         ParentForm.PageServerStatusVisibility = true;
                     }
                     else
                     {
-                        MessageBox.Show("Utente non censito a sistema", "Stato connessione", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                        MessageBox.Show("Utente non censito a sistema", "Attenzione", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Richiesta al database fallita", "Errore DB", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    MessageBox.Show("Richiesta al database fallita", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                 }
                 finally
                 {

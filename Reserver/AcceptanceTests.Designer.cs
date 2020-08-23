@@ -184,7 +184,7 @@
             this.metroButtonSave.TabIndex = 43;
             this.metroButtonSave.Text = "Salva";
             this.metroButtonSave.UseSelectable = true;
-            this.metroButtonSave.Click += new System.EventHandler(this.metroButtonSave_Click);
+            this.metroButtonSave.Click += new System.EventHandler(this.ButtonSave_Click);
             // 
             // metroComboBoxServers
             // 
@@ -249,7 +249,7 @@
             this.metroGridAcceptanceTests.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.metroGridAcceptanceTests.Size = new System.Drawing.Size(640, 254);
             this.metroGridAcceptanceTests.TabIndex = 42;
-            this.metroGridAcceptanceTests.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.metroGridAcceptanceTests_CellContentClick);
+            this.metroGridAcceptanceTests.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridAcceptanceTests_CellContentClick);
             // 
             // CONCLUDI
             // 

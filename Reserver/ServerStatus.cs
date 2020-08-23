@@ -22,6 +22,7 @@ namespace Reserver
         {
             return (Image)(new Bitmap(imgToResize, size));
         }
+
         public static void SetToolTip(Control control, string username)
         {
             ToolTip toolTip = new ToolTip();
@@ -32,7 +33,7 @@ namespace Reserver
         {
             if (ParentForm == null)
             {
-                MessageBox.Show("Errore parent form", "Errore parent form", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                MessageBox.Show("Errore parent form", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
 
             using (FbConnection connection = new FbConnection(ParentForm.ConnectionString))
@@ -129,7 +130,7 @@ namespace Reserver
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Richiesta al database fallita", "Errore DB", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    MessageBox.Show("Richiesta al database fallita", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                 }
                 finally
                 {
@@ -151,17 +152,17 @@ namespace Reserver
                     if (buttonText == "Rilascia")
                     {
                         IniziaRilascio(connection, buttonName);
-                        updateStatus();
+                        UpdateStatus();
                     }
                     else
                     {
                         ConcludiRilascio(connection, buttonName);
-                        updateStatus();
+                        UpdateStatus();
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Richiesta al database fallita", "Errore DB", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    MessageBox.Show("Richiesta al database fallita", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                 }
                 finally
                 {
@@ -199,12 +200,12 @@ namespace Reserver
                 }
                 else
                 {
-                    MessageBox.Show("Rilascio in corso, aspettare o effettuare una prenotazione", "Rilascio", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                    MessageBox.Show("Rilascio in corso, aspettare o effettuare una prenotazione", "Attenzione", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                 }
             }
             else
             {
-                MessageBox.Show("Errore query lettura", "Stato connessione", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                MessageBox.Show("Errore query lettura", "Attenzione", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
             }
         }
 
@@ -234,16 +235,16 @@ namespace Reserver
             }
             else
             {
-                MessageBox.Show("Errore query lettura", "Stato connessione", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                MessageBox.Show("Errore query lettura", "Attenzione", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
             }
         }
 
         private void ButtonUpdateStatus_Click(object sender, EventArgs e)
         {
-            updateStatus();
+            UpdateStatus();
         }
 
-        private void updateStatus()
+        private void UpdateStatus()
         {
             using (FbConnection connection = new FbConnection(ParentForm.ConnectionString))
             {
@@ -287,7 +288,7 @@ namespace Reserver
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Richiesta al database fallita", "Errore DB", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    MessageBox.Show("Richiesta al database fallita", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                 }
                 finally
                 {
@@ -296,22 +297,23 @@ namespace Reserver
             }
         }
 
-        /*
-        private Timer serverStatusTimer;
-
-        public void InitTimer()
-        {
-            serverStatusTimer = new Timer();
-            serverStatusTimer.Tick += new EventHandler(ServerStatusTimer_Tick);
-            serverStatusTimer.Interval = 10000;
-            serverStatusTimer.Start();
-        }
-
-        private void ServerStatusTimer_Tick(object sender, EventArgs e)
-        {
-            UpdateStatus();
-        }
-        */
-
     }
 }
+
+
+/*
+private Timer serverStatusTimer;
+
+public void InitTimer()
+{
+    serverStatusTimer = new Timer();
+    serverStatusTimer.Tick += new EventHandler(ServerStatusTimer_Tick);
+    serverStatusTimer.Interval = 10000;
+    serverStatusTimer.Start();
+}
+
+private void ServerStatusTimer_Tick(object sender, EventArgs e)
+{
+    UpdateStatus();
+}
+*/
