@@ -58,24 +58,37 @@ namespace Reserver
                     connection.Open();
                     using (FbDataAdapter dataAdapterGrid = new FbDataAdapter(@"
                         select 
-                            c.IDCOLLAUDO,
                             s.DESCRIZIONE as Ambiente, 
+                            u.DENOMINAZIONE as Utente, 
                             c.DESCRIZIONE, 
                             c.INIZIOCOLLAUDO as Inizio, 
-                            c.FINECOLLAUDO as Fine, 
-                            u.DENOMINAZIONE as Utente, 
-                            c.STATO
+                            c.FINECOLLAUDO as Fine
                         from collaudi c
                         join servers s on s.IDSERVER = c.IDSERVER
                         join utenti u on u.IDUTENTE = c.IDUTENTE
-                        where c.STATO != 'ANNULLATO'
-                        and c.FINECOLLAUDO > CURRENT_TIMESTAMP
-                        order by c.INIZIOCOLLAUDO ASC", connection))
-                    /*      
-                    c.INIZIOCOLLAUDO as inizio_collaudo, 
-                    c.FINECOLLAUDO as fine_collaudo, 
-                    u.DENOMINAZIONE as Utente_inserimento, 
+                        order by c.INIZIOCOLLAUDO DESC", connection))
+                    /*
+                     * select 
+                        --c.IDCOLLAUDO,
+                        s.DESCRIZIONE as Ambiente, 
+                        c.DESCRIZIONE, 
+                        c.INIZIOCOLLAUDO as Inizio, 
+                        c.FINECOLLAUDO as Fine, 
+                        u.DENOMINAZIONE as Utente, 
+                        --c.STATO
+                    from collaudi c
+                    join servers s on s.IDSERVER = c.IDSERVER
+                    join utenti u on u.IDUTENTE = c.IDUTENTE
+                    where c.STATO != 'ANNULLATO'
+                    and c.FINECOLLAUDO > CURRENT_TIMESTAMP
+                    order by c.INIZIOCOLLAUDO ASC", connection))
                     */
+
+                /*      
+                c.INIZIOCOLLAUDO as inizio_collaudo, 
+                c.FINECOLLAUDO as fine_collaudo, 
+                u.DENOMINAZIONE as Utente_inserimento, 
+                */
                     {
                         DataTable dataTableGrid = new DataTable();
                         dataAdapterGrid.Fill(dataTableGrid);
