@@ -69,6 +69,36 @@
     <Compile Include="AcceptanceTests.Designer.cs">
       <DependentUpon>AcceptanceTests.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AcceptanceTestsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AcceptanceTestsForm.Designer.cs">
+      <DependentUpon>AcceptanceTestsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReleaseHistoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReleaseHistoryForm.Designer.cs">
+      <DependentUpon>ReleaseHistoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ServerStatusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ServerStatusForm.Designer.cs">
+      <DependentUpon>ServerStatusForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SlotReservationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SlotReservationForm.Designer.cs">
+      <DependentUpon>SlotReservationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -103,6 +133,18 @@
     </Compile>
     <EmbeddedResource Include="AcceptanceTests.resx">
       <DependentUpon>AcceptanceTests.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AcceptanceTestsForm.resx">
+      <DependentUpon>AcceptanceTestsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReleaseHistoryForm.resx">
+      <DependentUpon>ReleaseHistoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ServerStatusForm.resx">
+      <DependentUpon>ServerStatusForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -152,5 +194,6 @@
   <ItemGroup>
     <None Include="bin\Debug\img\refresh.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

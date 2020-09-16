@@ -16,7 +16,6 @@ C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\obj\Debug\Reserver.ReleaseHisto
 C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\obj\Debug\Reserver.Login.resources
 C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\obj\Debug\Reserver.SlotReservation.resources
 C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\obj\Debug\Reserver.AcceptanceTests.resources
-C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\obj\Debug\Reserver.csprojAssemblyReference.cache
 D:\Reserver\Reserver\bin\Debug\Reserver.exe.config
 D:\Reserver\Reserver\bin\Debug\Reserver.exe
 D:\Reserver\Reserver\bin\Debug\Reserver.pdb
@@ -59,3 +58,8 @@ C:\Users\Andrea\Desktop\Progetti GitHub\Reserver\trunk\Reserver\obj\Debug\Reserv
 C:\Users\Andrea\Desktop\Progetti GitHub\Reserver\trunk\Reserver\obj\Debug\Reserver.csproj.CopyComplete
 C:\Users\Andrea\Desktop\Progetti GitHub\Reserver\trunk\Reserver\obj\Debug\Reserver.exe
 C:\Users\Andrea\Desktop\Progetti GitHub\Reserver\trunk\Reserver\obj\Debug\Reserver.pdb
+C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\obj\Debug\Reserver.Forms.LoginForm.resources
+C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\obj\Debug\Reserver.csprojAssemblyReference.cache
+C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\obj\Debug\Reserver.Forms.ServerStatusForm.resources
+C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\obj\Debug\Reserver.Forms.ReleaseHistoryForm.resources
+C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\obj\Debug\Reserver.Forms.AcceptanceTestsForm.resources

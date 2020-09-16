@@ -1,25 +1,36 @@
-﻿using System;
+﻿using FirebirdSql.Data.FirebirdClient;
+using System;
 using System.Data;
 using System.Windows.Forms;
-using FirebirdSql.Data.FirebirdClient;
 
-namespace Reserver
+namespace Reserver.Forms
 {
-    public partial class AcceptanceTests : UserControl
+    public partial class AcceptanceTestsForm : Form
     {
-        new public Reserver ParentForm { get; set; }
+        Reserver reserverForm;
 
-        public AcceptanceTests()
+        public AcceptanceTestsForm()
         {
             InitializeComponent();
             metroComboBoxStartHour.SelectedIndex = 0;
             metroComboBoxEndHour.SelectedIndex = metroComboBoxEndHour.Items.Count - 1;
+            AcceptanceTestsServers_Load();
+            AcceptanceTests_Load();
         }
 
-        private void AcceptanceTests_Enter(object sender, EventArgs e)
+        public AcceptanceTestsForm(Reserver form)
         {
-            /*
-            using (FbConnection connection = new FbConnection(ParentForm.ConnectionString))
+            InitializeComponent();
+            reserverForm = form;
+            metroComboBoxStartHour.SelectedIndex = 0;
+            metroComboBoxEndHour.SelectedIndex = metroComboBoxEndHour.Items.Count - 1;
+            AcceptanceTestsServers_Load();
+            AcceptanceTests_Load();
+        }
+
+        private void AcceptanceTestsServers_Load()
+        {
+            using (FbConnection connection = new FbConnection(reserverForm.ConnectionString))
             {
                 try
                 {
@@ -48,13 +59,11 @@ namespace Reserver
                     connection.Close();
                 }
             }
-            */
         }
 
-        private void AcceptanceTests_Load(object sender, EventArgs e)
+        private void AcceptanceTests_Load()
         {
-            /*
-            using (FbConnection connection = new FbConnection(ParentForm.ConnectionString))
+            using (FbConnection connection = new FbConnection(reserverForm.ConnectionString))
             {
                 try
                 {
@@ -70,28 +79,6 @@ namespace Reserver
                         join servers s on s.IDSERVER = c.IDSERVER
                         join utenti u on u.IDUTENTE = c.IDUTENTE
                         order by c.INIZIOCOLLAUDO DESC", connection))
-                //
-                //     select 
-                //        --c.IDCOLLAUDO,
-                //        s.DESCRIZIONE as Ambiente, 
-                //        c.DESCRIZIONE, 
-                //        c.INIZIOCOLLAUDO as Inizio, 
-                //        c.FINECOLLAUDO as Fine, 
-                //        u.DENOMINAZIONE as Utente, 
-                //        --c.STATO
-                //    from collaudi c
-                //    join servers s on s.IDSERVER = c.IDSERVER
-                //    join utenti u on u.IDUTENTE = c.IDUTENTE
-                //    where c.STATO != 'ANNULLATO'
-                //    and c.FINECOLLAUDO > CURRENT_TIMESTAMP
-                //    order by c.INIZIOCOLLAUDO ASC", connection))
-                // 
-
-                ///    
-                //c.INIZIOCOLLAUDO as inizio_collaudo, 
-                //c.FINECOLLAUDO as fine_collaudo, 
-                //u.DENOMINAZIONE as Utente_inserimento, 
-                //
                     {
                         DataTable dataTableGrid = new DataTable();
                         dataAdapterGrid.Fill(dataTableGrid);
@@ -107,13 +94,11 @@ namespace Reserver
                     connection.Close();
                 }
             }
-*/
         }
 
         private void ButtonSave_Click(object sender, EventArgs e)
         {
-            /*
-            using (FbConnection connection = new FbConnection(ParentForm.ConnectionString))
+            using (FbConnection connection = new FbConnection(reserverForm.ConnectionString))
             {
                 try
                 {
@@ -127,7 +112,7 @@ namespace Reserver
                         string queryInsertNewAcceptanceTest = string.Format(@"INSERT INTO COLLAUDI(IDSERVER, IDUTENTE, INIZIOCOLLAUDO, FINECOLLAUDO, STATO, DESCRIZIONE, DATAINSERIMENTO)
                         VALUES({0}, {1}, '{2}', '{3}', 'INSERITO', '{4}', CURRENT_TIMESTAMP)",
                             metroComboBoxServers.SelectedValue,
-                            ParentForm.CurrentUserID,
+                            reserverForm.CurrentUserID,
                             (metroDateTimeStartDate.Value.Date.ToString("dd.MM.yyyy ") + metroComboBoxStartHour.Text + ":00").ToString(),
                             (metroDateTimeEndDate.Value.Date.ToString("dd.MM.yyyy ") + metroComboBoxEndHour.Text + ":00").ToString(),
                             metroTextBoxAcceptanceTestDescription.Text);
@@ -142,8 +127,8 @@ namespace Reserver
                 finally
                 {
                     connection.Close();
-                    this.AcceptanceTests_Enter(sender, e);
-                    this.AcceptanceTests_Load(sender, e);
+                    this.AcceptanceTestsServers_Load();
+                    this.AcceptanceTests_Load();
                     metroTextBoxAcceptanceTestDescription.Text = null;
                     metroDateTimeStartDate.Value = DateTime.Now;
                     metroDateTimeEndDate.Value = DateTime.Now;
@@ -151,7 +136,6 @@ namespace Reserver
                     metroComboBoxEndHour.SelectedIndex = metroComboBoxEndHour.Items.Count - 1;
                 }
             }
-            */
         }
 
         private bool CheckInsertingInformations()
@@ -160,7 +144,7 @@ namespace Reserver
             {
                 return false;
             }
-            if (DateTime.Parse(metroDateTimeStartDate.Value.Date.ToString("dd.MM.yyyy ") + metroComboBoxStartHour.Text+ ":00") >=
+            if (DateTime.Parse(metroDateTimeStartDate.Value.Date.ToString("dd.MM.yyyy ") + metroComboBoxStartHour.Text + ":00") >=
                 DateTime.Parse(metroDateTimeEndDate.Value.Date.ToString("dd.MM.yyyy ") + metroComboBoxEndHour.Text + ":00"))
             {
                 return false;
@@ -184,14 +168,14 @@ namespace Reserver
             switch (gridValue)
             {
                 case "Concludi":
-                    /*
-                    using (FbConnection connection = new FbConnection(ParentForm.ConnectionString))
+                    using (FbConnection connection = new FbConnection(reserverForm.ConnectionString))
                     {
                         try
                         {
                             connection.Open();
                             //Fixare e decidere come impostare i vari tasti
-                            string queryUpdateServerStatus = string.Format(@"UPDATE COLLAUDI SET STATO = 'OCCUPATO', IDUTENTE = {0} WHERE IDSERVER = {1}", ParentForm.CurrentUserID, 1);
+                            // Creare tasto che chiede se si vuole concludere il collaudo (se la persona è quella che l'ha creato) e rispetto a yes / no update 
+                            string queryUpdateServerStatus = string.Format(@"UPDATE COLLAUDI SET STATO = 'OCCUPATO', IDUTENTE = {0} WHERE IDSERVER = {1}", reserverForm.CurrentUserID, 1);
                             FbCommand updateServerStatus = new FbCommand(queryUpdateServerStatus, connection);
                             updateServerStatus.ExecuteNonQuery();
                         }
@@ -204,57 +188,13 @@ namespace Reserver
                             connection.Close();
                         }
                     }
-                    */
-                    break;
-
-                case "Annulla":
-                    break;
-
-                case "Cancella":
                     break;
 
                 default:
                     break;
             }
         }
+
+
     }
 }
-
-
-/*private void metroGridAcceptanceTests_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-{
-    if(e.ColumnIndex == 5)
-    {
-        this.metroGridAcceptanceTests[e.RowIndex,e.ColumnIndex].ReadOnly = false;
-        DataGridViewCell cell = metroGridAcceptanceTests.Rows[e.RowIndex].Cells[e.ColumnIndex];
-        metroGridAcceptanceTests.CurrentCell = cell;
-        metroGridAcceptanceTests.BeginEdit(true);
-    }
-}
-
-private void metroGridAcceptanceTests_CellLeave(object sender, DataGridViewCellEventArgs e)
-{
-    if (e.ColumnIndex == 5)
-    {
-        using (FbConnection connection = new FbConnection(ParentForm.ConnectionString))
-        {
-            try
-            {
-                connection.Open();
-                string queryUpdateStateAcceptanceTest = string.Format(@"update collaudi set stato = {0} where idcollaudo = {1}",
-                    metroGridAcceptanceTests[e.RowIndex, e.ColumnIndex].Value,
-                    metroGridAcceptanceTests[e.RowIndex, 0].Value);
-                FbCommand updateStateAcceptanceTest = new FbCommand(queryUpdateStateAcceptanceTest, connection);
-                updateStateAcceptanceTest.ExecuteNonQuery();
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Richiesta al database fallita", "Errore DB", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-            }
-            finally
-            {
-                connection.Close();
-            }
-        }
-    }
-}*/
