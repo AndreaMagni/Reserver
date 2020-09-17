@@ -62,4 +62,3 @@ C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\obj\Debug\Reserver.Forms.LoginF
 C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\obj\Debug\Reserver.Forms.ServerStatusForm.resources
 C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\obj\Debug\Reserver.Forms.ReleaseHistoryForm.resources
 C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\obj\Debug\Reserver.Forms.AcceptanceTestsForm.resources
-C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\obj\Debug\Reserver.csprojAssemblyReference.cache

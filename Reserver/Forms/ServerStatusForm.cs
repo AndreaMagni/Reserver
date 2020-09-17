@@ -59,7 +59,7 @@ namespace Reserver.Forms
                     DataTable tableStatusInfo = new DataTable();
                     dataReader.Fill(tableStatusInfo);
 
-                    int top = 25;
+                    int top = 100;
                     int insideLeft = 25;
 
                     foreach (DataRow row in tableStatusInfo.Rows)
@@ -197,6 +197,7 @@ namespace Reserver.Forms
                     paddingBottomPanel.Size = new Size(540, 25);
                     panelServerStatus.Controls.Add(paddingBottomPanel);
                     connection.Close();
+                    UpdateStatus();
                 }
             }
             
@@ -349,6 +350,8 @@ namespace Reserver.Forms
                         left outer join STORICORILASCI sr on sr.IDSERVER = r.IDSERVER and u.IDUTENTE = sr.IDUTENTE and sr.DATAFINE is null");
                     FbCommand getStatusInfo = new FbCommand(queryStatusInfo, connection);
                     FbDataReader readerGetServerID = getStatusInfo.ExecuteReader();
+
+                    metroLabel1.Text = string.Format(@"Ultimo aggiornamento dati {0}", DateTime.Now);
 
                     while (readerGetServerID.Read())
                     {

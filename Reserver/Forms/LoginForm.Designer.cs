@@ -29,57 +29,22 @@
         private void InitializeComponent()
         {
             this.btnLoginForm = new MetroFramework.Controls.MetroButton();
-            this.metroTextBoxLoginFormUsername = new MetroFramework.Controls.MetroTextBox();
             this.metroTextBoxLoginFormPassword = new MetroFramework.Controls.MetroTextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.groupBoxUsername = new System.Windows.Forms.GroupBox();
-            this.groupBoxPassword = new System.Windows.Forms.GroupBox();
+            this.metroTextBoxLoginFormUsername = new MetroFramework.Controls.MetroTextBox();
             this.tableLayoutPanel1.SuspendLayout();
-            this.groupBoxUsername.SuspendLayout();
-            this.groupBoxPassword.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnLoginForm
             // 
             this.btnLoginForm.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnLoginForm.Location = new System.Drawing.Point(303, 304);
+            this.btnLoginForm.Location = new System.Drawing.Point(303, 262);
             this.btnLoginForm.Name = "btnLoginForm";
             this.btnLoginForm.Size = new System.Drawing.Size(125, 25);
             this.btnLoginForm.TabIndex = 0;
             this.btnLoginForm.Text = "Login";
             this.btnLoginForm.UseSelectable = true;
             this.btnLoginForm.Click += new System.EventHandler(this.BtnLoginForm_Click);
-            // 
-            // metroTextBoxLoginFormUsername
-            // 
-            this.metroTextBoxLoginFormUsername.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            // 
-            // 
-            // 
-            this.metroTextBoxLoginFormUsername.CustomButton.Image = null;
-            this.metroTextBoxLoginFormUsername.CustomButton.Location = new System.Drawing.Point(164, 1);
-            this.metroTextBoxLoginFormUsername.CustomButton.Name = "";
-            this.metroTextBoxLoginFormUsername.CustomButton.Size = new System.Drawing.Size(23, 23);
-            this.metroTextBoxLoginFormUsername.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroTextBoxLoginFormUsername.CustomButton.TabIndex = 1;
-            this.metroTextBoxLoginFormUsername.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroTextBoxLoginFormUsername.CustomButton.UseSelectable = true;
-            this.metroTextBoxLoginFormUsername.CustomButton.Visible = false;
-            this.metroTextBoxLoginFormUsername.Lines = new string[0];
-            this.metroTextBoxLoginFormUsername.Location = new System.Drawing.Point(6, 19);
-            this.metroTextBoxLoginFormUsername.MaxLength = 32767;
-            this.metroTextBoxLoginFormUsername.Name = "metroTextBoxLoginFormUsername";
-            this.metroTextBoxLoginFormUsername.PasswordChar = '\0';
-            this.metroTextBoxLoginFormUsername.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.metroTextBoxLoginFormUsername.SelectedText = "";
-            this.metroTextBoxLoginFormUsername.SelectionLength = 0;
-            this.metroTextBoxLoginFormUsername.SelectionStart = 0;
-            this.metroTextBoxLoginFormUsername.ShortcutsEnabled = true;
-            this.metroTextBoxLoginFormUsername.Size = new System.Drawing.Size(188, 25);
-            this.metroTextBoxLoginFormUsername.TabIndex = 1;
-            this.metroTextBoxLoginFormUsername.UseSelectable = true;
-            this.metroTextBoxLoginFormUsername.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.metroTextBoxLoginFormUsername.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // metroTextBoxLoginFormPassword
             // 
@@ -97,10 +62,11 @@
             this.metroTextBoxLoginFormPassword.CustomButton.UseSelectable = true;
             this.metroTextBoxLoginFormPassword.CustomButton.Visible = false;
             this.metroTextBoxLoginFormPassword.Lines = new string[0];
-            this.metroTextBoxLoginFormPassword.Location = new System.Drawing.Point(6, 19);
+            this.metroTextBoxLoginFormPassword.Location = new System.Drawing.Point(272, 219);
             this.metroTextBoxLoginFormPassword.MaxLength = 32767;
             this.metroTextBoxLoginFormPassword.Name = "metroTextBoxLoginFormPassword";
             this.metroTextBoxLoginFormPassword.PasswordChar = '\0';
+            this.metroTextBoxLoginFormPassword.PromptText = "Password";
             this.metroTextBoxLoginFormPassword.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.metroTextBoxLoginFormPassword.SelectedText = "";
             this.metroTextBoxLoginFormPassword.SelectionLength = 0;
@@ -109,6 +75,7 @@
             this.metroTextBoxLoginFormPassword.Size = new System.Drawing.Size(188, 25);
             this.metroTextBoxLoginFormPassword.TabIndex = 2;
             this.metroTextBoxLoginFormPassword.UseSelectable = true;
+            this.metroTextBoxLoginFormPassword.WaterMark = "Password";
             this.metroTextBoxLoginFormPassword.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.metroTextBoxLoginFormPassword.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
@@ -118,47 +85,58 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
-            this.tableLayoutPanel1.Controls.Add(this.btnLoginForm, 1, 7);
-            this.tableLayoutPanel1.Controls.Add(this.groupBoxUsername, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.groupBoxPassword, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.metroTextBoxLoginFormPassword, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.metroTextBoxLoginFormUsername, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.btnLoginForm, 1, 5);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 10;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(734, 434);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
-            // groupBoxUsername
+            // metroTextBoxLoginFormUsername
             // 
-            this.groupBoxUsername.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.groupBoxUsername.Controls.Add(this.metroTextBoxLoginFormUsername);
-            this.groupBoxUsername.Location = new System.Drawing.Point(266, 132);
-            this.groupBoxUsername.Name = "groupBoxUsername";
-            this.groupBoxUsername.Size = new System.Drawing.Size(200, 50);
-            this.groupBoxUsername.TabIndex = 3;
-            this.groupBoxUsername.TabStop = false;
-            this.groupBoxUsername.Text = "Username";
+            this.metroTextBoxLoginFormUsername.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             // 
-            // groupBoxPassword
             // 
-            this.groupBoxPassword.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.groupBoxPassword.Controls.Add(this.metroTextBoxLoginFormPassword);
-            this.groupBoxPassword.Location = new System.Drawing.Point(266, 197);
-            this.groupBoxPassword.Name = "groupBoxPassword";
-            this.groupBoxPassword.Size = new System.Drawing.Size(200, 50);
-            this.groupBoxPassword.TabIndex = 4;
-            this.groupBoxPassword.TabStop = false;
-            this.groupBoxPassword.Text = "Password";
+            // 
+            this.metroTextBoxLoginFormUsername.CustomButton.Image = null;
+            this.metroTextBoxLoginFormUsername.CustomButton.Location = new System.Drawing.Point(228, 1);
+            this.metroTextBoxLoginFormUsername.CustomButton.Name = "";
+            this.metroTextBoxLoginFormUsername.CustomButton.Size = new System.Drawing.Size(23, 23);
+            this.metroTextBoxLoginFormUsername.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroTextBoxLoginFormUsername.CustomButton.TabIndex = 1;
+            this.metroTextBoxLoginFormUsername.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroTextBoxLoginFormUsername.CustomButton.UseSelectable = true;
+            this.metroTextBoxLoginFormUsername.CustomButton.Visible = false;
+            this.metroTextBoxLoginFormUsername.Lines = new string[0];
+            this.metroTextBoxLoginFormUsername.Location = new System.Drawing.Point(272, 188);
+            this.metroTextBoxLoginFormUsername.MaxLength = 32767;
+            this.metroTextBoxLoginFormUsername.Name = "metroTextBoxLoginFormUsername";
+            this.metroTextBoxLoginFormUsername.PasswordChar = '\0';
+            this.metroTextBoxLoginFormUsername.PromptText = "Username";
+            this.metroTextBoxLoginFormUsername.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.metroTextBoxLoginFormUsername.SelectedText = "";
+            this.metroTextBoxLoginFormUsername.SelectionLength = 0;
+            this.metroTextBoxLoginFormUsername.SelectionStart = 0;
+            this.metroTextBoxLoginFormUsername.ShortcutsEnabled = true;
+            this.metroTextBoxLoginFormUsername.Size = new System.Drawing.Size(188, 25);
+            this.metroTextBoxLoginFormUsername.TabIndex = 1;
+            this.metroTextBoxLoginFormUsername.UseSelectable = true;
+            this.metroTextBoxLoginFormUsername.WaterMark = "Username";
+            this.metroTextBoxLoginFormUsername.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.metroTextBoxLoginFormUsername.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // LoginForm
             // 
@@ -171,8 +149,6 @@
             this.Name = "LoginForm";
             this.ShowIcon = false;
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.groupBoxUsername.ResumeLayout(false);
-            this.groupBoxPassword.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -180,10 +156,8 @@
         #endregion
 
         private MetroFramework.Controls.MetroButton btnLoginForm;
-        private MetroFramework.Controls.MetroTextBox metroTextBoxLoginFormUsername;
         private MetroFramework.Controls.MetroTextBox metroTextBoxLoginFormPassword;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.GroupBox groupBoxUsername;
-        private System.Windows.Forms.GroupBox groupBoxPassword;
+        private MetroFramework.Controls.MetroTextBox metroTextBoxLoginFormUsername;
     }
 }
