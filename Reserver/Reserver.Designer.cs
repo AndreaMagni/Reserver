@@ -122,7 +122,7 @@ namespace Reserver
             this.labelCurrentUser.BackColor = System.Drawing.Color.Transparent;
             this.labelCurrentUser.FontSize = MetroFramework.MetroLabelSize.Small;
             this.labelCurrentUser.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.labelCurrentUser.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelCurrentUser.ForeColor = System.Drawing.SystemColors.ControlText;
             this.labelCurrentUser.Location = new System.Drawing.Point(368, 66);
             this.labelCurrentUser.MaximumSize = new System.Drawing.Size(300, 20);
             this.labelCurrentUser.Name = "labelCurrentUser";

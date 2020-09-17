@@ -59,7 +59,6 @@ C:\Users\Andrea\Desktop\Progetti GitHub\Reserver\trunk\Reserver\obj\Debug\Reserv
 C:\Users\Andrea\Desktop\Progetti GitHub\Reserver\trunk\Reserver\obj\Debug\Reserver.exe
 C:\Users\Andrea\Desktop\Progetti GitHub\Reserver\trunk\Reserver\obj\Debug\Reserver.pdb
 C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\obj\Debug\Reserver.Forms.LoginForm.resources
-C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\obj\Debug\Reserver.csprojAssemblyReference.cache
 C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\obj\Debug\Reserver.Forms.ServerStatusForm.resources
 C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\obj\Debug\Reserver.Forms.ReleaseHistoryForm.resources
 C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\obj\Debug\Reserver.Forms.AcceptanceTestsForm.resources

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServerStatusForm));
             this.buttonUpdateStatus = new System.Windows.Forms.Button();
             this.panelServerStatus = new MetroFramework.Controls.MetroPanel();
             this.metroScrollBar1 = new MetroFramework.Controls.MetroScrollBar();
@@ -38,14 +39,14 @@
             // 
             this.buttonUpdateStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonUpdateStatus.BackColor = System.Drawing.Color.Transparent;
-            this.buttonUpdateStatus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.buttonUpdateStatus.Image = global::Reserver.Properties.Resources.refresh;
+            this.buttonUpdateStatus.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonUpdateStatus.BackgroundImage")));
+            this.buttonUpdateStatus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonUpdateStatus.Location = new System.Drawing.Point(662, 12);
             this.buttonUpdateStatus.Margin = new System.Windows.Forms.Padding(15);
             this.buttonUpdateStatus.Name = "buttonUpdateStatus";
             this.buttonUpdateStatus.Size = new System.Drawing.Size(32, 32);
             this.buttonUpdateStatus.TabIndex = 1;
-            this.buttonUpdateStatus.UseVisualStyleBackColor = false;
+            this.buttonUpdateStatus.UseVisualStyleBackColor = true;
             // 
             // panelServerStatus
             // 
@@ -93,7 +94,6 @@
             this.Controls.Add(this.panelServerStatus);
             this.Name = "ServerStatusForm";
             this.ShowIcon = false;
-            this.Load += new System.EventHandler(this.ServerStatusForm_Load);
             this.panelServerStatus.ResumeLayout(false);
             this.ResumeLayout(false);
 

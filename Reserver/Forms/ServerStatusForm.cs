@@ -1,5 +1,6 @@
 ﻿using FirebirdSql.Data.FirebirdClient;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.IO;
@@ -59,10 +60,31 @@ namespace Reserver.Forms
                     dataReader.Fill(tableStatusInfo);
 
                     int top = 25;
-                    int left = 25;
+                    int insideLeft = 25;
 
                     foreach (DataRow row in tableStatusInfo.Rows)
                     {
+                        Label labelServerDescription = new Label();
+                        labelServerDescription.Top = top;
+                        labelServerDescription.Left = 50;
+                        labelServerDescription.Size = new Size(200, 70);
+                        labelServerDescription.BackColor = Color.FromArgb(93, 196, 196);
+                        labelServerDescription.Text = row["DESCRIZIONE"].ToString();
+                        labelServerDescription.TextAlign = ContentAlignment.MiddleCenter;
+                        labelServerDescription.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+                        labelServerDescription.Name = "groupBox" + row["CODICE"].ToString();
+                        panelServerStatus.Controls.Add(labelServerDescription);
+
+
+                        Panel panelServerInfo = new Panel();
+                        panelServerInfo.Top = top;
+                        panelServerInfo.Left = 250;
+                        panelServerInfo.Size = new Size(450, 70);
+                        panelServerInfo.BackColor = Color.FromArgb(124, 206, 206);
+                        panelServerStatus.Controls.Add(panelServerInfo);
+
+
+                        /*
                         GroupBox serverGroupBox = new GroupBox();
                         serverGroupBox.Text = row["DESCRIZIONE"].ToString();
                         serverGroupBox.Top = top;
@@ -71,13 +93,14 @@ namespace Reserver.Forms
                         serverGroupBox.Name = "groupBox" + row["CODICE"].ToString();
                         serverGroupBox.BackColor = Color.FromArgb(160, 218, 218);
                         panelServerStatus.Controls.Add(serverGroupBox);
-
+                        */
 
                         MetroFramework.Controls.MetroButton button = new MetroFramework.Controls.MetroButton();
-                        button.Left = left;
-                        button.Size = new Size(200, 25);
+                        button.Left = insideLeft;
+                        button.Size = new Size(150, 25);
                         button.Top = 25;
                         button.Name = row["CODICE"].ToString();
+                        button.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
                         // Inizio verifica utenti con rilasci attivi che hanno chiuso l'applicazione
                         string queryCheckRilasciAttivi = string.Format(@"SELECT * FROM servers s JOIN storicorilasci sr ON s.IDSERVER = sr.IDSERVER WHERE s.codice = '{0}' AND sr.idutente = {1} AND sr.attivo = 1", row["CODICE"].ToString(), reserverForm.CurrentUserID);
                         FbCommand getCheckRilasciAttivi = new FbCommand(queryCheckRilasciAttivi, connection);
@@ -95,31 +118,37 @@ namespace Reserver.Forms
 
 
                         Label statusLabel = new Label();
-                        statusLabel.Left = left + 220;
+                        statusLabel.Left = insideLeft + 175;
                         statusLabel.Top = 25;
                         statusLabel.Size = new Size(25, 25);
                         statusLabel.Name = "status" + row["CODICE"].ToString();
-                        Image statusImg = (row["STATO"].ToString() == "OCCUPATO") ? Image.FromFile(Directory.GetCurrentDirectory() + "\\img\\busy.png") : Image.FromFile(Directory.GetCurrentDirectory() + "\\img\\free.png");
+                        statusLabel.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+                        Image statusImg = (row["STATO"].ToString() == "OCCUPATO") ? Image.FromFile(Directory.GetCurrentDirectory() + "\\img\\remove.png") : Image.FromFile(Directory.GetCurrentDirectory() + "\\img\\check.png");
                         statusImg = ResizeImage(statusImg, new Size(25, 25));
                         statusLabel.Image = statusImg;
 
 
                         Label dateLabel = new Label();
-                        dateLabel.Left = left + 280;
-                        dateLabel.Top = 30;
+                        dateLabel.Left = insideLeft + 225;
+                        dateLabel.Top = 25;
+                        dateLabel.AutoSize = false;
+                        dateLabel.TextAlign = ContentAlignment.MiddleCenter;
+                        dateLabel.Font = new Font("Verdana", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+                        dateLabel.Size = new Size(100, 25);
                         dateLabel.Name = "date" + row["CODICE"].ToString();
-                        dateLabel.AutoSize = true;
+                        //dateLabel.BackColor = Color.Red;
 
 
                         Label avatarLabel = new Label();
-                        avatarLabel.Left = left + 460;
+                        avatarLabel.Left = insideLeft + 350;
                         avatarLabel.Top = 10;
                         avatarLabel.Size = new Size(50, 50);
                         avatarLabel.Name = "icon" + row["CODICE"].ToString();
 
                         if (row["STATO"].ToString() == "OCCUPATO")
                         {                            
-                            dateLabel.Text = row["DATAINIZIO"].ToString();
+                            dateLabel.Text = RelativeDate(Convert.ToDateTime(row["DATAINIZIO"].ToString()));
+                            SetToolTip(dateLabel, row["DATAINIZIO"].ToString());
 
                             Image img = Image.FromFile(Directory.GetCurrentDirectory() + row["AVATAR"].ToString());
                             img = ResizeImage(img, new Size(50, 50));
@@ -128,13 +157,13 @@ namespace Reserver.Forms
 
                         }
 
-                        serverGroupBox.Controls.Add(button);
-                        serverGroupBox.Controls.Add(statusLabel);
+                        panelServerInfo.Controls.Add(button);
+                        panelServerInfo.Controls.Add(statusLabel);
 
-                        serverGroupBox.Controls.Add(dateLabel); 
-                        serverGroupBox.Controls.Add(avatarLabel);
-
-                        top += serverGroupBox.Height + 10;
+                        panelServerInfo.Controls.Add(dateLabel);
+                        panelServerInfo.Controls.Add(avatarLabel);
+                        
+                        top += labelServerDescription.Height + 25;
                     }
                 }
                 catch (Exception ex)
@@ -144,7 +173,7 @@ namespace Reserver.Forms
                 finally
                 {
                     Panel paddingBottomPanel = new Panel();
-                    paddingBottomPanel.Top = (6*25) + (5*70);
+                    paddingBottomPanel.Top = (6*25) + (6*70);
                     paddingBottomPanel.Left = 75;
                     paddingBottomPanel.Size = new Size(540, 25);
                     panelServerStatus.Controls.Add(paddingBottomPanel);
@@ -305,7 +334,7 @@ namespace Reserver.Forms
                     while (readerGetServerID.Read())
                     {
                         Label currentLabel = this.Controls.Find("status" + readerGetServerID.GetString(1), true).FirstOrDefault() as Label;
-                        Image statusImg = (readerGetServerID.GetString(0) == "OCCUPATO") ? Image.FromFile(Directory.GetCurrentDirectory() + "\\img\\busy.png") : Image.FromFile(Directory.GetCurrentDirectory() + "\\img\\free.png");
+                        Image statusImg = (readerGetServerID.GetString(0) == "OCCUPATO") ? Image.FromFile(Directory.GetCurrentDirectory() + "\\img\\remove.png") : Image.FromFile(Directory.GetCurrentDirectory() + "\\img\\check.png");
                         statusImg = ResizeImage(statusImg, new Size(25, 25));
                         currentLabel.BackColor = Color.Transparent;
                         currentLabel.Image = statusImg;
@@ -315,7 +344,8 @@ namespace Reserver.Forms
 
                         if (readerGetServerID.GetString(0) == "OCCUPATO")
                         {
-                            currentDateLabel.Text = readerGetServerID.GetString(4);
+                            currentDateLabel.Text = RelativeDate(Convert.ToDateTime(readerGetServerID.GetString(4)));
+                            SetToolTip(currentDateLabel, readerGetServerID.GetString(4));
                             Image updatedStatusImg = Image.FromFile(Directory.GetCurrentDirectory() + readerGetServerID.GetString(3));
                             updatedStatusImg = ResizeImage(updatedStatusImg, new Size(50, 50));
                             currentIconLabel.Image = updatedStatusImg;
@@ -339,9 +369,33 @@ namespace Reserver.Forms
             }
         }
 
-        private void ServerStatusForm_Load(object sender, EventArgs e)
-        {
 
+        private string RelativeDate(DateTime theDate)
+        {
+            Dictionary<long, string> thresholds = new Dictionary<long, string>();
+            int minute = 60;
+            int hour = 60 * minute;
+            int day = 24 * hour;
+            thresholds.Add(60, "{0} secondi fa");
+            thresholds.Add(minute * 2, "1 minuto fa");
+            thresholds.Add(45 * minute, "{0} minuti fa");
+            thresholds.Add(120 * minute, "1 ora fa");
+            thresholds.Add(day, "{0} ore fa");
+            thresholds.Add(day * 2, "ieri");
+            thresholds.Add(day * 30, "{0} giorni fa");
+            //thresholds.Add(day * 365, "{0} months ago");
+            //thresholds.Add(long.MaxValue, "{0} years ago");
+            long since = (DateTime.Now.Ticks - theDate.Ticks) / 10000000;
+            foreach (long threshold in thresholds.Keys)
+            {
+                if (since < threshold)
+                {
+                    TimeSpan t = new TimeSpan((DateTime.Now.Ticks - theDate.Ticks));
+                    return string.Format(thresholds[threshold], (t.Days > 365 ? t.Days / 365 : (t.Days > 0 ? t.Days : (t.Hours > 0 ? t.Hours : (t.Minutes > 0 ? t.Minutes : (t.Seconds > 0 ? t.Seconds : 0))))).ToString());
+                }
+            }
+            return "";
         }
+
     }
 }

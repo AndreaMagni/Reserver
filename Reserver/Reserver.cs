@@ -24,15 +24,18 @@ namespace Reserver
         Forms.AcceptanceTestsForm acceptanceTestsForm;
         Forms.LoginForm loginForm;
 
+        Reserver reserver;
+
         // Constructor
         public Reserver()
         {
             InitializeComponent();
-            loginForm = new Forms.LoginForm(this);
+            reserver = this;
+            loginForm = new Forms.LoginForm(reserver);
             OpenChildForm(loginForm, emptySender);
-            serverStatusForm = new Forms.ServerStatusForm(this);
-            releaseHistoryForm = new Forms.ReleaseHistoryForm(this);
-            acceptanceTestsForm = new Forms.AcceptanceTestsForm(this);
+            serverStatusForm = new Forms.ServerStatusForm(reserver);
+            releaseHistoryForm = new Forms.ReleaseHistoryForm(reserver);
+            acceptanceTestsForm = new Forms.AcceptanceTestsForm(reserver);
         }
 
         #region Getter and Setter
@@ -42,6 +45,12 @@ namespace Reserver
         //    set { avatarBox.ImageLocation = value; }
         //    get { return avatarBox.ImageLocation; }
         //}
+
+        public Reserver externalReserver
+        {
+            set { reserver = value; }
+            get { return reserver; }
+        }
 
         public string CurrentUserName
         {
@@ -54,6 +63,7 @@ namespace Reserver
             set { idutente = value; }
             get { return idutente; }
         }
+
 
         public bool IsLogged
         {
@@ -115,12 +125,12 @@ namespace Reserver
             childForm.Show();
         }
 
-        public void LoadPage(object sender, string buttonName)
+        public void LoadPage(object sender, string buttonName, Reserver reserver)
         {
             switch (buttonName)
             {
                 case "btnSideMenuServerStatus":
-                    OpenChildForm(serverStatusForm, sender);
+                    OpenChildForm(new Forms.ServerStatusForm(reserver), sender);
                     break;
 
                 case "btnSideMenuReleaseHistory":
@@ -132,7 +142,7 @@ namespace Reserver
                     break;
 
                 default:
-                    OpenChildForm(new Forms.LoginForm(this), sender);
+                    OpenChildForm(loginForm, sender);
                     break;
             }
         }
@@ -146,7 +156,7 @@ namespace Reserver
             if (logged)
             {
                 string buttonName = ((Control)sender).Name;
-                LoadPage(sender, buttonName);
+                LoadPage(sender, buttonName, reserver);
                 SideMenuButton_SetActivePage(buttonName);
             }
             else

@@ -28,14 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gridReleaseHistory = new MetroFramework.Controls.MetroGrid();
             this.groupBoxFilter = new System.Windows.Forms.GroupBox();
             this.comboBoxUsers = new MetroFramework.Controls.MetroComboBox();
             this.buttonFilter = new MetroFramework.Controls.MetroButton();
             this.comboBoxServers = new MetroFramework.Controls.MetroComboBox();
+            this.dateTimeDa = new MetroFramework.Controls.MetroDateTime();
+            this.dateTimeA = new MetroFramework.Controls.MetroDateTime();
             ((System.ComponentModel.ISupportInitialize)(this.gridReleaseHistory)).BeginInit();
             this.groupBoxFilter.SuspendLayout();
             this.SuspendLayout();
@@ -53,55 +55,57 @@
             this.gridReleaseHistory.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridReleaseHistory.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gridReleaseHistory.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(180)))), ((int)(((byte)(197)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(180)))), ((int)(((byte)(197)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridReleaseHistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(180)))), ((int)(((byte)(197)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(180)))), ((int)(((byte)(197)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridReleaseHistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.gridReleaseHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(134)))), ((int)(((byte)(163)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridReleaseHistory.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(134)))), ((int)(((byte)(163)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridReleaseHistory.DefaultCellStyle = dataGridViewCellStyle5;
             this.gridReleaseHistory.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.gridReleaseHistory.EnableHeadersVisualStyles = false;
             this.gridReleaseHistory.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.gridReleaseHistory.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridReleaseHistory.Location = new System.Drawing.Point(12, 84);
+            this.gridReleaseHistory.Location = new System.Drawing.Point(12, 116);
             this.gridReleaseHistory.Name = "gridReleaseHistory";
             this.gridReleaseHistory.ReadOnly = true;
             this.gridReleaseHistory.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(180)))), ((int)(((byte)(197)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(180)))), ((int)(((byte)(197)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridReleaseHistory.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(180)))), ((int)(((byte)(197)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(180)))), ((int)(((byte)(197)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridReleaseHistory.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.gridReleaseHistory.RowHeadersWidth = 15;
             this.gridReleaseHistory.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridReleaseHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.gridReleaseHistory.Size = new System.Drawing.Size(710, 338);
+            this.gridReleaseHistory.Size = new System.Drawing.Size(710, 306);
             this.gridReleaseHistory.TabIndex = 44;
             // 
             // groupBoxFilter
             // 
             this.groupBoxFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxFilter.Controls.Add(this.dateTimeA);
+            this.groupBoxFilter.Controls.Add(this.dateTimeDa);
             this.groupBoxFilter.Controls.Add(this.comboBoxUsers);
             this.groupBoxFilter.Controls.Add(this.buttonFilter);
             this.groupBoxFilter.Controls.Add(this.comboBoxServers);
             this.groupBoxFilter.Location = new System.Drawing.Point(12, 12);
             this.groupBoxFilter.Name = "groupBoxFilter";
-            this.groupBoxFilter.Size = new System.Drawing.Size(710, 66);
+            this.groupBoxFilter.Size = new System.Drawing.Size(710, 98);
             this.groupBoxFilter.TabIndex = 45;
             this.groupBoxFilter.TabStop = false;
             this.groupBoxFilter.Text = "Filtri";
@@ -111,10 +115,10 @@
             this.comboBoxUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxUsers.FormattingEnabled = true;
             this.comboBoxUsers.ItemHeight = 23;
-            this.comboBoxUsers.Location = new System.Drawing.Point(238, 21);
+            this.comboBoxUsers.Location = new System.Drawing.Point(268, 21);
             this.comboBoxUsers.Margin = new System.Windows.Forms.Padding(5);
             this.comboBoxUsers.Name = "comboBoxUsers";
-            this.comboBoxUsers.Size = new System.Drawing.Size(220, 29);
+            this.comboBoxUsers.Size = new System.Drawing.Size(250, 29);
             this.comboBoxUsers.TabIndex = 46;
             this.comboBoxUsers.UseSelectable = true;
             // 
@@ -122,7 +126,7 @@
             // 
             this.buttonFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonFilter.Cursor = System.Windows.Forms.Cursors.Default;
-            this.buttonFilter.Location = new System.Drawing.Point(627, 21);
+            this.buttonFilter.Location = new System.Drawing.Point(585, 38);
             this.buttonFilter.Margin = new System.Windows.Forms.Padding(5);
             this.buttonFilter.Name = "buttonFilter";
             this.buttonFilter.Size = new System.Drawing.Size(75, 29);
@@ -139,9 +143,27 @@
             this.comboBoxServers.Location = new System.Drawing.Point(8, 21);
             this.comboBoxServers.Margin = new System.Windows.Forms.Padding(5);
             this.comboBoxServers.Name = "comboBoxServers";
-            this.comboBoxServers.Size = new System.Drawing.Size(220, 29);
+            this.comboBoxServers.Size = new System.Drawing.Size(250, 29);
             this.comboBoxServers.TabIndex = 44;
             this.comboBoxServers.UseSelectable = true;
+            // 
+            // dateTimeDa
+            // 
+            this.dateTimeDa.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimeDa.Location = new System.Drawing.Point(8, 58);
+            this.dateTimeDa.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dateTimeDa.Name = "dateTimeDa";
+            this.dateTimeDa.Size = new System.Drawing.Size(250, 29);
+            this.dateTimeDa.TabIndex = 47;
+            // 
+            // dateTimeA
+            // 
+            this.dateTimeA.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimeA.Location = new System.Drawing.Point(268, 58);
+            this.dateTimeA.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dateTimeA.Name = "dateTimeA";
+            this.dateTimeA.Size = new System.Drawing.Size(250, 29);
+            this.dateTimeA.TabIndex = 48;
             // 
             // ReleaseHistoryForm
             // 
@@ -166,5 +188,7 @@
         private MetroFramework.Controls.MetroComboBox comboBoxUsers;
         private MetroFramework.Controls.MetroButton buttonFilter;
         private MetroFramework.Controls.MetroComboBox comboBoxServers;
+        private MetroFramework.Controls.MetroDateTime dateTimeDa;
+        private MetroFramework.Controls.MetroDateTime dateTimeA;
     }
 }

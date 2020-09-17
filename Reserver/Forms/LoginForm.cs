@@ -18,7 +18,7 @@ namespace Reserver.Forms
             InitializeComponent();
             reserverForm = form;
         }
-
+                     
         private void BtnLoginForm_Click(object sender, EventArgs e)
         {
             if (ParentForm == null)
@@ -39,8 +39,9 @@ namespace Reserver.Forms
                         reserverForm.IsLogged = true;
                         reserverForm.CurrentUserID = readerUserInfo.GetInt32(0);
                         reserverForm.CurrentUserName = readerUserInfo.GetString(1);
+                        reserverForm.externalReserver = reserverForm;
                         reserverForm.SideMenuButton_SetActivePage("btnSideMenuServerStatus");
-                        reserverForm.LoadPage(sender, "btnSideMenuServerStatus");
+                        reserverForm.LoadPage(sender, "btnSideMenuServerStatus", reserverForm);
                     }
                     else
                     {

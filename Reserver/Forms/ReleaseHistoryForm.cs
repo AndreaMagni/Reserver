@@ -117,15 +117,21 @@ namespace Reserver.Forms
                 if (!comboBoxUsers.Text.Equals(""))
                 {
                     filtro = "DENOMINAZIONE = '" + comboBoxUsers.Text + "'";
+                    filtro = filtro + "and DATAINIZIO >= '" + dateTimeDa.Text + "' and DATAFINE <= '" + Convert.ToDateTime(dateTimeA.Text).AddDays(1) + "'";
+                }
+                else
+                {
+                    filtro = "DATAINIZIO >= '" + dateTimeDa.Text + "' and DATAFINE <= '" + Convert.ToDateTime(dateTimeA.Text).AddDays(1) + "'";
                 }
             }
             else
             {
-                filtro = "ambiente = '" + comboBoxServers.Text + "'";
+                filtro = "AMBIENTE = '" + comboBoxServers.Text + "'";
                 if (!comboBoxUsers.Text.Equals(""))
                 {
                     filtro = filtro + " and DENOMINAZIONE = '" + comboBoxUsers.Text + "'";
                 }
+                filtro = filtro + "and DATAINIZIO >= '" + dateTimeDa.Text + "' and DATAFINE <= '" + Convert.ToDateTime(dateTimeA.Text).AddDays(1) + "'";
             }
             dataTableGrid.DefaultView.RowFilter = filtro;
         }
