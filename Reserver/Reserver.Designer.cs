@@ -121,7 +121,7 @@ namespace Reserver
             this.labelCurrentUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelCurrentUser.BackColor = System.Drawing.Color.Transparent;
             this.labelCurrentUser.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.labelCurrentUser.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.labelCurrentUser.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.labelCurrentUser.ForeColor = System.Drawing.SystemColors.ControlText;
             this.labelCurrentUser.Location = new System.Drawing.Point(368, 66);
             this.labelCurrentUser.MaximumSize = new System.Drawing.Size(300, 20);
@@ -204,12 +204,13 @@ namespace Reserver
             // 
             this.btnSideMenuAcceptanceTests.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(206)))), ((int)(((byte)(206)))));
             this.btnSideMenuAcceptanceTests.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnSideMenuAcceptanceTests.Enabled = false;
             this.btnSideMenuAcceptanceTests.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(206)))), ((int)(((byte)(206)))));
             this.btnSideMenuAcceptanceTests.FlatAppearance.BorderSize = 0;
             this.btnSideMenuAcceptanceTests.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
             this.btnSideMenuAcceptanceTests.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
             this.btnSideMenuAcceptanceTests.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSideMenuAcceptanceTests.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSideMenuAcceptanceTests.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSideMenuAcceptanceTests.Image = ((System.Drawing.Image)(resources.GetObject("btnSideMenuAcceptanceTests.Image")));
             this.btnSideMenuAcceptanceTests.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSideMenuAcceptanceTests.Location = new System.Drawing.Point(0, 0);
@@ -247,7 +248,7 @@ namespace Reserver
             this.btnSideMenuReleaseHistory.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
             this.btnSideMenuReleaseHistory.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
             this.btnSideMenuReleaseHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSideMenuReleaseHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSideMenuReleaseHistory.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSideMenuReleaseHistory.Image = ((System.Drawing.Image)(resources.GetObject("btnSideMenuReleaseHistory.Image")));
             this.btnSideMenuReleaseHistory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSideMenuReleaseHistory.Location = new System.Drawing.Point(0, 0);
@@ -285,7 +286,7 @@ namespace Reserver
             this.btnSideMenuServerStatus.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
             this.btnSideMenuServerStatus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
             this.btnSideMenuServerStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSideMenuServerStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSideMenuServerStatus.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSideMenuServerStatus.Image = ((System.Drawing.Image)(resources.GetObject("btnSideMenuServerStatus.Image")));
             this.btnSideMenuServerStatus.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSideMenuServerStatus.Location = new System.Drawing.Point(0, 0);

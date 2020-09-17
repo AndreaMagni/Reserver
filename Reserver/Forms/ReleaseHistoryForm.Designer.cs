@@ -33,11 +33,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gridReleaseHistory = new MetroFramework.Controls.MetroGrid();
             this.groupBoxFilter = new System.Windows.Forms.GroupBox();
+            this.dateTimeA = new MetroFramework.Controls.MetroDateTime();
+            this.dateTimeDa = new MetroFramework.Controls.MetroDateTime();
             this.comboBoxUsers = new MetroFramework.Controls.MetroComboBox();
             this.buttonFilter = new MetroFramework.Controls.MetroButton();
             this.comboBoxServers = new MetroFramework.Controls.MetroComboBox();
-            this.dateTimeDa = new MetroFramework.Controls.MetroDateTime();
-            this.dateTimeA = new MetroFramework.Controls.MetroDateTime();
             ((System.ComponentModel.ISupportInitialize)(this.gridReleaseHistory)).BeginInit();
             this.groupBoxFilter.SuspendLayout();
             this.SuspendLayout();
@@ -110,6 +110,25 @@
             this.groupBoxFilter.TabStop = false;
             this.groupBoxFilter.Text = "Filtri";
             // 
+            // dateTimeA
+            // 
+            this.dateTimeA.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimeA.Location = new System.Drawing.Point(268, 58);
+            this.dateTimeA.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dateTimeA.Name = "dateTimeA";
+            this.dateTimeA.Size = new System.Drawing.Size(250, 29);
+            this.dateTimeA.TabIndex = 48;
+            // 
+            // dateTimeDa
+            // 
+            this.dateTimeDa.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimeDa.Location = new System.Drawing.Point(8, 58);
+            this.dateTimeDa.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dateTimeDa.Name = "dateTimeDa";
+            this.dateTimeDa.Size = new System.Drawing.Size(250, 29);
+            this.dateTimeDa.TabIndex = 47;
+            this.dateTimeDa.Value = new System.DateTime(2020, 9, 1, 0, 0, 0, 0);
+            // 
             // comboBoxUsers
             // 
             this.comboBoxUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -146,24 +165,6 @@
             this.comboBoxServers.Size = new System.Drawing.Size(250, 29);
             this.comboBoxServers.TabIndex = 44;
             this.comboBoxServers.UseSelectable = true;
-            // 
-            // dateTimeDa
-            // 
-            this.dateTimeDa.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimeDa.Location = new System.Drawing.Point(8, 58);
-            this.dateTimeDa.MinimumSize = new System.Drawing.Size(0, 29);
-            this.dateTimeDa.Name = "dateTimeDa";
-            this.dateTimeDa.Size = new System.Drawing.Size(250, 29);
-            this.dateTimeDa.TabIndex = 47;
-            // 
-            // dateTimeA
-            // 
-            this.dateTimeA.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimeA.Location = new System.Drawing.Point(268, 58);
-            this.dateTimeA.MinimumSize = new System.Drawing.Size(0, 29);
-            this.dateTimeA.Name = "dateTimeA";
-            this.dateTimeA.Size = new System.Drawing.Size(250, 29);
-            this.dateTimeA.TabIndex = 48;
             // 
             // ReleaseHistoryForm
             // 

@@ -78,7 +78,7 @@ namespace Reserver.Forms
             }
         }
 
-        private void ReleaseHistoryGrid_Load()
+        public void ReleaseHistoryGrid_Load()
         {
             using (FbConnection connection = new FbConnection(reserverForm.ConnectionString))
             {
@@ -134,6 +134,7 @@ namespace Reserver.Forms
                 filtro = filtro + "and DATAINIZIO >= '" + dateTimeDa.Text + "' and DATAFINE <= '" + Convert.ToDateTime(dateTimeA.Text).AddDays(1) + "'";
             }
             dataTableGrid.DefaultView.RowFilter = filtro;
+            dataTableGrid.DefaultView.Sort = "DATAINIZIO desc";
         }
 
     }

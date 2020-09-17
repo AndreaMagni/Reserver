@@ -100,7 +100,26 @@ namespace Reserver.Forms
                         button.Size = new Size(150, 25);
                         button.Top = 25;
                         button.Name = row["CODICE"].ToString();
+
+                        button.FontSize = MetroFramework.MetroButtonSize.Small;
+                        button.FontWeight = MetroFramework.MetroButtonWeight.Regular;
+
+                        /*
+                        for (int i = 0; i < panelServerInfo.Controls.Count; i++)
+                        {
+                            panelServerInfo.Controls[i].Font = new Font("Verdana", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+                        }
+                        */
+
+                        /*
+                        button.FlatAppearance.BorderSize = 0;
+                        button.FlatAppearance.BorderColor = Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(206)))), ((int)(((byte)(206)))));
+                        button.FlatAppearance.MouseDownBackColor = Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
+                        button.FlatAppearance.MouseOverBackColor = Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
+                        button.FlatStyle = FlatStyle.Flat;
                         button.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+                        */
+
                         // Inizio verifica utenti con rilasci attivi che hanno chiuso l'applicazione
                         string queryCheckRilasciAttivi = string.Format(@"SELECT * FROM servers s JOIN storicorilasci sr ON s.IDSERVER = sr.IDSERVER WHERE s.codice = '{0}' AND sr.idutente = {1} AND sr.attivo = 1", row["CODICE"].ToString(), reserverForm.CurrentUserID);
                         FbCommand getCheckRilasciAttivi = new FbCommand(queryCheckRilasciAttivi, connection);

@@ -41,7 +41,7 @@ namespace Reserver.Forms
                         reserverForm.CurrentUserName = readerUserInfo.GetString(1);
                         reserverForm.externalReserver = reserverForm;
                         reserverForm.SideMenuButton_SetActivePage("btnSideMenuServerStatus");
-                        reserverForm.LoadPage(sender, "btnSideMenuServerStatus", reserverForm);
+                        reserverForm.LoadPageAfterLogin(sender, reserverForm);
                     }
                     else
                     {

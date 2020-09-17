@@ -33,9 +33,6 @@ namespace Reserver
             reserver = this;
             loginForm = new Forms.LoginForm(reserver);
             OpenChildForm(loginForm, emptySender);
-            serverStatusForm = new Forms.ServerStatusForm(reserver);
-            releaseHistoryForm = new Forms.ReleaseHistoryForm(reserver);
-            acceptanceTestsForm = new Forms.AcceptanceTestsForm(reserver);
         }
 
         #region Getter and Setter
@@ -125,15 +122,24 @@ namespace Reserver
             childForm.Show();
         }
 
-        public void LoadPage(object sender, string buttonName, Reserver reserver)
+        public void LoadPageAfterLogin(object sender, Reserver reserver)
+        {
+            serverStatusForm = new Forms.ServerStatusForm(reserver);
+            releaseHistoryForm = new Forms.ReleaseHistoryForm(reserver);
+            acceptanceTestsForm = new Forms.AcceptanceTestsForm(reserver);
+            OpenChildForm(serverStatusForm, sender);
+        }
+
+        public void LoadPage(object sender, string buttonName)
         {
             switch (buttonName)
             {
                 case "btnSideMenuServerStatus":
-                    OpenChildForm(new Forms.ServerStatusForm(reserver), sender);
+                    OpenChildForm(serverStatusForm, sender);
                     break;
 
                 case "btnSideMenuReleaseHistory":
+                    releaseHistoryForm.ReleaseHistoryGrid_Load();
                     OpenChildForm(releaseHistoryForm, sender);
                     break;
 
@@ -156,7 +162,7 @@ namespace Reserver
             if (logged)
             {
                 string buttonName = ((Control)sender).Name;
-                LoadPage(sender, buttonName, reserver);
+                LoadPage(sender, buttonName);
                 SideMenuButton_SetActivePage(buttonName);
             }
             else
