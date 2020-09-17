@@ -35,7 +35,6 @@
             // 
             this.buttonUpdateStatus.BackColor = System.Drawing.Color.Transparent;
             this.buttonUpdateStatus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.buttonUpdateStatus.Image = global::Reserver.Properties.Resources.refresh;
             this.buttonUpdateStatus.Location = new System.Drawing.Point(633, 353);
             this.buttonUpdateStatus.Margin = new System.Windows.Forms.Padding(15);
             this.buttonUpdateStatus.Name = "buttonUpdateStatus";
