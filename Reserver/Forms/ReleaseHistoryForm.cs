@@ -90,7 +90,7 @@ namespace Reserver.Forms
                         from STORICORILASCI sr 
                         join SERVERS s on s.IDSERVER = sr.IDSERVER
                         join utenti u on u.IDUTENTE = sr.IDUTENTE
-                        order by sr.DATAFINE nulls first, sr.DATAINIZIO desc", connection))
+                        order by sr.DATAINIZIO desc, sr.DATAFINE nulls first", connection))
                     {
                         dataTableGrid = new DataTable();
                         dataAdapterGrid.Fill(dataTableGrid);
