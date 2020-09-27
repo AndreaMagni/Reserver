@@ -68,7 +68,7 @@ namespace Reserver.Forms
                         labelServerDescription.Top = top;
                         labelServerDescription.Left = 50;
                         labelServerDescription.Size = new Size(200, 70);
-                        labelServerDescription.BackColor = Color.FromArgb(93, 196, 196);
+                        labelServerDescription.BackColor = Color.FromArgb(92, 162, 150);
                         labelServerDescription.Text = row["DESCRIZIONE"].ToString();
                         labelServerDescription.TextAlign = ContentAlignment.MiddleCenter;
                         labelServerDescription.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -80,7 +80,7 @@ namespace Reserver.Forms
                         panelServerInfo.Top = top;
                         panelServerInfo.Left = 250;
                         panelServerInfo.Size = new Size(450, 70);
-                        panelServerInfo.BackColor = Color.FromArgb(124, 206, 206);
+                        panelServerInfo.BackColor = Color.FromArgb(142, 198, 189);
                         panelServerStatus.Controls.Add(panelServerInfo);
 
 

@@ -174,15 +174,15 @@ namespace Reserver
         public void SideMenuButton_SetActivePage(string buttonName)
         {
             MetroFramework.Controls.MetroPanel metroPanelServerStatus = this.Controls.Find("panelSideMenuServerStatus", true).FirstOrDefault() as MetroFramework.Controls.MetroPanel;
-            metroPanelServerStatus.BackColor = Color.FromArgb(124, 206, 206);
+            metroPanelServerStatus.BackColor = Color.FromArgb(142, 198, 189);
             MetroFramework.Controls.MetroPanel metroPanelHistory = this.Controls.Find("panelSideMenuReleaseHistory", true).FirstOrDefault() as MetroFramework.Controls.MetroPanel;
-            metroPanelHistory.BackColor = Color.FromArgb(124, 206, 206);
+            metroPanelHistory.BackColor = Color.FromArgb(142, 198, 189);
             MetroFramework.Controls.MetroPanel metroPanelAcceptanceTests = this.Controls.Find("panelSideMenuAcceptanceTests", true).FirstOrDefault() as MetroFramework.Controls.MetroPanel;
-            metroPanelAcceptanceTests.BackColor = Color.FromArgb(124, 206, 206);
+            metroPanelAcceptanceTests.BackColor = Color.FromArgb(142, 198, 189);
 
             string panelName = "panel" + buttonName.Substring(3);
             MetroFramework.Controls.MetroPanel metroPanel = this.Controls.Find(panelName, true).FirstOrDefault() as MetroFramework.Controls.MetroPanel;
-            metroPanel.BackColor = Color.FromArgb(93, 196, 196);
+            metroPanel.BackColor = Color.FromArgb( 92, 162, 150);
         }
 
         #endregion Side Menu Behavior
