@@ -113,9 +113,9 @@ namespace Reserver.Forms
 
                         /*
                         button.FlatAppearance.BorderSize = 0;
-                        button.FlatAppearance.BorderColor = Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(206)))), ((int)(((byte)(206)))));
-                        button.FlatAppearance.MouseDownBackColor = Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
-                        button.FlatAppearance.MouseOverBackColor = Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
+                        button.FlatAppearance.BorderColor = Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(198)))), ((int)(((byte)(189)))));
+                        button.FlatAppearance.MouseDownBackColor = Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(162)))), ((int)(((byte)(150)))));
+                        button.FlatAppearance.MouseOverBackColor = Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(162)))), ((int)(((byte)(150)))));
                         button.FlatStyle = FlatStyle.Flat;
                         button.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
                         */

@@ -37,7 +37,6 @@ D:\Reserver\Reserver\obj\Debug\Reserver.exe
 D:\Reserver\Reserver\obj\Debug\Reserver.pdb
 C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\bin\Debug\Tulpep.NotificationWindow.dll
 D:\Reserver\Reserver\bin\Debug\Tulpep.NotificationWindow.dll
-D:\Reserver\Reserver\obj\Debug\Reserver.csprojAssemblyReference.cache
 C:\Users\Andrea\Desktop\Progetti GitHub\Reserver\trunk\Reserver\bin\Debug\Reserver.exe.config
 C:\Users\Andrea\Desktop\Progetti GitHub\Reserver\trunk\Reserver\bin\Debug\Reserver.exe
 C:\Users\Andrea\Desktop\Progetti GitHub\Reserver\trunk\Reserver\bin\Debug\Reserver.pdb
@@ -62,3 +61,7 @@ C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\obj\Debug\Reserver.Forms.LoginF
 C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\obj\Debug\Reserver.Forms.ServerStatusForm.resources
 C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\obj\Debug\Reserver.Forms.ReleaseHistoryForm.resources
 C:\Users\Andrea\Desktop\GitHub\Reserver\Reserver\obj\Debug\Reserver.Forms.AcceptanceTestsForm.resources
+D:\Reserver\Reserver\obj\Debug\Reserver.Forms.AcceptanceTestsForm.resources
+D:\Reserver\Reserver\obj\Debug\Reserver.Forms.LoginForm.resources
+D:\Reserver\Reserver\obj\Debug\Reserver.Forms.ReleaseHistoryForm.resources
+D:\Reserver\Reserver\obj\Debug\Reserver.Forms.ServerStatusForm.resources

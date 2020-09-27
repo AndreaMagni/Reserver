@@ -44,7 +44,7 @@
             this.buttonUpdateStatus.BackColor = System.Drawing.Color.Transparent;
             this.buttonUpdateStatus.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonUpdateStatus.BackgroundImage")));
             this.buttonUpdateStatus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonUpdateStatus.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
+            this.buttonUpdateStatus.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(162)))), ((int)(((byte)(150)))));
             this.buttonUpdateStatus.FlatAppearance.BorderSize = 0;
             this.buttonUpdateStatus.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.buttonUpdateStatus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -59,7 +59,7 @@
             // panelServerStatus
             // 
             this.panelServerStatus.AutoScroll = true;
-            this.panelServerStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.panelServerStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(229)))), ((int)(((byte)(224)))));
             this.panelServerStatus.Controls.Add(this.metroPanel1);
             this.panelServerStatus.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelServerStatus.HorizontalScrollbar = true;
@@ -93,7 +93,7 @@
             // 
             // metroPanel1
             // 
-            this.metroPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
+            this.metroPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(162)))), ((int)(((byte)(150)))));
             this.metroPanel1.Controls.Add(this.metroLabel1);
             this.metroPanel1.Controls.Add(this.buttonUpdateStatus);
             this.metroPanel1.HorizontalScrollbarBarColor = true;
@@ -123,7 +123,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(229)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(734, 434);
             this.ControlBox = false;
             this.Controls.Add(this.metroScrollBar1);
