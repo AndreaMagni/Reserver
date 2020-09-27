@@ -298,7 +298,7 @@ namespace Reserver
             // panelHeaderLogo
             // 
             this.panelHeaderLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(162)))), ((int)(((byte)(150)))));
-            this.panelHeaderLogo.BackgroundImage = global::Reserver.Properties.Resources.ReserverLogo;
+            this.panelHeaderLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelHeaderLogo.BackgroundImage")));
             this.panelHeaderLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panelHeaderLogo.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelHeaderLogo.HorizontalScrollbarBarColor = true;
@@ -326,6 +326,7 @@ namespace Reserver
             this.Controls.Add(this.panelSideMenu);
             this.Controls.Add(this.panelHeader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Reserver";
             this.panelHeader.ResumeLayout(false);
             this.panelHeaderInfo.ResumeLayout(false);

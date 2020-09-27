@@ -65,3 +65,4 @@ D:\Reserver\Reserver\obj\Debug\Reserver.Forms.AcceptanceTestsForm.resources
 D:\Reserver\Reserver\obj\Debug\Reserver.Forms.LoginForm.resources
 D:\Reserver\Reserver\obj\Debug\Reserver.Forms.ReleaseHistoryForm.resources
 D:\Reserver\Reserver\obj\Debug\Reserver.Forms.ServerStatusForm.resources
+D:\Reserver\Reserver\obj\Debug\Reserver.csprojAssemblyReference.cache
