@@ -37,15 +37,15 @@ namespace Reserver
             this.minimizeProgram = new System.Windows.Forms.Label();
             this.labelCurrentUser = new MetroFramework.Controls.MetroLabel();
             this.closeProgram = new System.Windows.Forms.Label();
-            this.panelHeaderLogo = new MetroFramework.Controls.MetroPanel();
             this.panelSideMenu = new MetroFramework.Controls.MetroPanel();
             this.panelSideMenuAcceptanceTests = new MetroFramework.Controls.MetroPanel();
-            this.btnSideMenuAcceptanceTests = new System.Windows.Forms.Button();
             this.panelSideMenuReleaseHistory = new MetroFramework.Controls.MetroPanel();
-            this.btnSideMenuReleaseHistory = new System.Windows.Forms.Button();
             this.panelSideMenuServerStatus = new MetroFramework.Controls.MetroPanel();
-            this.btnSideMenuServerStatus = new System.Windows.Forms.Button();
             this.panelPage = new MetroFramework.Controls.MetroPanel();
+            this.btnSideMenuAcceptanceTests = new System.Windows.Forms.Button();
+            this.btnSideMenuReleaseHistory = new System.Windows.Forms.Button();
+            this.btnSideMenuServerStatus = new System.Windows.Forms.Button();
+            this.panelHeaderLogo = new MetroFramework.Controls.MetroPanel();
             this.panelHeader.SuspendLayout();
             this.panelHeaderInfo.SuspendLayout();
             this.panelSideMenu.SuspendLayout();
@@ -145,6 +145,159 @@ namespace Reserver
             this.closeProgram.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.closeProgram.Click += new System.EventHandler(this.BtnClose_Click);
             // 
+            // panelSideMenu
+            // 
+            this.panelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(67)))), ((int)(((byte)(125)))));
+            this.panelSideMenu.Controls.Add(this.panelSideMenuAcceptanceTests);
+            this.panelSideMenu.Controls.Add(this.panelSideMenuReleaseHistory);
+            this.panelSideMenu.Controls.Add(this.panelSideMenuServerStatus);
+            this.panelSideMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelSideMenu.HorizontalScrollbarBarColor = true;
+            this.panelSideMenu.HorizontalScrollbarHighlightOnWheel = false;
+            this.panelSideMenu.HorizontalScrollbarSize = 10;
+            this.panelSideMenu.Location = new System.Drawing.Point(0, 100);
+            this.panelSideMenu.Name = "panelSideMenu";
+            this.panelSideMenu.Size = new System.Drawing.Size(250, 495);
+            this.panelSideMenu.TabIndex = 20;
+            this.panelSideMenu.UseCustomBackColor = true;
+            this.panelSideMenu.VerticalScrollbarBarColor = true;
+            this.panelSideMenu.VerticalScrollbarHighlightOnWheel = false;
+            this.panelSideMenu.VerticalScrollbarSize = 10;
+            // 
+            // panelSideMenuAcceptanceTests
+            // 
+            this.panelSideMenuAcceptanceTests.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(198)))), ((int)(((byte)(189)))));
+            this.panelSideMenuAcceptanceTests.Controls.Add(this.btnSideMenuAcceptanceTests);
+            this.panelSideMenuAcceptanceTests.HorizontalScrollbarBarColor = true;
+            this.panelSideMenuAcceptanceTests.HorizontalScrollbarHighlightOnWheel = false;
+            this.panelSideMenuAcceptanceTests.HorizontalScrollbarSize = 10;
+            this.panelSideMenuAcceptanceTests.Location = new System.Drawing.Point(0, 330);
+            this.panelSideMenuAcceptanceTests.Name = "panelSideMenuAcceptanceTests";
+            this.panelSideMenuAcceptanceTests.Size = new System.Drawing.Size(250, 165);
+            this.panelSideMenuAcceptanceTests.TabIndex = 4;
+            this.panelSideMenuAcceptanceTests.UseCustomBackColor = true;
+            this.panelSideMenuAcceptanceTests.VerticalScrollbarBarColor = true;
+            this.panelSideMenuAcceptanceTests.VerticalScrollbarHighlightOnWheel = false;
+            this.panelSideMenuAcceptanceTests.VerticalScrollbarSize = 10;
+            // 
+            // panelSideMenuReleaseHistory
+            // 
+            this.panelSideMenuReleaseHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(198)))), ((int)(((byte)(189)))));
+            this.panelSideMenuReleaseHistory.Controls.Add(this.btnSideMenuReleaseHistory);
+            this.panelSideMenuReleaseHistory.HorizontalScrollbarBarColor = true;
+            this.panelSideMenuReleaseHistory.HorizontalScrollbarHighlightOnWheel = false;
+            this.panelSideMenuReleaseHistory.HorizontalScrollbarSize = 10;
+            this.panelSideMenuReleaseHistory.Location = new System.Drawing.Point(0, 165);
+            this.panelSideMenuReleaseHistory.Name = "panelSideMenuReleaseHistory";
+            this.panelSideMenuReleaseHistory.Size = new System.Drawing.Size(250, 165);
+            this.panelSideMenuReleaseHistory.TabIndex = 3;
+            this.panelSideMenuReleaseHistory.UseCustomBackColor = true;
+            this.panelSideMenuReleaseHistory.VerticalScrollbarBarColor = true;
+            this.panelSideMenuReleaseHistory.VerticalScrollbarHighlightOnWheel = false;
+            this.panelSideMenuReleaseHistory.VerticalScrollbarSize = 10;
+            // 
+            // panelSideMenuServerStatus
+            // 
+            this.panelSideMenuServerStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(198)))), ((int)(((byte)(189)))));
+            this.panelSideMenuServerStatus.Controls.Add(this.btnSideMenuServerStatus);
+            this.panelSideMenuServerStatus.HorizontalScrollbarBarColor = true;
+            this.panelSideMenuServerStatus.HorizontalScrollbarHighlightOnWheel = false;
+            this.panelSideMenuServerStatus.HorizontalScrollbarSize = 10;
+            this.panelSideMenuServerStatus.Location = new System.Drawing.Point(0, 0);
+            this.panelSideMenuServerStatus.Name = "panelSideMenuServerStatus";
+            this.panelSideMenuServerStatus.Size = new System.Drawing.Size(250, 165);
+            this.panelSideMenuServerStatus.TabIndex = 2;
+            this.panelSideMenuServerStatus.UseCustomBackColor = true;
+            this.panelSideMenuServerStatus.VerticalScrollbarBarColor = true;
+            this.panelSideMenuServerStatus.VerticalScrollbarHighlightOnWheel = false;
+            this.panelSideMenuServerStatus.VerticalScrollbarSize = 10;
+            // 
+            // panelPage
+            // 
+            this.panelPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(229)))), ((int)(((byte)(224)))));
+            this.panelPage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelPage.HorizontalScrollbarBarColor = true;
+            this.panelPage.HorizontalScrollbarHighlightOnWheel = false;
+            this.panelPage.HorizontalScrollbarSize = 10;
+            this.panelPage.Location = new System.Drawing.Point(250, 100);
+            this.panelPage.Name = "panelPage";
+            this.panelPage.Size = new System.Drawing.Size(750, 495);
+            this.panelPage.TabIndex = 21;
+            this.panelPage.UseCustomBackColor = true;
+            this.panelPage.VerticalScrollbarBarColor = true;
+            this.panelPage.VerticalScrollbarHighlightOnWheel = false;
+            this.panelPage.VerticalScrollbarSize = 10;
+            // 
+            // btnSideMenuAcceptanceTests
+            // 
+            this.btnSideMenuAcceptanceTests.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(198)))), ((int)(((byte)(189)))));
+            this.btnSideMenuAcceptanceTests.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnSideMenuAcceptanceTests.Enabled = false;
+            this.btnSideMenuAcceptanceTests.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(198)))), ((int)(((byte)(189)))));
+            this.btnSideMenuAcceptanceTests.FlatAppearance.BorderSize = 0;
+            this.btnSideMenuAcceptanceTests.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(162)))), ((int)(((byte)(150)))));
+            this.btnSideMenuAcceptanceTests.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(162)))), ((int)(((byte)(150)))));
+            this.btnSideMenuAcceptanceTests.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSideMenuAcceptanceTests.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSideMenuAcceptanceTests.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(74)))), ((int)(((byte)(96)))));
+            this.btnSideMenuAcceptanceTests.Image = ((System.Drawing.Image)(resources.GetObject("btnSideMenuAcceptanceTests.Image")));
+            this.btnSideMenuAcceptanceTests.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSideMenuAcceptanceTests.Location = new System.Drawing.Point(0, 0);
+            this.btnSideMenuAcceptanceTests.Name = "btnSideMenuAcceptanceTests";
+            this.btnSideMenuAcceptanceTests.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnSideMenuAcceptanceTests.Size = new System.Drawing.Size(240, 165);
+            this.btnSideMenuAcceptanceTests.TabIndex = 4;
+            this.btnSideMenuAcceptanceTests.Text = "            COLLAUDI";
+            this.btnSideMenuAcceptanceTests.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSideMenuAcceptanceTests.UseVisualStyleBackColor = false;
+            this.btnSideMenuAcceptanceTests.Click += new System.EventHandler(this.SideMenuButton_Click);
+            // 
+            // btnSideMenuReleaseHistory
+            // 
+            this.btnSideMenuReleaseHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(198)))), ((int)(((byte)(189)))));
+            this.btnSideMenuReleaseHistory.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnSideMenuReleaseHistory.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(198)))), ((int)(((byte)(189)))));
+            this.btnSideMenuReleaseHistory.FlatAppearance.BorderSize = 0;
+            this.btnSideMenuReleaseHistory.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(162)))), ((int)(((byte)(150)))));
+            this.btnSideMenuReleaseHistory.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(162)))), ((int)(((byte)(150)))));
+            this.btnSideMenuReleaseHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSideMenuReleaseHistory.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSideMenuReleaseHistory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(74)))), ((int)(((byte)(96)))));
+            this.btnSideMenuReleaseHistory.Image = ((System.Drawing.Image)(resources.GetObject("btnSideMenuReleaseHistory.Image")));
+            this.btnSideMenuReleaseHistory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSideMenuReleaseHistory.Location = new System.Drawing.Point(0, 0);
+            this.btnSideMenuReleaseHistory.Name = "btnSideMenuReleaseHistory";
+            this.btnSideMenuReleaseHistory.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnSideMenuReleaseHistory.Size = new System.Drawing.Size(240, 165);
+            this.btnSideMenuReleaseHistory.TabIndex = 3;
+            this.btnSideMenuReleaseHistory.Text = "            STORICO RILASCI";
+            this.btnSideMenuReleaseHistory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSideMenuReleaseHistory.UseVisualStyleBackColor = false;
+            this.btnSideMenuReleaseHistory.Click += new System.EventHandler(this.SideMenuButton_Click);
+            // 
+            // btnSideMenuServerStatus
+            // 
+            this.btnSideMenuServerStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(198)))), ((int)(((byte)(189)))));
+            this.btnSideMenuServerStatus.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnSideMenuServerStatus.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(198)))), ((int)(((byte)(189)))));
+            this.btnSideMenuServerStatus.FlatAppearance.BorderSize = 0;
+            this.btnSideMenuServerStatus.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(162)))), ((int)(((byte)(150)))));
+            this.btnSideMenuServerStatus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(162)))), ((int)(((byte)(150)))));
+            this.btnSideMenuServerStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSideMenuServerStatus.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSideMenuServerStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(74)))), ((int)(((byte)(96)))));
+            this.btnSideMenuServerStatus.Image = ((System.Drawing.Image)(resources.GetObject("btnSideMenuServerStatus.Image")));
+            this.btnSideMenuServerStatus.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSideMenuServerStatus.Location = new System.Drawing.Point(0, 0);
+            this.btnSideMenuServerStatus.Name = "btnSideMenuServerStatus";
+            this.btnSideMenuServerStatus.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnSideMenuServerStatus.Size = new System.Drawing.Size(240, 165);
+            this.btnSideMenuServerStatus.TabIndex = 2;
+            this.btnSideMenuServerStatus.Text = "            STATO SERVER";
+            this.btnSideMenuServerStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSideMenuServerStatus.UseVisualStyleBackColor = false;
+            this.btnSideMenuServerStatus.Click += new System.EventHandler(this.SideMenuButton_Click);
+            // 
             // panelHeaderLogo
             // 
             this.panelHeaderLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(162)))), ((int)(((byte)(150)))));
@@ -165,165 +318,12 @@ namespace Reserver
             this.panelHeaderLogo.VerticalScrollbarSize = 10;
             this.panelHeaderLogo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelHeader_MouseDown);
             // 
-            // panelSideMenu
-            // 
-            this.panelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(67)))), ((int)(((byte)(125)))));
-            this.panelSideMenu.Controls.Add(this.panelSideMenuAcceptanceTests);
-            this.panelSideMenu.Controls.Add(this.panelSideMenuReleaseHistory);
-            this.panelSideMenu.Controls.Add(this.panelSideMenuServerStatus);
-            this.panelSideMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelSideMenu.HorizontalScrollbarBarColor = true;
-            this.panelSideMenu.HorizontalScrollbarHighlightOnWheel = false;
-            this.panelSideMenu.HorizontalScrollbarSize = 10;
-            this.panelSideMenu.Location = new System.Drawing.Point(0, 100);
-            this.panelSideMenu.Name = "panelSideMenu";
-            this.panelSideMenu.Size = new System.Drawing.Size(250, 450);
-            this.panelSideMenu.TabIndex = 20;
-            this.panelSideMenu.UseCustomBackColor = true;
-            this.panelSideMenu.VerticalScrollbarBarColor = true;
-            this.panelSideMenu.VerticalScrollbarHighlightOnWheel = false;
-            this.panelSideMenu.VerticalScrollbarSize = 10;
-            // 
-            // panelSideMenuAcceptanceTests
-            // 
-            this.panelSideMenuAcceptanceTests.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(198)))), ((int)(((byte)(189)))));
-            this.panelSideMenuAcceptanceTests.Controls.Add(this.btnSideMenuAcceptanceTests);
-            this.panelSideMenuAcceptanceTests.HorizontalScrollbarBarColor = true;
-            this.panelSideMenuAcceptanceTests.HorizontalScrollbarHighlightOnWheel = false;
-            this.panelSideMenuAcceptanceTests.HorizontalScrollbarSize = 10;
-            this.panelSideMenuAcceptanceTests.Location = new System.Drawing.Point(0, 300);
-            this.panelSideMenuAcceptanceTests.Name = "panelSideMenuAcceptanceTests";
-            this.panelSideMenuAcceptanceTests.Size = new System.Drawing.Size(250, 150);
-            this.panelSideMenuAcceptanceTests.TabIndex = 4;
-            this.panelSideMenuAcceptanceTests.UseCustomBackColor = true;
-            this.panelSideMenuAcceptanceTests.VerticalScrollbarBarColor = true;
-            this.panelSideMenuAcceptanceTests.VerticalScrollbarHighlightOnWheel = false;
-            this.panelSideMenuAcceptanceTests.VerticalScrollbarSize = 10;
-            // 
-            // btnSideMenuAcceptanceTests
-            // 
-            this.btnSideMenuAcceptanceTests.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(198)))), ((int)(((byte)(189)))));
-            this.btnSideMenuAcceptanceTests.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnSideMenuAcceptanceTests.Enabled = false;
-            this.btnSideMenuAcceptanceTests.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(198)))), ((int)(((byte)(189)))));
-            this.btnSideMenuAcceptanceTests.FlatAppearance.BorderSize = 0;
-            this.btnSideMenuAcceptanceTests.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(162)))), ((int)(((byte)(150)))));
-            this.btnSideMenuAcceptanceTests.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(162)))), ((int)(((byte)(150)))));
-            this.btnSideMenuAcceptanceTests.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSideMenuAcceptanceTests.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSideMenuAcceptanceTests.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(74)))), ((int)(((byte)(96)))));
-            this.btnSideMenuAcceptanceTests.Image = ((System.Drawing.Image)(resources.GetObject("btnSideMenuAcceptanceTests.Image")));
-            this.btnSideMenuAcceptanceTests.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSideMenuAcceptanceTests.Location = new System.Drawing.Point(0, 0);
-            this.btnSideMenuAcceptanceTests.Name = "btnSideMenuAcceptanceTests";
-            this.btnSideMenuAcceptanceTests.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnSideMenuAcceptanceTests.Size = new System.Drawing.Size(240, 150);
-            this.btnSideMenuAcceptanceTests.TabIndex = 4;
-            this.btnSideMenuAcceptanceTests.Text = "            COLLAUDI";
-            this.btnSideMenuAcceptanceTests.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSideMenuAcceptanceTests.UseVisualStyleBackColor = false;
-            this.btnSideMenuAcceptanceTests.Click += new System.EventHandler(this.SideMenuButton_Click);
-            // 
-            // panelSideMenuReleaseHistory
-            // 
-            this.panelSideMenuReleaseHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(198)))), ((int)(((byte)(189)))));
-            this.panelSideMenuReleaseHistory.Controls.Add(this.btnSideMenuReleaseHistory);
-            this.panelSideMenuReleaseHistory.HorizontalScrollbarBarColor = true;
-            this.panelSideMenuReleaseHistory.HorizontalScrollbarHighlightOnWheel = false;
-            this.panelSideMenuReleaseHistory.HorizontalScrollbarSize = 10;
-            this.panelSideMenuReleaseHistory.Location = new System.Drawing.Point(0, 150);
-            this.panelSideMenuReleaseHistory.Name = "panelSideMenuReleaseHistory";
-            this.panelSideMenuReleaseHistory.Size = new System.Drawing.Size(250, 150);
-            this.panelSideMenuReleaseHistory.TabIndex = 3;
-            this.panelSideMenuReleaseHistory.UseCustomBackColor = true;
-            this.panelSideMenuReleaseHistory.VerticalScrollbarBarColor = true;
-            this.panelSideMenuReleaseHistory.VerticalScrollbarHighlightOnWheel = false;
-            this.panelSideMenuReleaseHistory.VerticalScrollbarSize = 10;
-            // 
-            // btnSideMenuReleaseHistory
-            // 
-            this.btnSideMenuReleaseHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(198)))), ((int)(((byte)(189)))));
-            this.btnSideMenuReleaseHistory.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnSideMenuReleaseHistory.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(198)))), ((int)(((byte)(189)))));
-            this.btnSideMenuReleaseHistory.FlatAppearance.BorderSize = 0;
-            this.btnSideMenuReleaseHistory.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(162)))), ((int)(((byte)(150)))));
-            this.btnSideMenuReleaseHistory.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(162)))), ((int)(((byte)(150)))));
-            this.btnSideMenuReleaseHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSideMenuReleaseHistory.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSideMenuReleaseHistory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(74)))), ((int)(((byte)(96)))));
-            this.btnSideMenuReleaseHistory.Image = ((System.Drawing.Image)(resources.GetObject("btnSideMenuReleaseHistory.Image")));
-            this.btnSideMenuReleaseHistory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSideMenuReleaseHistory.Location = new System.Drawing.Point(0, 0);
-            this.btnSideMenuReleaseHistory.Name = "btnSideMenuReleaseHistory";
-            this.btnSideMenuReleaseHistory.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnSideMenuReleaseHistory.Size = new System.Drawing.Size(240, 150);
-            this.btnSideMenuReleaseHistory.TabIndex = 3;
-            this.btnSideMenuReleaseHistory.Text = "            STORICO RILASCI";
-            this.btnSideMenuReleaseHistory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSideMenuReleaseHistory.UseVisualStyleBackColor = false;
-            this.btnSideMenuReleaseHistory.Click += new System.EventHandler(this.SideMenuButton_Click);
-            // 
-            // panelSideMenuServerStatus
-            // 
-            this.panelSideMenuServerStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(198)))), ((int)(((byte)(189)))));
-            this.panelSideMenuServerStatus.Controls.Add(this.btnSideMenuServerStatus);
-            this.panelSideMenuServerStatus.HorizontalScrollbarBarColor = true;
-            this.panelSideMenuServerStatus.HorizontalScrollbarHighlightOnWheel = false;
-            this.panelSideMenuServerStatus.HorizontalScrollbarSize = 10;
-            this.panelSideMenuServerStatus.Location = new System.Drawing.Point(0, 0);
-            this.panelSideMenuServerStatus.Name = "panelSideMenuServerStatus";
-            this.panelSideMenuServerStatus.Size = new System.Drawing.Size(250, 150);
-            this.panelSideMenuServerStatus.TabIndex = 2;
-            this.panelSideMenuServerStatus.UseCustomBackColor = true;
-            this.panelSideMenuServerStatus.VerticalScrollbarBarColor = true;
-            this.panelSideMenuServerStatus.VerticalScrollbarHighlightOnWheel = false;
-            this.panelSideMenuServerStatus.VerticalScrollbarSize = 10;
-            // 
-            // btnSideMenuServerStatus
-            // 
-            this.btnSideMenuServerStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(198)))), ((int)(((byte)(189)))));
-            this.btnSideMenuServerStatus.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnSideMenuServerStatus.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(198)))), ((int)(((byte)(189)))));
-            this.btnSideMenuServerStatus.FlatAppearance.BorderSize = 0;
-            this.btnSideMenuServerStatus.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(162)))), ((int)(((byte)(150)))));
-            this.btnSideMenuServerStatus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(162)))), ((int)(((byte)(150)))));
-            this.btnSideMenuServerStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSideMenuServerStatus.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSideMenuServerStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(74)))), ((int)(((byte)(96)))));
-            this.btnSideMenuServerStatus.Image = ((System.Drawing.Image)(resources.GetObject("btnSideMenuServerStatus.Image")));
-            this.btnSideMenuServerStatus.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSideMenuServerStatus.Location = new System.Drawing.Point(0, 0);
-            this.btnSideMenuServerStatus.Name = "btnSideMenuServerStatus";
-            this.btnSideMenuServerStatus.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnSideMenuServerStatus.Size = new System.Drawing.Size(240, 150);
-            this.btnSideMenuServerStatus.TabIndex = 2;
-            this.btnSideMenuServerStatus.Text = "            STATO SERVER";
-            this.btnSideMenuServerStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSideMenuServerStatus.UseVisualStyleBackColor = false;
-            this.btnSideMenuServerStatus.Click += new System.EventHandler(this.SideMenuButton_Click);
-            // 
-            // panelPage
-            // 
-            this.panelPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(229)))), ((int)(((byte)(224)))));
-            this.panelPage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelPage.HorizontalScrollbarBarColor = true;
-            this.panelPage.HorizontalScrollbarHighlightOnWheel = false;
-            this.panelPage.HorizontalScrollbarSize = 10;
-            this.panelPage.Location = new System.Drawing.Point(250, 100);
-            this.panelPage.Name = "panelPage";
-            this.panelPage.Size = new System.Drawing.Size(750, 450);
-            this.panelPage.TabIndex = 21;
-            this.panelPage.UseCustomBackColor = true;
-            this.panelPage.VerticalScrollbarBarColor = true;
-            this.panelPage.VerticalScrollbarHighlightOnWheel = false;
-            this.panelPage.VerticalScrollbarSize = 10;
-            // 
             // Reserver
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(1000, 550);
+            this.ClientSize = new System.Drawing.Size(1000, 595);
             this.ControlBox = false;
             this.Controls.Add(this.panelPage);
             this.Controls.Add(this.panelSideMenu);

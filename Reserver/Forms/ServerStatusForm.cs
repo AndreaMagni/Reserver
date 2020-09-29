@@ -49,7 +49,7 @@ namespace Reserver.Forms
                 {
                     connection.Open();
                     string queryStatusInfo = string.Format(@"
-                        SELECT  s.DESCRIZIONE, r.STATO, s.CODICE, u.DENOMINAZIONE, u.AVATAR, sr.DATAINIZIO
+                        SELECT s.DESCRIZIONE, r.STATO, s.CODICE, u.DENOMINAZIONE, u.AVATAR, sr.DATAINIZIO
                         FROM STATISERVERS r
                         JOIN SERVERS s ON s.IDSERVER = r.IDSERVER
                         LEFT OUTER JOIN UTENTI u ON u.IDUTENTE = r.IDUTENTE
@@ -59,7 +59,7 @@ namespace Reserver.Forms
                     DataTable tableStatusInfo = new DataTable();
                     dataReader.Fill(tableStatusInfo);
 
-                    int top = 100;
+                    int top = 70;
                     int insideLeft = 25;
 
                     foreach (DataRow row in tableStatusInfo.Rows)
@@ -67,7 +67,7 @@ namespace Reserver.Forms
                         Label labelServerDescription = new Label();
                         labelServerDescription.Top = top;
                         labelServerDescription.Left = 50;
-                        labelServerDescription.Size = new Size(200, 70);
+                        labelServerDescription.Size = new Size(200, 60);
                         labelServerDescription.BackColor = Color.FromArgb(92, 162, 150);
                         labelServerDescription.Text = row["DESCRIZIONE"].ToString();
                         labelServerDescription.TextAlign = ContentAlignment.MiddleCenter;
@@ -79,7 +79,7 @@ namespace Reserver.Forms
                         Panel panelServerInfo = new Panel();
                         panelServerInfo.Top = top;
                         panelServerInfo.Left = 250;
-                        panelServerInfo.Size = new Size(450, 70);
+                        panelServerInfo.Size = new Size(450, 60);
                         panelServerInfo.BackColor = Color.FromArgb(142, 198, 189);
                         panelServerStatus.Controls.Add(panelServerInfo);
 
@@ -98,7 +98,7 @@ namespace Reserver.Forms
                         MetroFramework.Controls.MetroButton button = new MetroFramework.Controls.MetroButton();
                         button.Left = insideLeft;
                         button.Size = new Size(150, 25);
-                        button.Top = 25;
+                        button.Top = 20;
                         button.Name = row["CODICE"].ToString();
 
                         button.FontSize = MetroFramework.MetroButtonSize.Small;
@@ -138,7 +138,7 @@ namespace Reserver.Forms
 
                         Label statusLabel = new Label();
                         statusLabel.Left = insideLeft + 175;
-                        statusLabel.Top = 25;
+                        statusLabel.Top = 20;
                         statusLabel.Size = new Size(25, 25);
                         statusLabel.Name = "status" + row["CODICE"].ToString();
                         statusLabel.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -149,7 +149,7 @@ namespace Reserver.Forms
 
                         Label dateLabel = new Label();
                         dateLabel.Left = insideLeft + 225;
-                        dateLabel.Top = 25;
+                        dateLabel.Top = 20;
                         dateLabel.AutoSize = false;
                         dateLabel.TextAlign = ContentAlignment.MiddleCenter;
                         dateLabel.Font = new Font("Verdana", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -160,7 +160,7 @@ namespace Reserver.Forms
 
                         Label avatarLabel = new Label();
                         avatarLabel.Left = insideLeft + 350;
-                        avatarLabel.Top = 10;
+                        avatarLabel.Top = 5;
                         avatarLabel.Size = new Size(50, 50);
                         avatarLabel.Name = "icon" + row["CODICE"].ToString();
 
@@ -173,7 +173,6 @@ namespace Reserver.Forms
                             img = ResizeImage(img, new Size(50, 50));
                             SetToolTip(avatarLabel, row["DENOMINAZIONE"].ToString());
                             avatarLabel.Image = img;
-
                         }
 
                         panelServerInfo.Controls.Add(button);
@@ -191,16 +190,20 @@ namespace Reserver.Forms
                 }
                 finally
                 {
-                    Panel paddingBottomPanel = new Panel();
-                    paddingBottomPanel.Top = (6*25) + (6*70);
-                    paddingBottomPanel.Left = 75;
-                    paddingBottomPanel.Size = new Size(540, 25);
-                    panelServerStatus.Controls.Add(paddingBottomPanel);
+                    // Serviva per aggiungere lo spazio in fondo, ora no
+                    //Panel paddingBottomPanel = new Panel();
+                    //paddingBottomPanel.Top = (6*10) + (6*60);
+                    //paddingBottomPanel.Left = 75;
+                    //paddingBottomPanel.Size = new Size(540, 25);
+                    //panelServerStatus.Controls.Add(paddingBottomPanel);
                     connection.Close();
                     UpdateStatus();
                 }
             }
             
+            /*
+            //indipendentemente da questo lo scroll funzionava abilitando lo scroll lato pannello
+
             metroScrollBar1.Scroll += (sender, e) => {
                 //Normally the if statement whouldn't be needed but the metro srollbar
                 //has a weird behaviour when the scroll value becomes max
@@ -226,6 +229,7 @@ namespace Reserver.Forms
             metroScrollBar1.Maximum = 450; // maxVertical;
             metroScrollBar1.SmallChange = smallChangeVertical;
             metroScrollBar1.LargeChange = largeChangeVertical;
+            */
 
         }
 
