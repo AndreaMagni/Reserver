@@ -182,7 +182,7 @@ namespace Reserver.Forms
                         panelServerInfo.Controls.Add(dateLabel);
                         panelServerInfo.Controls.Add(avatarLabel);
                         
-                        top += labelServerDescription.Height + 25;
+                        top += labelServerDescription.Height + 10;
                     }
                 }
                 catch (Exception ex)

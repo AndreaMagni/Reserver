@@ -31,8 +31,8 @@
             this.panelServerStatus = new MetroFramework.Controls.MetroPanel();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.metroScrollBar1 = new MetroFramework.Controls.MetroScrollBar();
             this.buttonUpdateStatus = new System.Windows.Forms.Button();
+            this.metroScrollBar1 = new MetroFramework.Controls.MetroScrollBar();
             this.panelServerStatus.SuspendLayout();
             this.metroPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -85,6 +85,25 @@
             this.metroLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroLabel1.UseCustomBackColor = true;
             // 
+            // buttonUpdateStatus
+            // 
+            this.buttonUpdateStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonUpdateStatus.BackColor = System.Drawing.Color.Transparent;
+            this.buttonUpdateStatus.BackgroundImage = global::Reserver.Properties.Resources.refresh;
+            this.buttonUpdateStatus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonUpdateStatus.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(198)))), ((int)(((byte)(189)))));
+            this.buttonUpdateStatus.FlatAppearance.BorderSize = 0;
+            this.buttonUpdateStatus.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.buttonUpdateStatus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.buttonUpdateStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonUpdateStatus.Location = new System.Drawing.Point(10, 10);
+            this.buttonUpdateStatus.Margin = new System.Windows.Forms.Padding(10);
+            this.buttonUpdateStatus.Name = "buttonUpdateStatus";
+            this.buttonUpdateStatus.Size = new System.Drawing.Size(30, 30);
+            this.buttonUpdateStatus.TabIndex = 1;
+            this.buttonUpdateStatus.UseVisualStyleBackColor = true;
+            this.buttonUpdateStatus.Click += new System.EventHandler(this.ButtonUpdateStatus_Click);
+            // 
             // metroScrollBar1
             // 
             this.metroScrollBar1.LargeChange = 10;
@@ -99,25 +118,6 @@
             this.metroScrollBar1.TabIndex = 4;
             this.metroScrollBar1.UseSelectable = true;
             this.metroScrollBar1.Visible = false;
-            // 
-            // buttonUpdateStatus
-            // 
-            this.buttonUpdateStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonUpdateStatus.BackColor = System.Drawing.Color.Transparent;
-            this.buttonUpdateStatus.BackgroundImage = global::Reserver.Properties.Resources.refresh;
-            this.buttonUpdateStatus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonUpdateStatus.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(162)))), ((int)(((byte)(150)))));
-            this.buttonUpdateStatus.FlatAppearance.BorderSize = 0;
-            this.buttonUpdateStatus.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.buttonUpdateStatus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.buttonUpdateStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonUpdateStatus.Location = new System.Drawing.Point(10, 10);
-            this.buttonUpdateStatus.Margin = new System.Windows.Forms.Padding(10);
-            this.buttonUpdateStatus.Name = "buttonUpdateStatus";
-            this.buttonUpdateStatus.Size = new System.Drawing.Size(30, 30);
-            this.buttonUpdateStatus.TabIndex = 1;
-            this.buttonUpdateStatus.UseVisualStyleBackColor = true;
-            this.buttonUpdateStatus.Click += new System.EventHandler(this.ButtonUpdateStatus_Click);
             // 
             // ServerStatusForm
             // 

@@ -45,6 +45,8 @@
             this.btnLoginForm.Text = "Login";
             this.btnLoginForm.UseSelectable = true;
             this.btnLoginForm.Click += new System.EventHandler(this.BtnLoginForm_Click);
+            this.btnLoginForm.MouseEnter += new System.EventHandler(this.btnLoginForm_MouseEnter);
+            this.btnLoginForm.MouseLeave += new System.EventHandler(this.btnLoginForm_MouseLeave);
             // 
             // metroTextBoxLoginFormPassword
             // 
@@ -112,7 +114,7 @@
             // 
             // 
             this.metroTextBoxLoginFormUsername.CustomButton.Image = null;
-            this.metroTextBoxLoginFormUsername.CustomButton.Location = new System.Drawing.Point(228, 1);
+            this.metroTextBoxLoginFormUsername.CustomButton.Location = new System.Drawing.Point(164, 1);
             this.metroTextBoxLoginFormUsername.CustomButton.Name = "";
             this.metroTextBoxLoginFormUsername.CustomButton.Size = new System.Drawing.Size(23, 23);
             this.metroTextBoxLoginFormUsername.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;

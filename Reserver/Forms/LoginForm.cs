@@ -1,5 +1,7 @@
 ﻿using FirebirdSql.Data.FirebirdClient;
 using System;
+using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Reserver.Forms
@@ -58,5 +60,20 @@ namespace Reserver.Forms
                 }
             }
         }
+
+        private void btnLoginForm_MouseEnter(object sender, EventArgs e)
+        {
+            string buttonName = ((Control)sender).Name; 
+            MetroFramework.Controls.MetroButton metroButton = this.Controls.Find(buttonName, true).FirstOrDefault() as MetroFramework.Controls.MetroButton;
+            metroButton.BackColor = Color.FromArgb(142, 198, 189);
+        }
+
+        private void btnLoginForm_MouseLeave(object sender, EventArgs e)
+        {
+            string buttonName = ((Control)sender).Name;
+            MetroFramework.Controls.MetroButton metroButton = this.Controls.Find(buttonName, true).FirstOrDefault() as MetroFramework.Controls.MetroButton;
+            metroButton.BackColor = Color.FromArgb(142, 198, 189);
+        }
+
     }
 }
