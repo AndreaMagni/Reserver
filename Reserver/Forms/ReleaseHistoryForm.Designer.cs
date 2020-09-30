@@ -146,6 +146,7 @@
             // 
             this.buttonFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonFilter.Cursor = System.Windows.Forms.Cursors.Default;
+            this.buttonFilter.FontWeight = MetroFramework.MetroButtonWeight.Regular;
             this.buttonFilter.Location = new System.Drawing.Point(585, 38);
             this.buttonFilter.Margin = new System.Windows.Forms.Padding(5);
             this.buttonFilter.Name = "buttonFilter";

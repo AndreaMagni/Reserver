@@ -166,6 +166,7 @@
             // 
             this.metroButtonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.metroButtonSave.Cursor = System.Windows.Forms.Cursors.Default;
+            this.metroButtonSave.FontWeight = MetroFramework.MetroButtonWeight.Regular;
             this.metroButtonSave.Location = new System.Drawing.Point(623, 59);
             this.metroButtonSave.Margin = new System.Windows.Forms.Padding(5);
             this.metroButtonSave.Name = "metroButtonSave";

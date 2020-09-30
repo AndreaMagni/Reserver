@@ -2,6 +2,7 @@
 using System;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -11,13 +12,13 @@ namespace Reserver
 {
     public partial class Reserver : Form
     {
-        // Variable
         public string connectionStringExternalDB = "User=SYSDBA;Password=chiavemaestra;Database=/var/lib/firebird/2.5/data/RESERVER.FDB;DataSource=51.83.76.255;Port=3050;Connection Lifetime=10";
         public bool logged = false;
         public int idutente = -1;
         public object emptySender = new object();
 
-        // Field
+        PrivateFontCollection privateFontCollection;
+
         private Form activeForm;
         Forms.ServerStatusForm serverStatusForm;
         Forms.ReleaseHistoryForm releaseHistoryForm;
@@ -26,13 +27,18 @@ namespace Reserver
 
         Reserver reserver;
 
-        // Constructor
         public Reserver()
         {
             InitializeComponent();
             reserver = this;
             loginForm = new Forms.LoginForm(reserver);
             OpenChildForm(loginForm, emptySender);
+            privateFontCollection = new PrivateFontCollection();
+            privateFontCollection.AddFontFile(Directory.GetCurrentDirectory() + "\\font\\Quicksand-VariableFont_wght.ttf");
+            btnSideMenuServerStatus.Font = new Font(privateFontCollection.Families[0], 15, FontStyle.Bold);
+            btnSideMenuReleaseHistory.Font = new Font(privateFontCollection.Families[0], 15, FontStyle.Bold);
+            btnSideMenuAcceptanceTests.Font = new Font(privateFontCollection.Families[0], 15, FontStyle.Bold);
+            labelCurrentUserV2.Font = new Font(privateFontCollection.Families[0], 11, FontStyle.Regular);
         }
 
         #region Getter and Setter
@@ -51,8 +57,8 @@ namespace Reserver
 
         public string CurrentUserName
         {
-            set { labelCurrentUser.Text = value; }
-            get { return labelCurrentUser.Text; }
+            set { labelCurrentUserV2.Text = value; }
+            get { return labelCurrentUserV2.Text; }
         }
 
         public int CurrentUserID

@@ -46,6 +46,7 @@ namespace Reserver
             this.btnSideMenuReleaseHistory = new System.Windows.Forms.Button();
             this.btnSideMenuServerStatus = new System.Windows.Forms.Button();
             this.panelHeaderLogo = new MetroFramework.Controls.MetroPanel();
+            this.labelCurrentUserV2 = new System.Windows.Forms.Label();
             this.panelHeader.SuspendLayout();
             this.panelHeaderInfo.SuspendLayout();
             this.panelSideMenu.SuspendLayout();
@@ -73,6 +74,7 @@ namespace Reserver
             // panelHeaderInfo
             // 
             this.panelHeaderInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(162)))), ((int)(((byte)(150)))));
+            this.panelHeaderInfo.Controls.Add(this.labelCurrentUserV2);
             this.panelHeaderInfo.Controls.Add(this.label1);
             this.panelHeaderInfo.Controls.Add(this.minimizeProgram);
             this.panelHeaderInfo.Controls.Add(this.labelCurrentUser);
@@ -123,7 +125,7 @@ namespace Reserver
             this.labelCurrentUser.FontSize = MetroFramework.MetroLabelSize.Small;
             this.labelCurrentUser.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.labelCurrentUser.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelCurrentUser.Location = new System.Drawing.Point(368, 66);
+            this.labelCurrentUser.Location = new System.Drawing.Point(271, 9);
             this.labelCurrentUser.MaximumSize = new System.Drawing.Size(300, 20);
             this.labelCurrentUser.Name = "labelCurrentUser";
             this.labelCurrentUser.Size = new System.Drawing.Size(300, 20);
@@ -131,6 +133,7 @@ namespace Reserver
             this.labelCurrentUser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.labelCurrentUser.UseCustomBackColor = true;
             this.labelCurrentUser.UseCustomForeColor = true;
+            this.labelCurrentUser.Visible = false;
             // 
             // closeProgram
             // 
@@ -232,7 +235,6 @@ namespace Reserver
             // 
             this.btnSideMenuAcceptanceTests.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(198)))), ((int)(((byte)(189)))));
             this.btnSideMenuAcceptanceTests.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnSideMenuAcceptanceTests.Enabled = false;
             this.btnSideMenuAcceptanceTests.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(198)))), ((int)(((byte)(189)))));
             this.btnSideMenuAcceptanceTests.FlatAppearance.BorderSize = 0;
             this.btnSideMenuAcceptanceTests.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(162)))), ((int)(((byte)(150)))));
@@ -247,7 +249,7 @@ namespace Reserver
             this.btnSideMenuAcceptanceTests.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnSideMenuAcceptanceTests.Size = new System.Drawing.Size(240, 165);
             this.btnSideMenuAcceptanceTests.TabIndex = 4;
-            this.btnSideMenuAcceptanceTests.Text = "            COLLAUDI";
+            this.btnSideMenuAcceptanceTests.Text = "      Collaudi";
             this.btnSideMenuAcceptanceTests.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSideMenuAcceptanceTests.UseVisualStyleBackColor = false;
             this.btnSideMenuAcceptanceTests.Click += new System.EventHandler(this.SideMenuButton_Click);
@@ -270,7 +272,7 @@ namespace Reserver
             this.btnSideMenuReleaseHistory.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnSideMenuReleaseHistory.Size = new System.Drawing.Size(240, 165);
             this.btnSideMenuReleaseHistory.TabIndex = 3;
-            this.btnSideMenuReleaseHistory.Text = "            STORICO RILASCI";
+            this.btnSideMenuReleaseHistory.Text = "      Storico Rilasci";
             this.btnSideMenuReleaseHistory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSideMenuReleaseHistory.UseVisualStyleBackColor = false;
             this.btnSideMenuReleaseHistory.Click += new System.EventHandler(this.SideMenuButton_Click);
@@ -293,7 +295,7 @@ namespace Reserver
             this.btnSideMenuServerStatus.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnSideMenuServerStatus.Size = new System.Drawing.Size(240, 165);
             this.btnSideMenuServerStatus.TabIndex = 2;
-            this.btnSideMenuServerStatus.Text = "            STATO SERVER";
+            this.btnSideMenuServerStatus.Text = "      Stato Server";
             this.btnSideMenuServerStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSideMenuServerStatus.UseVisualStyleBackColor = false;
             this.btnSideMenuServerStatus.Click += new System.EventHandler(this.SideMenuButton_Click);
@@ -317,6 +319,14 @@ namespace Reserver
             this.panelHeaderLogo.VerticalScrollbarHighlightOnWheel = false;
             this.panelHeaderLogo.VerticalScrollbarSize = 10;
             this.panelHeaderLogo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelHeader_MouseDown);
+            // 
+            // labelCurrentUserV2
+            // 
+            this.labelCurrentUserV2.Location = new System.Drawing.Point(368, 66);
+            this.labelCurrentUserV2.Name = "labelCurrentUserV2";
+            this.labelCurrentUserV2.Size = new System.Drawing.Size(300, 20);
+            this.labelCurrentUserV2.TabIndex = 11;
+            this.labelCurrentUserV2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Reserver
             // 
@@ -358,6 +368,7 @@ namespace Reserver
         private System.Windows.Forms.Label closeProgram;
         private System.Windows.Forms.Label minimizeProgram;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelCurrentUserV2;
     }
 }
 
