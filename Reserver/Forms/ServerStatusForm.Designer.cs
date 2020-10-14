@@ -30,8 +30,9 @@
         {
             this.panelServerStatus = new MetroFramework.Controls.MetroPanel();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel1Old = new MetroFramework.Controls.MetroLabel();
             this.buttonUpdateStatus = new System.Windows.Forms.Button();
+            this.metroLabel1 = new System.Windows.Forms.Label();
             this.panelServerStatus.SuspendLayout();
             this.metroPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -39,6 +40,7 @@
             // panelServerStatus
             // 
             this.panelServerStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(229)))), ((int)(((byte)(224)))));
+            this.panelServerStatus.Controls.Add(this.metroLabel1Old);
             this.panelServerStatus.Controls.Add(this.metroPanel1);
             this.panelServerStatus.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelServerStatus.HorizontalScrollbarBarColor = true;
@@ -61,25 +63,26 @@
             this.metroPanel1.HorizontalScrollbarBarColor = true;
             this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel1.HorizontalScrollbarSize = 10;
-            this.metroPanel1.Location = new System.Drawing.Point(200, 15);
+            this.metroPanel1.Location = new System.Drawing.Point(210, 15);
             this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(350, 40);
+            this.metroPanel1.Size = new System.Drawing.Size(330, 40);
             this.metroPanel1.TabIndex = 2;
             this.metroPanel1.UseCustomBackColor = true;
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
             // 
-            // metroLabel1
+            // metroLabel1Old
             // 
-            this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel1.Location = new System.Drawing.Point(53, 10);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(284, 20);
-            this.metroLabel1.TabIndex = 2;
-            this.metroLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.metroLabel1.UseCustomBackColor = true;
+            this.metroLabel1Old.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel1Old.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel1Old.Location = new System.Drawing.Point(424, 9);
+            this.metroLabel1Old.Name = "metroLabel1Old";
+            this.metroLabel1Old.Size = new System.Drawing.Size(298, 22);
+            this.metroLabel1Old.TabIndex = 2;
+            this.metroLabel1Old.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroLabel1Old.UseCustomBackColor = true;
+            this.metroLabel1Old.Visible = false;
             // 
             // buttonUpdateStatus
             // 
@@ -92,13 +95,21 @@
             this.buttonUpdateStatus.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.buttonUpdateStatus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buttonUpdateStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonUpdateStatus.Location = new System.Drawing.Point(9, 10);
+            this.buttonUpdateStatus.Location = new System.Drawing.Point(9, 8);
             this.buttonUpdateStatus.Margin = new System.Windows.Forms.Padding(9);
             this.buttonUpdateStatus.Name = "buttonUpdateStatus";
             this.buttonUpdateStatus.Size = new System.Drawing.Size(22, 22);
             this.buttonUpdateStatus.TabIndex = 1;
             this.buttonUpdateStatus.UseVisualStyleBackColor = true;
             this.buttonUpdateStatus.Click += new System.EventHandler(this.ButtonUpdateStatus_Click);
+            // 
+            // metroLabel1
+            // 
+            this.metroLabel1.Location = new System.Drawing.Point(43, 8);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(278, 22);
+            this.metroLabel1.TabIndex = 3;
+            this.metroLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // ServerStatusForm
             // 
@@ -121,6 +132,7 @@
         private System.Windows.Forms.Button buttonUpdateStatus;
         private MetroFramework.Controls.MetroPanel panelServerStatus;
         private MetroFramework.Controls.MetroPanel metroPanel1;
-        private MetroFramework.Controls.MetroLabel metroLabel1;
+        private MetroFramework.Controls.MetroLabel metroLabel1Old;
+        private System.Windows.Forms.Label metroLabel1;
     }
 }

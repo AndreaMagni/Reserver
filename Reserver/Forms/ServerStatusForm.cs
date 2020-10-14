@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -13,6 +14,8 @@ namespace Reserver.Forms
     {
         Reserver reserverForm;
 
+        PrivateFontCollection privateFontCollection;
+
         public ServerStatusForm()
         {
             InitializeComponent();
@@ -22,7 +25,11 @@ namespace Reserver.Forms
         {
             InitializeComponent();
             reserverForm = form;
+            privateFontCollection = new PrivateFontCollection();
+            privateFontCollection.AddFontFile(Directory.GetCurrentDirectory() + "\\font\\Quicksand-Light.ttf");
             LoadInterface(reserverForm);
+            //btnSideMenuAcceptanceTests.Font = new Font(privateFontCollection.Families[0], 15, FontStyle.Bold);
+            //labelCurrentUserV2.Font = new Font(privateFontCollection.Families[0], 11, FontStyle.Regular);
         }
 
         public Image ResizeImage(Image imgToResize, Size size)
@@ -71,7 +78,8 @@ namespace Reserver.Forms
                         labelServerDescription.BackColor = Color.FromArgb(92, 162, 150);
                         labelServerDescription.Text = row["DESCRIZIONE"].ToString();
                         labelServerDescription.TextAlign = ContentAlignment.MiddleCenter;
-                        labelServerDescription.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+                        //labelServerDescription.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+                        labelServerDescription.Font = new Font(privateFontCollection.Families[0], 11, FontStyle.Bold);
                         labelServerDescription.Name = "groupBox" + row["CODICE"].ToString();
                         panelServerStatus.Controls.Add(labelServerDescription);
 
@@ -356,6 +364,7 @@ namespace Reserver.Forms
                     FbDataReader readerGetServerID = getStatusInfo.ExecuteReader();
 
                     metroLabel1.Text = string.Format(@"Ultimo aggiornamento dati {0}", DateTime.Now);
+                    metroLabel1.Font = new Font(privateFontCollection.Families[0], 9, FontStyle.Regular);
 
                     while (readerGetServerID.Read())
                     {
@@ -371,6 +380,7 @@ namespace Reserver.Forms
                         if (readerGetServerID.GetString(0) == "OCCUPATO")
                         {
                             currentDateLabel.Text = RelativeDate(Convert.ToDateTime(readerGetServerID.GetString(4)));
+                            currentDateLabel.Font = new Font(privateFontCollection.Families[0], 11, FontStyle.Regular);
                             SetToolTip(currentDateLabel, readerGetServerID.GetString(4));
                             Image updatedStatusImg = Image.FromFile(Directory.GetCurrentDirectory() + readerGetServerID.GetString(3));
                             updatedStatusImg = ResizeImage(updatedStatusImg, new Size(50, 50));

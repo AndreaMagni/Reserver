@@ -73,8 +73,8 @@ namespace Reserver.Forms
                             s.DESCRIZIONE as Ambiente, 
                             u.DENOMINAZIONE as Utente, 
                             c.DESCRIZIONE, 
-                            c.INIZIOCOLLAUDO as Inizio, 
-                            c.FINECOLLAUDO as Fine
+                            c.INIZIOCOLLAUDO as DataInizio, 
+                            c.FINECOLLAUDO as DataFine
                         from collaudi c
                         join servers s on s.IDSERVER = c.IDSERVER
                         join utenti u on u.IDUTENTE = c.IDUTENTE
@@ -96,6 +96,11 @@ namespace Reserver.Forms
             }
         }
 
+        // ATTENZIONE!! Durante l'inserimento di un nuovo collaudo risulterà in stato ATTIVO. Concluso il collaudo l'operatore andrà a cliccare un bottone?? E lo stato passerà a CONCLUSO
+        // Giocare sulle ore presenti nel collaudo e quelle attuali per verificare se è possibile fare un rilascio ad esempio
+        // Premendo il bottone rilascio su ASP una query verificherà la presenza di collaudi ATTIVI, in caso di collaudi attivi verificherà allora anche l'orario. 
+        // Se rientro nell'oraio di collaudo non potrò rilasciare
+        // Se rientro in una fascia di 4 ore prima del collaudo verrò avvisato del colladuo
         private void ButtonSave_Click(object sender, EventArgs e)
         {
             using (FbConnection connection = new FbConnection(reserverForm.ConnectionString))
@@ -110,14 +115,15 @@ namespace Reserver.Forms
                     {
                         connection.Open();
                         string queryInsertNewAcceptanceTest = string.Format(@"INSERT INTO COLLAUDI(IDSERVER, IDUTENTE, INIZIOCOLLAUDO, FINECOLLAUDO, STATO, DESCRIZIONE, DATAINSERIMENTO)
-                        VALUES({0}, {1}, '{2}', '{3}', 'INSERITO', '{4}', CURRENT_TIMESTAMP)",
+                        VALUES({0}, {1}, '{2}', '{3}', 'ATTIVO', '{4}', CURRENT_TIMESTAMP)",
                             metroComboBoxServers.SelectedValue,
                             reserverForm.CurrentUserID,
-                            (metroDateTimeStartDate.Value.Date.ToString("dd.MM.yyyy ") + metroComboBoxStartHour.Text + ":00").ToString(),
-                            (metroDateTimeEndDate.Value.Date.ToString("dd.MM.yyyy ") + metroComboBoxEndHour.Text + ":00").ToString(),
+                            (metroDateTimeStartDate.Value.Date.ToString("dd.MM.yyyy ") + metroComboBoxStartHour.Text ).ToString(),
+                            (metroDateTimeEndDate.Value.Date.ToString("dd.MM.yyyy ") + metroComboBoxEndHour.Text).ToString(),
                             metroTextBoxAcceptanceTestDescription.Text);
                         FbCommand insertNewAcceptanceTest = new FbCommand(queryInsertNewAcceptanceTest, connection);
                         insertNewAcceptanceTest.ExecuteNonQuery();
+                        //DateTime test =  Convert.ToDateTime("30.09.2020, 20:00:00.000");
                     }
                 }
                 catch (Exception)

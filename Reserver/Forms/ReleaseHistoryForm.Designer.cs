@@ -76,7 +76,7 @@
             this.gridReleaseHistory.EnableHeadersVisualStyles = false;
             this.gridReleaseHistory.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.gridReleaseHistory.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridReleaseHistory.Location = new System.Drawing.Point(12, 116);
+            this.gridReleaseHistory.Location = new System.Drawing.Point(12, 81);
             this.gridReleaseHistory.Name = "gridReleaseHistory";
             this.gridReleaseHistory.ReadOnly = true;
             this.gridReleaseHistory.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -91,8 +91,8 @@
             this.gridReleaseHistory.RowHeadersVisible = false;
             this.gridReleaseHistory.RowHeadersWidth = 15;
             this.gridReleaseHistory.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.gridReleaseHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.gridReleaseHistory.Size = new System.Drawing.Size(710, 306);
+            this.gridReleaseHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridReleaseHistory.Size = new System.Drawing.Size(710, 341);
             this.gridReleaseHistory.TabIndex = 44;
             // 
             // groupBoxFilter
@@ -106,7 +106,7 @@
             this.groupBoxFilter.Controls.Add(this.comboBoxServers);
             this.groupBoxFilter.Location = new System.Drawing.Point(12, 12);
             this.groupBoxFilter.Name = "groupBoxFilter";
-            this.groupBoxFilter.Size = new System.Drawing.Size(710, 98);
+            this.groupBoxFilter.Size = new System.Drawing.Size(710, 63);
             this.groupBoxFilter.TabIndex = 45;
             this.groupBoxFilter.TabStop = false;
             this.groupBoxFilter.Text = "Filtri";
@@ -114,19 +114,19 @@
             // dateTimeA
             // 
             this.dateTimeA.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimeA.Location = new System.Drawing.Point(268, 58);
+            this.dateTimeA.Location = new System.Drawing.Point(492, 21);
             this.dateTimeA.MinimumSize = new System.Drawing.Size(0, 29);
             this.dateTimeA.Name = "dateTimeA";
-            this.dateTimeA.Size = new System.Drawing.Size(250, 29);
+            this.dateTimeA.Size = new System.Drawing.Size(125, 29);
             this.dateTimeA.TabIndex = 48;
             // 
             // dateTimeDa
             // 
             this.dateTimeDa.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimeDa.Location = new System.Drawing.Point(8, 58);
+            this.dateTimeDa.Location = new System.Drawing.Point(361, 21);
             this.dateTimeDa.MinimumSize = new System.Drawing.Size(0, 29);
             this.dateTimeDa.Name = "dateTimeDa";
-            this.dateTimeDa.Size = new System.Drawing.Size(250, 29);
+            this.dateTimeDa.Size = new System.Drawing.Size(125, 29);
             this.dateTimeDa.TabIndex = 47;
             this.dateTimeDa.Value = new System.DateTime(2020, 9, 1, 0, 0, 0, 0);
             // 
@@ -135,10 +135,10 @@
             this.comboBoxUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxUsers.FormattingEnabled = true;
             this.comboBoxUsers.ItemHeight = 23;
-            this.comboBoxUsers.Location = new System.Drawing.Point(268, 21);
+            this.comboBoxUsers.Location = new System.Drawing.Point(193, 21);
             this.comboBoxUsers.Margin = new System.Windows.Forms.Padding(5);
             this.comboBoxUsers.Name = "comboBoxUsers";
-            this.comboBoxUsers.Size = new System.Drawing.Size(250, 29);
+            this.comboBoxUsers.Size = new System.Drawing.Size(160, 29);
             this.comboBoxUsers.TabIndex = 46;
             this.comboBoxUsers.UseSelectable = true;
             // 
@@ -147,7 +147,7 @@
             this.buttonFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonFilter.Cursor = System.Windows.Forms.Cursors.Default;
             this.buttonFilter.FontWeight = MetroFramework.MetroButtonWeight.Regular;
-            this.buttonFilter.Location = new System.Drawing.Point(585, 38);
+            this.buttonFilter.Location = new System.Drawing.Point(627, 21);
             this.buttonFilter.Margin = new System.Windows.Forms.Padding(5);
             this.buttonFilter.Name = "buttonFilter";
             this.buttonFilter.Size = new System.Drawing.Size(75, 29);
@@ -165,7 +165,7 @@
             this.comboBoxServers.Location = new System.Drawing.Point(8, 21);
             this.comboBoxServers.Margin = new System.Windows.Forms.Padding(5);
             this.comboBoxServers.Name = "comboBoxServers";
-            this.comboBoxServers.Size = new System.Drawing.Size(250, 29);
+            this.comboBoxServers.Size = new System.Drawing.Size(175, 29);
             this.comboBoxServers.TabIndex = 44;
             this.comboBoxServers.UseSelectable = true;
             // 

@@ -38,6 +38,7 @@
             // btnLoginForm
             // 
             this.btnLoginForm.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnLoginForm.FontWeight = MetroFramework.MetroButtonWeight.Regular;
             this.btnLoginForm.Location = new System.Drawing.Point(303, 262);
             this.btnLoginForm.Name = "btnLoginForm";
             this.btnLoginForm.Size = new System.Drawing.Size(125, 25);

@@ -33,20 +33,20 @@ namespace Reserver
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reserver));
             this.panelHeader = new MetroFramework.Controls.MetroPanel();
             this.panelHeaderInfo = new MetroFramework.Controls.MetroPanel();
+            this.labelCurrentUserV2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.minimizeProgram = new System.Windows.Forms.Label();
             this.labelCurrentUser = new MetroFramework.Controls.MetroLabel();
             this.closeProgram = new System.Windows.Forms.Label();
+            this.panelHeaderLogo = new MetroFramework.Controls.MetroPanel();
             this.panelSideMenu = new MetroFramework.Controls.MetroPanel();
             this.panelSideMenuAcceptanceTests = new MetroFramework.Controls.MetroPanel();
-            this.panelSideMenuReleaseHistory = new MetroFramework.Controls.MetroPanel();
-            this.panelSideMenuServerStatus = new MetroFramework.Controls.MetroPanel();
-            this.panelPage = new MetroFramework.Controls.MetroPanel();
             this.btnSideMenuAcceptanceTests = new System.Windows.Forms.Button();
+            this.panelSideMenuReleaseHistory = new MetroFramework.Controls.MetroPanel();
             this.btnSideMenuReleaseHistory = new System.Windows.Forms.Button();
+            this.panelSideMenuServerStatus = new MetroFramework.Controls.MetroPanel();
             this.btnSideMenuServerStatus = new System.Windows.Forms.Button();
-            this.panelHeaderLogo = new MetroFramework.Controls.MetroPanel();
-            this.labelCurrentUserV2 = new System.Windows.Forms.Label();
+            this.panelPage = new MetroFramework.Controls.MetroPanel();
             this.panelHeader.SuspendLayout();
             this.panelHeaderInfo.SuspendLayout();
             this.panelSideMenu.SuspendLayout();
@@ -92,6 +92,14 @@ namespace Reserver
             this.panelHeaderInfo.VerticalScrollbarHighlightOnWheel = false;
             this.panelHeaderInfo.VerticalScrollbarSize = 10;
             this.panelHeaderInfo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelHeader_MouseDown);
+            // 
+            // labelCurrentUserV2
+            // 
+            this.labelCurrentUserV2.Location = new System.Drawing.Point(368, 62);
+            this.labelCurrentUserV2.Name = "labelCurrentUserV2";
+            this.labelCurrentUserV2.Size = new System.Drawing.Size(300, 26);
+            this.labelCurrentUserV2.TabIndex = 11;
+            this.labelCurrentUserV2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label1
             // 
@@ -148,6 +156,26 @@ namespace Reserver
             this.closeProgram.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.closeProgram.Click += new System.EventHandler(this.BtnClose_Click);
             // 
+            // panelHeaderLogo
+            // 
+            this.panelHeaderLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(162)))), ((int)(((byte)(150)))));
+            this.panelHeaderLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelHeaderLogo.BackgroundImage")));
+            this.panelHeaderLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panelHeaderLogo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelHeaderLogo.HorizontalScrollbarBarColor = true;
+            this.panelHeaderLogo.HorizontalScrollbarHighlightOnWheel = false;
+            this.panelHeaderLogo.HorizontalScrollbarSize = 10;
+            this.panelHeaderLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelHeaderLogo.Name = "panelHeaderLogo";
+            this.panelHeaderLogo.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.panelHeaderLogo.Size = new System.Drawing.Size(320, 100);
+            this.panelHeaderLogo.TabIndex = 17;
+            this.panelHeaderLogo.UseCustomBackColor = true;
+            this.panelHeaderLogo.VerticalScrollbarBarColor = true;
+            this.panelHeaderLogo.VerticalScrollbarHighlightOnWheel = false;
+            this.panelHeaderLogo.VerticalScrollbarSize = 10;
+            this.panelHeaderLogo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelHeader_MouseDown);
+            // 
             // panelSideMenu
             // 
             this.panelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(67)))), ((int)(((byte)(125)))));
@@ -183,54 +211,6 @@ namespace Reserver
             this.panelSideMenuAcceptanceTests.VerticalScrollbarHighlightOnWheel = false;
             this.panelSideMenuAcceptanceTests.VerticalScrollbarSize = 10;
             // 
-            // panelSideMenuReleaseHistory
-            // 
-            this.panelSideMenuReleaseHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(198)))), ((int)(((byte)(189)))));
-            this.panelSideMenuReleaseHistory.Controls.Add(this.btnSideMenuReleaseHistory);
-            this.panelSideMenuReleaseHistory.HorizontalScrollbarBarColor = true;
-            this.panelSideMenuReleaseHistory.HorizontalScrollbarHighlightOnWheel = false;
-            this.panelSideMenuReleaseHistory.HorizontalScrollbarSize = 10;
-            this.panelSideMenuReleaseHistory.Location = new System.Drawing.Point(0, 165);
-            this.panelSideMenuReleaseHistory.Name = "panelSideMenuReleaseHistory";
-            this.panelSideMenuReleaseHistory.Size = new System.Drawing.Size(250, 165);
-            this.panelSideMenuReleaseHistory.TabIndex = 3;
-            this.panelSideMenuReleaseHistory.UseCustomBackColor = true;
-            this.panelSideMenuReleaseHistory.VerticalScrollbarBarColor = true;
-            this.panelSideMenuReleaseHistory.VerticalScrollbarHighlightOnWheel = false;
-            this.panelSideMenuReleaseHistory.VerticalScrollbarSize = 10;
-            // 
-            // panelSideMenuServerStatus
-            // 
-            this.panelSideMenuServerStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(198)))), ((int)(((byte)(189)))));
-            this.panelSideMenuServerStatus.Controls.Add(this.btnSideMenuServerStatus);
-            this.panelSideMenuServerStatus.HorizontalScrollbarBarColor = true;
-            this.panelSideMenuServerStatus.HorizontalScrollbarHighlightOnWheel = false;
-            this.panelSideMenuServerStatus.HorizontalScrollbarSize = 10;
-            this.panelSideMenuServerStatus.Location = new System.Drawing.Point(0, 0);
-            this.panelSideMenuServerStatus.Name = "panelSideMenuServerStatus";
-            this.panelSideMenuServerStatus.Size = new System.Drawing.Size(250, 165);
-            this.panelSideMenuServerStatus.TabIndex = 2;
-            this.panelSideMenuServerStatus.UseCustomBackColor = true;
-            this.panelSideMenuServerStatus.VerticalScrollbarBarColor = true;
-            this.panelSideMenuServerStatus.VerticalScrollbarHighlightOnWheel = false;
-            this.panelSideMenuServerStatus.VerticalScrollbarSize = 10;
-            // 
-            // panelPage
-            // 
-            this.panelPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(229)))), ((int)(((byte)(224)))));
-            this.panelPage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelPage.HorizontalScrollbarBarColor = true;
-            this.panelPage.HorizontalScrollbarHighlightOnWheel = false;
-            this.panelPage.HorizontalScrollbarSize = 10;
-            this.panelPage.Location = new System.Drawing.Point(250, 100);
-            this.panelPage.Name = "panelPage";
-            this.panelPage.Size = new System.Drawing.Size(750, 495);
-            this.panelPage.TabIndex = 21;
-            this.panelPage.UseCustomBackColor = true;
-            this.panelPage.VerticalScrollbarBarColor = true;
-            this.panelPage.VerticalScrollbarHighlightOnWheel = false;
-            this.panelPage.VerticalScrollbarSize = 10;
-            // 
             // btnSideMenuAcceptanceTests
             // 
             this.btnSideMenuAcceptanceTests.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(198)))), ((int)(((byte)(189)))));
@@ -253,6 +233,22 @@ namespace Reserver
             this.btnSideMenuAcceptanceTests.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSideMenuAcceptanceTests.UseVisualStyleBackColor = false;
             this.btnSideMenuAcceptanceTests.Click += new System.EventHandler(this.SideMenuButton_Click);
+            // 
+            // panelSideMenuReleaseHistory
+            // 
+            this.panelSideMenuReleaseHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(198)))), ((int)(((byte)(189)))));
+            this.panelSideMenuReleaseHistory.Controls.Add(this.btnSideMenuReleaseHistory);
+            this.panelSideMenuReleaseHistory.HorizontalScrollbarBarColor = true;
+            this.panelSideMenuReleaseHistory.HorizontalScrollbarHighlightOnWheel = false;
+            this.panelSideMenuReleaseHistory.HorizontalScrollbarSize = 10;
+            this.panelSideMenuReleaseHistory.Location = new System.Drawing.Point(0, 165);
+            this.panelSideMenuReleaseHistory.Name = "panelSideMenuReleaseHistory";
+            this.panelSideMenuReleaseHistory.Size = new System.Drawing.Size(250, 165);
+            this.panelSideMenuReleaseHistory.TabIndex = 3;
+            this.panelSideMenuReleaseHistory.UseCustomBackColor = true;
+            this.panelSideMenuReleaseHistory.VerticalScrollbarBarColor = true;
+            this.panelSideMenuReleaseHistory.VerticalScrollbarHighlightOnWheel = false;
+            this.panelSideMenuReleaseHistory.VerticalScrollbarSize = 10;
             // 
             // btnSideMenuReleaseHistory
             // 
@@ -277,6 +273,22 @@ namespace Reserver
             this.btnSideMenuReleaseHistory.UseVisualStyleBackColor = false;
             this.btnSideMenuReleaseHistory.Click += new System.EventHandler(this.SideMenuButton_Click);
             // 
+            // panelSideMenuServerStatus
+            // 
+            this.panelSideMenuServerStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(198)))), ((int)(((byte)(189)))));
+            this.panelSideMenuServerStatus.Controls.Add(this.btnSideMenuServerStatus);
+            this.panelSideMenuServerStatus.HorizontalScrollbarBarColor = true;
+            this.panelSideMenuServerStatus.HorizontalScrollbarHighlightOnWheel = false;
+            this.panelSideMenuServerStatus.HorizontalScrollbarSize = 10;
+            this.panelSideMenuServerStatus.Location = new System.Drawing.Point(0, 0);
+            this.panelSideMenuServerStatus.Name = "panelSideMenuServerStatus";
+            this.panelSideMenuServerStatus.Size = new System.Drawing.Size(250, 165);
+            this.panelSideMenuServerStatus.TabIndex = 2;
+            this.panelSideMenuServerStatus.UseCustomBackColor = true;
+            this.panelSideMenuServerStatus.VerticalScrollbarBarColor = true;
+            this.panelSideMenuServerStatus.VerticalScrollbarHighlightOnWheel = false;
+            this.panelSideMenuServerStatus.VerticalScrollbarSize = 10;
+            // 
             // btnSideMenuServerStatus
             // 
             this.btnSideMenuServerStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(198)))), ((int)(((byte)(189)))));
@@ -300,33 +312,21 @@ namespace Reserver
             this.btnSideMenuServerStatus.UseVisualStyleBackColor = false;
             this.btnSideMenuServerStatus.Click += new System.EventHandler(this.SideMenuButton_Click);
             // 
-            // panelHeaderLogo
+            // panelPage
             // 
-            this.panelHeaderLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(162)))), ((int)(((byte)(150)))));
-            this.panelHeaderLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelHeaderLogo.BackgroundImage")));
-            this.panelHeaderLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panelHeaderLogo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelHeaderLogo.HorizontalScrollbarBarColor = true;
-            this.panelHeaderLogo.HorizontalScrollbarHighlightOnWheel = false;
-            this.panelHeaderLogo.HorizontalScrollbarSize = 10;
-            this.panelHeaderLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelHeaderLogo.Name = "panelHeaderLogo";
-            this.panelHeaderLogo.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.panelHeaderLogo.Size = new System.Drawing.Size(320, 100);
-            this.panelHeaderLogo.TabIndex = 17;
-            this.panelHeaderLogo.UseCustomBackColor = true;
-            this.panelHeaderLogo.VerticalScrollbarBarColor = true;
-            this.panelHeaderLogo.VerticalScrollbarHighlightOnWheel = false;
-            this.panelHeaderLogo.VerticalScrollbarSize = 10;
-            this.panelHeaderLogo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelHeader_MouseDown);
-            // 
-            // labelCurrentUserV2
-            // 
-            this.labelCurrentUserV2.Location = new System.Drawing.Point(368, 66);
-            this.labelCurrentUserV2.Name = "labelCurrentUserV2";
-            this.labelCurrentUserV2.Size = new System.Drawing.Size(300, 20);
-            this.labelCurrentUserV2.TabIndex = 11;
-            this.labelCurrentUserV2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.panelPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(229)))), ((int)(((byte)(224)))));
+            this.panelPage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelPage.HorizontalScrollbarBarColor = true;
+            this.panelPage.HorizontalScrollbarHighlightOnWheel = false;
+            this.panelPage.HorizontalScrollbarSize = 10;
+            this.panelPage.Location = new System.Drawing.Point(250, 100);
+            this.panelPage.Name = "panelPage";
+            this.panelPage.Size = new System.Drawing.Size(750, 495);
+            this.panelPage.TabIndex = 21;
+            this.panelPage.UseCustomBackColor = true;
+            this.panelPage.VerticalScrollbarBarColor = true;
+            this.panelPage.VerticalScrollbarHighlightOnWheel = false;
+            this.panelPage.VerticalScrollbarSize = 10;
             // 
             // Reserver
             // 

@@ -94,9 +94,10 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.metroGridAcceptanceTests.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.metroGridAcceptanceTests.RowHeadersVisible = false;
             this.metroGridAcceptanceTests.RowHeadersWidth = 15;
             this.metroGridAcceptanceTests.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.metroGridAcceptanceTests.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.metroGridAcceptanceTests.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.metroGridAcceptanceTests.Size = new System.Drawing.Size(706, 308);
             this.metroGridAcceptanceTests.TabIndex = 44;
             // 

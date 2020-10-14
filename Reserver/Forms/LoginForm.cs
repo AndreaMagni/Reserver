@@ -19,6 +19,7 @@ namespace Reserver.Forms
         {
             InitializeComponent();
             reserverForm = form;
+            metroTextBoxLoginFormPassword.PasswordChar = '*';
         }
                      
         private void BtnLoginForm_Click(object sender, EventArgs e)
