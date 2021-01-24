@@ -27,10 +27,6 @@ namespace Reserver.Forms
             InitializeComponent();
             reserverForm = form;
             ReleaseHistoryForm_Load();
-            //myGroupBox myGroupBox = new myGroupBox();
-            //myGroupBox.Text = "Filtri";
-            //myGroupBox.BorderColor = Color.Red;
-            //this.Controls.Add(myGroupBox);
         }
 
         private void ReleaseHistoryForm_Load()
@@ -61,7 +57,6 @@ namespace Reserver.Forms
 
                         DataRow rowServerList = dataTableServerList.NewRow();
                         rowServerList[0] = 0;
-                        //row[1] = "Please select";
                         dataTableServerList.Rows.InsertAt(rowServerList, 0);
 
                         comboBoxUsers.DataSource = dataTableServerList;
@@ -140,7 +135,6 @@ namespace Reserver.Forms
             dataTableGrid.DefaultView.RowFilter = filtro;
             dataTableGrid.DefaultView.Sort = "DATAINIZIO desc";
         }
-
     }
 
     //public class myGroupBox : GroupBox

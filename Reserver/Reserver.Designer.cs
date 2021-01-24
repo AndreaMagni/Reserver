@@ -341,6 +341,7 @@ namespace Reserver
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Reserver";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.panelHeader.ResumeLayout(false);
             this.panelHeaderInfo.ResumeLayout(false);
             this.panelSideMenu.ResumeLayout(false);

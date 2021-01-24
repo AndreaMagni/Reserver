@@ -49,6 +49,8 @@ namespace Reserver.Forms
                     else
                     {
                         MessageBox.Show("Utente non censito a sistema", "Attenzione", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                        metroTextBoxLoginFormUsername.Text = null;
+                        metroTextBoxLoginFormPassword.Text = null;
                     }
                 }
                 catch (Exception ex)
