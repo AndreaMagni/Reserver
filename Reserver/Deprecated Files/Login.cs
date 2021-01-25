@@ -30,17 +30,7 @@ namespace Reserver
                     FbDataReader readerUserInfo = getUserInfo.ExecuteReader();
                     if (readerUserInfo.Read())
                     {
-                        //ParentForm.IsLogged = true;
-                        //ParentForm.CurrentUserID = readerUserInfo.GetInt32(0);
-                        //ParentForm.CurrentUserName = readerUserInfo.GetString(1);
-                        
-                        //ParentForm.CurrentAvatar = Directory.GetCurrentDirectory() + readerUserInfo.GetString(2);
-                        //ParentForm.SetToolTip(readerUserInfo.GetString(1));
-                        
-                        //ParentForm.pageServerStatus.FirstTimeLoad();
                         ParentForm.SideMenuButton_SetActivePage("buttonServerStatus");
-                        //ParentForm.PageLoginVisibility = false;
-                        //ParentForm.PageServerStatusVisibility = true;
                     }
                     else
                     {

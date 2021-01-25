@@ -24,11 +24,6 @@ namespace Reserver.Forms
                      
         private void BtnLoginForm_Click(object sender, EventArgs e)
         {
-            if (ParentForm == null)
-            {
-                MessageBox.Show("Errore parent form", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
             using (FbConnection connection = new FbConnection(reserverForm.ConnectionString))
             {
                 try
@@ -51,11 +46,13 @@ namespace Reserver.Forms
                         MessageBox.Show("Utente non censito a sistema", "Attenzione", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                         metroTextBoxLoginFormUsername.Text = null;
                         metroTextBoxLoginFormPassword.Text = null;
+                        Logger.LogThisLine("Tenativo di accesso fallito. Credenziali non censite a sistema.");
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Richiesta al database fallita", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    MessageBox.Show("Richiesta fallita.", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    Logger.LogThisLine("Errore nella classe X metodo Y");
                 }
                 finally
                 {

@@ -43,12 +43,6 @@ namespace Reserver
 
         #region Getter and Setter
 
-        //public string CurrentAvatar
-        //{
-        //    set { avatarBox.ImageLocation = value; }
-        //    get { return avatarBox.ImageLocation; }
-        //}
-
         public Reserver externalReserver
         {
             set { reserver = value; }
@@ -66,7 +60,6 @@ namespace Reserver
             set { idutente = value; }
             get { return idutente; }
         }
-
 
         public bool IsLogged
         {

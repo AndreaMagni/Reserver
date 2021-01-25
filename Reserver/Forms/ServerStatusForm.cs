@@ -45,11 +45,6 @@ namespace Reserver.Forms
 
         public void LoadInterface(Reserver reserverForm)
         {
-            if (reserverForm == null)
-            {
-                MessageBox.Show("Errore parent form", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-            }
-
             using (FbConnection connection = new FbConnection(reserverForm.ConnectionString))
             {
                 try
