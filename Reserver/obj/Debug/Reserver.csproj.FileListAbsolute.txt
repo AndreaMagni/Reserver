@@ -92,3 +92,28 @@ C:\Users\Andrea\Desktop\GitHub_V2\Reserver\Reserver\obj\Debug\Reserver.csproj.Co
 C:\Users\Andrea\Desktop\GitHub_V2\Reserver\Reserver\obj\Debug\Reserver.csproj.CopyComplete
 C:\Users\Andrea\Desktop\GitHub_V2\Reserver\Reserver\obj\Debug\Reserver.exe
 C:\Users\Andrea\Desktop\GitHub_V2\Reserver\Reserver\obj\Debug\Reserver.pdb
+D:\Progetti GitHub\Reserver\Reserver\bin\Debug\Reserver.exe.config
+D:\Progetti GitHub\Reserver\Reserver\bin\Debug\Reserver.exe
+D:\Progetti GitHub\Reserver\Reserver\bin\Debug\Reserver.pdb
+D:\Progetti GitHub\Reserver\Reserver\bin\Debug\FirebirdSql.Data.FirebirdClient.dll
+D:\Progetti GitHub\Reserver\Reserver\bin\Debug\MetroFramework.Design.dll
+D:\Progetti GitHub\Reserver\Reserver\bin\Debug\MetroFramework.dll
+D:\Progetti GitHub\Reserver\Reserver\bin\Debug\MetroFramework.Fonts.dll
+D:\Progetti GitHub\Reserver\Reserver\bin\Debug\Tulpep.NotificationWindow.dll
+D:\Progetti GitHub\Reserver\Reserver\obj\Debug\Reserver.csprojAssemblyReference.cache
+D:\Progetti GitHub\Reserver\Reserver\obj\Debug\Reserver.AcceptanceTests.resources
+D:\Progetti GitHub\Reserver\Reserver\obj\Debug\Reserver.Forms.AcceptanceTestsForm.resources
+D:\Progetti GitHub\Reserver\Reserver\obj\Debug\Reserver.Forms.LoginForm.resources
+D:\Progetti GitHub\Reserver\Reserver\obj\Debug\Reserver.Forms.ReleaseHistoryForm.resources
+D:\Progetti GitHub\Reserver\Reserver\obj\Debug\Reserver.Forms.ServerStatusForm.resources
+D:\Progetti GitHub\Reserver\Reserver\obj\Debug\Reserver.Login.resources
+D:\Progetti GitHub\Reserver\Reserver\obj\Debug\Reserver.Properties.Resources.resources
+D:\Progetti GitHub\Reserver\Reserver\obj\Debug\Reserver.ReleaseHistory.resources
+D:\Progetti GitHub\Reserver\Reserver\obj\Debug\Reserver.Reserver.resources
+D:\Progetti GitHub\Reserver\Reserver\obj\Debug\Reserver.ServerStatus.resources
+D:\Progetti GitHub\Reserver\Reserver\obj\Debug\Reserver.SlotReservation.resources
+D:\Progetti GitHub\Reserver\Reserver\obj\Debug\Reserver.csproj.GenerateResource.cache
+D:\Progetti GitHub\Reserver\Reserver\obj\Debug\Reserver.csproj.CoreCompileInputs.cache
+D:\Progetti GitHub\Reserver\Reserver\obj\Debug\Reserver.csproj.CopyComplete
+D:\Progetti GitHub\Reserver\Reserver\obj\Debug\Reserver.exe
+D:\Progetti GitHub\Reserver\Reserver\obj\Debug\Reserver.pdb
