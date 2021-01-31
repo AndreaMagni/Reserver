@@ -29,9 +29,17 @@ namespace Reserver
             Logger.swLog.AutoFlush = true;
         }
 
-        public static void LogThisLine(string sLogLine)
+        public static void Log(string sLogLine)
         {
             Logger.swLog.WriteLine(DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToLongTimeString() + ": " + sLogLine);
+            Logger.swLog.WriteLine("---");
+            Logger.swLog.Flush();
+        }
+
+        public static void LogStack(string sLogLine, string sExLine)
+        {
+            Logger.swLog.WriteLine(DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToLongTimeString() + ": " + sLogLine + "\r\n\n" + sExLine);
+            Logger.swLog.WriteLine("---");
             Logger.swLog.Flush();
         }
 

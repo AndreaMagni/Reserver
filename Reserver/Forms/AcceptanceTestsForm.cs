@@ -50,9 +50,10 @@ namespace Reserver.Forms
                         metroComboBoxServers.ValueMember = "idserver";
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Richiesta al database fallita", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    MessageBox.Show("Richiesta fallita.", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    Logger.LogStack("Errore.", ex.StackTrace.ToString());
                 }
                 finally
                 {
@@ -85,9 +86,10 @@ namespace Reserver.Forms
                         metroGridAcceptanceTests.DataSource = dataTableGrid;
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Richiesta al database fallita", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    MessageBox.Show("Richiesta fallita.", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    Logger.LogStack("Errore.", ex.StackTrace.ToString());
                 }
                 finally
                 {
@@ -126,9 +128,10 @@ namespace Reserver.Forms
                         //DateTime test =  Convert.ToDateTime("30.09.2020, 20:00:00.000");
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Richiesta al database fallita", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    MessageBox.Show("Richiesta fallita.", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    Logger.LogStack("Errore.", ex.StackTrace.ToString());
                 }
                 finally
                 {
@@ -185,9 +188,10 @@ namespace Reserver.Forms
                             FbCommand updateServerStatus = new FbCommand(queryUpdateServerStatus, connection);
                             updateServerStatus.ExecuteNonQuery();
                         }
-                        catch (Exception)
+                        catch (Exception ex)
                         {
-                            MessageBox.Show("Richiesta al database fallita", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+                            MessageBox.Show("Richiesta fallita.", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                            Logger.LogStack("Errore.", ex.StackTrace.ToString());
                         }
                         finally
                         {

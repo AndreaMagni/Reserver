@@ -189,7 +189,8 @@ namespace Reserver.Forms
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Richiesta al database fallita", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    MessageBox.Show("Richiesta fallita.", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    Logger.LogStack("Errore.", ex.StackTrace.ToString());
                 }
                 finally
                 {
@@ -260,7 +261,8 @@ namespace Reserver.Forms
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Richiesta al database fallita", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    MessageBox.Show("Richiesta fallita.", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    Logger.LogStack("Errore.", ex.StackTrace.ToString());
                 }
                 finally
                 {
@@ -391,7 +393,8 @@ namespace Reserver.Forms
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Richiesta al database fallita", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    MessageBox.Show("Richiesta fallita.", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    Logger.LogStack("Errore.", ex.StackTrace.ToString());
                 }
                 finally
                 {
