@@ -35,7 +35,7 @@ namespace Reserver.Forms
                 try
                 {
                     connection.Open();
-                    using (FbDataAdapter dataAdapterServerList = new FbDataAdapter("SELECT idserver, descrizione FROM servers", connection))
+                    using (FbDataAdapter dataAdapterServerList = new FbDataAdapter("select IDSERVER, DESCRIZIONE from SERVERS", connection))
                     {
                         DataTable dataTableServerList = new DataTable();
                         dataAdapterServerList.Fill(dataTableServerList);
@@ -71,14 +71,14 @@ namespace Reserver.Forms
                     connection.Open();
                     using (FbDataAdapter dataAdapterGrid = new FbDataAdapter(@"
                         select 
-                            s.DESCRIZIONE as Ambiente, 
-                            u.DENOMINAZIONE as Utente, 
+                            s.DESCRIZIONE as AMBIENTE, 
+                            u.DENOMINAZIONE as UTENTE, 
                             c.DESCRIZIONE, 
-                            c.INIZIOCOLLAUDO as DataInizio, 
-                            c.FINECOLLAUDO as DataFine
-                        from collaudi c
-                        join servers s on s.IDSERVER = c.IDSERVER
-                        join utenti u on u.IDUTENTE = c.IDUTENTE
+                            c.INIZIOCOLLAUDO as DATAINIZIO, 
+                            c.FINECOLLAUDO as DATAFINE
+                        from COLLAUDI c
+                        join SERVERS s on s.IDSERVER = c.IDSERVER
+                        join UTENTI u on u.IDUTENTE = c.IDUTENTE
                         order by c.INIZIOCOLLAUDO DESC", connection))
                     {
                         DataTable dataTableGrid = new DataTable();
@@ -116,8 +116,9 @@ namespace Reserver.Forms
                     else
                     {
                         connection.Open();
-                        string queryInsertNewAcceptanceTest = string.Format(@"INSERT INTO COLLAUDI(IDSERVER, IDUTENTE, INIZIOCOLLAUDO, FINECOLLAUDO, STATO, DESCRIZIONE, DATAINSERIMENTO)
-                        VALUES({0}, {1}, '{2}', '{3}', 'ATTIVO', '{4}', CURRENT_TIMESTAMP)",
+                        string queryInsertNewAcceptanceTest = string.Format(@"
+                            INSERT INTO COLLAUDI(IDSERVER, IDUTENTE, INIZIOCOLLAUDO, FINECOLLAUDO, STATO, DESCRIZIONE, DATAINSERIMENTO)
+                            VALUES({0}, {1}, '{2}', '{3}', 'ATTIVO', '{4}', CURRENT_TIMESTAMP)",
                             metroComboBoxServers.SelectedValue,
                             reserverForm.CurrentUserID,
                             (metroDateTimeStartDate.Value.Date.ToString("dd.MM.yyyy ") + metroComboBoxStartHour.Text ).ToString(),

@@ -1,12 +1,6 @@
 ﻿using FirebirdSql.Data.FirebirdClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Reserver.Forms
@@ -86,10 +80,10 @@ namespace Reserver.Forms
                 {
                     connection.Open();
                     using (FbDataAdapter dataAdapterGrid = new FbDataAdapter(@"
-                        select s.DESCRIZIONE as Ambiente, u.DENOMINAZIONE as UTENTE, sr.DATAINIZIO, sr.DATAFINE
+                        select first 100 s.DESCRIZIONE as AMBIENTE, u.DENOMINAZIONE as UTENTE, sr.DATAINIZIO, sr.DATAFINE
                         from STORICORILASCI sr 
                         join SERVERS s on s.IDSERVER = sr.IDSERVER
-                        join utenti u on u.IDUTENTE = sr.IDUTENTE
+                        join UTENTI u on u.IDUTENTE = sr.IDUTENTE
                         order by sr.DATAINIZIO desc, sr.DATAFINE nulls first", connection))
                     {
                         dataTableGrid = new DataTable();
@@ -117,12 +111,12 @@ namespace Reserver.Forms
             {
                 if (!comboBoxUsers.Text.Equals(""))
                 {
-                    filtro = "DENOMINAZIONE = '" + comboBoxUsers.Text + "'";
-                    filtro = filtro + "and DATAINIZIO >= '" + dateTimeDa.Text + "' and DATAFINE <= '" + Convert.ToDateTime(dateTimeA.Text).AddDays(1) + "'";
+                    filtro = "UTENTE = '" + comboBoxUsers.Text + "'";
+                    filtro = filtro + " and DATAINIZIO >= '" + dateTimeDa.Text + "' and DATAFINE <= '" + Convert.ToDateTime(dateTimeA.Text).AddDays(1) + "'";
                 }
                 else
                 {
-                    filtro = "DATAINIZIO >= '" + dateTimeDa.Text + "' and DATAFINE <= '" + Convert.ToDateTime(dateTimeA.Text).AddDays(1) + "'";
+                    filtro = " DATAINIZIO >= '" + dateTimeDa.Text + "' and DATAFINE <= '" + Convert.ToDateTime(dateTimeA.Text).AddDays(1) + "'";
                 }
             }
             else
@@ -130,9 +124,9 @@ namespace Reserver.Forms
                 filtro = "AMBIENTE = '" + comboBoxServers.Text + "'";
                 if (!comboBoxUsers.Text.Equals(""))
                 {
-                    filtro = filtro + " and DENOMINAZIONE = '" + comboBoxUsers.Text + "'";
+                    filtro = filtro + " and UTENTE = '" + comboBoxUsers.Text + "'";
                 }
-                filtro = filtro + "and DATAINIZIO >= '" + dateTimeDa.Text + "' and DATAFINE <= '" + Convert.ToDateTime(dateTimeA.Text).AddDays(1) + "'";
+                filtro = filtro + " and DATAINIZIO >= '" + dateTimeDa.Text + "' and DATAFINE <= '" + Convert.ToDateTime(dateTimeA.Text).AddDays(1) + "'";
             }
             dataTableGrid.DefaultView.RowFilter = filtro;
             dataTableGrid.DefaultView.Sort = "DATAINIZIO desc";
