@@ -12,7 +12,7 @@ namespace Reserver
 {
     public partial class Reserver : Form
     {
-        public string connectionStringExternalDB = "";
+        public string connectionStringExternalDB = "User=SYSDBA;Password=chiavemaestra;Database=/var/lib/firebird/2.5/data/RESERVER.FDB;DataSource=51.83.76.255;Port=3050;Connection Lifetime=10";
         public bool logged = false;
         public int idutente = -1;
         public object emptySender = new object();

@@ -42,7 +42,6 @@ namespace Reserver.Forms
 
                         DataRow rowServerList = dataTableServerList.NewRow();
                         rowServerList[0] = 0;
-                        //row[1] = "Please select";
                         dataTableServerList.Rows.InsertAt(rowServerList, 0);
 
                         metroComboBoxServers.DataSource = dataTableServerList;
@@ -169,41 +168,7 @@ namespace Reserver.Forms
 
         private void GridAcceptanceTests_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int selectedRow = metroGridAcceptanceTests.CurrentCell.RowIndex;
-            string gridValue = metroGridAcceptanceTests.CurrentCell.Value.ToString();
-            string idCollaudo = metroGridAcceptanceTests.Rows[selectedRow].Cells[1].Value.ToString();
-            //metroGridAcceptanceTests.Rows.RemoveAt(selectedRow);
-            //DataGridViewRow row = metroGridAcceptanceTests.Rows[selectedRow];
 
-            switch (gridValue)
-            {
-                case "Concludi":
-                    using (FbConnection connection = new FbConnection(reserverForm.ConnectionString))
-                    {
-                        try
-                        {
-                            connection.Open();
-                            //Fixare e decidere come impostare i vari tasti
-                            // Creare tasto che chiede se si vuole concludere il collaudo (se la persona è quella che l'ha creato) e rispetto a yes / no update 
-                            string queryUpdateServerStatus = string.Format(@"UPDATE COLLAUDI SET STATO = 'OCCUPATO', IDUTENTE = {0} WHERE IDSERVER = {1}", reserverForm.CurrentUserID, 1);
-                            FbCommand updateServerStatus = new FbCommand(queryUpdateServerStatus, connection);
-                            updateServerStatus.ExecuteNonQuery();
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Richiesta fallita.", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                            Logger.LogStack("Errore.", ex.StackTrace.ToString());
-                        }
-                        finally
-                        {
-                            connection.Close();
-                        }
-                    }
-                    break;
-
-                default:
-                    break;
-            }
         }
 
 

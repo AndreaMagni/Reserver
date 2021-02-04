@@ -28,8 +28,6 @@ namespace Reserver.Forms
             privateFontCollection = new PrivateFontCollection();
             privateFontCollection.AddFontFile(Directory.GetCurrentDirectory() + "\\font\\Quicksand-Light.ttf");
             LoadInterface(reserverForm);
-            //btnSideMenuAcceptanceTests.Font = new Font(privateFontCollection.Families[0], 15, FontStyle.Bold);
-            //labelCurrentUserV2.Font = new Font(privateFontCollection.Families[0], 11, FontStyle.Regular);
         }
 
         public Image ResizeImage(Image imgToResize, Size size)
@@ -45,6 +43,16 @@ namespace Reserver.Forms
 
         public void LoadInterface(Reserver reserverForm)
         {
+
+            // POSSIBILI TODO:
+            //
+            // - Nuovo stato COLLAUDO giallo al posto di rosso / verde?
+            //
+            // -
+            //
+            // -
+            //
+
             using (FbConnection connection = new FbConnection(reserverForm.ConnectionString))
             {
                 try
@@ -73,11 +81,11 @@ namespace Reserver.Forms
                         labelServerDescription.BackColor = Color.FromArgb(92, 162, 150);
                         labelServerDescription.Text = row["DESCRIZIONE"].ToString();
                         labelServerDescription.TextAlign = ContentAlignment.MiddleCenter;
+                        // Esempio modifica font
                         //labelServerDescription.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
                         labelServerDescription.Font = new Font(privateFontCollection.Families[0], 11, FontStyle.Bold);
                         labelServerDescription.Name = "groupBox" + row["CODICE"].ToString();
                         panelServerStatus.Controls.Add(labelServerDescription);
-
 
                         Panel panelServerInfo = new Panel();
                         panelServerInfo.Top = top;
@@ -86,45 +94,25 @@ namespace Reserver.Forms
                         panelServerInfo.BackColor = Color.FromArgb(142, 198, 189);
                         panelServerStatus.Controls.Add(panelServerInfo);
 
-
-                        /*
-                        GroupBox serverGroupBox = new GroupBox();
-                        serverGroupBox.Text = row["DESCRIZIONE"].ToString();
-                        serverGroupBox.Top = top;
-                        serverGroupBox.Left = 100;
-                        serverGroupBox.Size = new Size(550, 70);
-                        serverGroupBox.Name = "groupBox" + row["CODICE"].ToString();
-                        serverGroupBox.BackColor = Color.FromArgb(160, 218, 218);
-                        panelServerStatus.Controls.Add(serverGroupBox);
-                        */
-
                         MetroFramework.Controls.MetroButton button = new MetroFramework.Controls.MetroButton();
                         button.Left = insideLeft;
                         button.Size = new Size(150, 25);
                         button.Top = 20;
                         button.Name = row["CODICE"].ToString();
-
                         button.FontSize = MetroFramework.MetroButtonSize.Small;
                         button.FontWeight = MetroFramework.MetroButtonWeight.Regular;
-
-                        /*
-                        for (int i = 0; i < panelServerInfo.Controls.Count; i++)
-                        {
-                            panelServerInfo.Controls[i].Font = new Font("Verdana", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-                        }
-                        */
-
-                        /*
-                        button.FlatAppearance.BorderSize = 0;
-                        button.FlatAppearance.BorderColor = Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(198)))), ((int)(((byte)(189)))));
-                        button.FlatAppearance.MouseDownBackColor = Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(162)))), ((int)(((byte)(150)))));
-                        button.FlatAppearance.MouseOverBackColor = Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(162)))), ((int)(((byte)(150)))));
-                        button.FlatStyle = FlatStyle.Flat;
-                        button.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-                        */
-
                         // Inizio verifica utenti con rilasci attivi che hanno chiuso l'applicazione
-                        string queryCheckRilasciAttivi = string.Format(@"SELECT * FROM servers s JOIN storicorilasci sr ON s.IDSERVER = sr.IDSERVER WHERE s.codice = '{0}' AND sr.idutente = {1} AND sr.attivo = 1", row["CODICE"].ToString(), reserverForm.CurrentUserID);
+                        string queryCheckRilasciAttivi = string.Format(@"
+                            SELECT 
+                                * 
+                            FROM 
+                                servers s 
+                                JOIN storicorilasci sr ON s.IDSERVER = sr.IDSERVER 
+                            WHERE
+                                s.codice = '{0}' 
+                                AND sr.idutente = {1} 
+                                AND sr.attivo = 1", row["CODICE"].ToString(), reserverForm.CurrentUserID
+                        );
                         FbCommand getCheckRilasciAttivi = new FbCommand(queryCheckRilasciAttivi, connection);
                         FbDataReader readerGetCheckRilasciAttivi = getCheckRilasciAttivi.ExecuteReader();
                         if (readerGetCheckRilasciAttivi.Read())
@@ -135,9 +123,27 @@ namespace Reserver.Forms
                         {
                             button.Text = "Rilascia";
                         }
-                        // Fine verifica
-                        button.Click += new EventHandler(this.ReleaseButton_Click);
+                        // Fine verifica utenti con rilasci attivi che hanno chiuso l'applicazione
 
+                        // Inizio verifica collaudi 
+                        string queryCheckCollaudiAttivi = string.Format(@"
+                            SELECT 
+                                c.idcollaudo 
+                            FROM 
+                                servers s 
+                                JOIN collaudi c ON c.IDSERVER = s.IDSERVER 
+                            WHERE 
+                                c.STATO = 'ATTIVO' 
+                                AND s.codice = '{0}'", row["CODICE"].ToString()
+                        );
+                        FbCommand getCheckCollaudiAttivi = new FbCommand(queryCheckCollaudiAttivi, connection);
+                        FbDataReader readerGetCheckCollaudiAttivi = getCheckCollaudiAttivi.ExecuteReader();
+                        if (readerGetCheckCollaudiAttivi.Read())
+                        {
+                            button.Text = "Collaudo in corso";
+                        }
+                        // Fine verifica collaudi
+                        button.Click += new EventHandler(this.ReleaseButton_Click);
 
                         Label statusLabel = new Label();
                         statusLabel.Left = insideLeft + 175;
@@ -149,7 +155,6 @@ namespace Reserver.Forms
                         statusImg = ResizeImage(statusImg, new Size(25, 25));
                         statusLabel.Image = statusImg;
 
-
                         Label dateLabel = new Label();
                         dateLabel.Left = insideLeft + 225;
                         dateLabel.Top = 20;
@@ -158,8 +163,6 @@ namespace Reserver.Forms
                         dateLabel.Font = new Font("Verdana", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
                         dateLabel.Size = new Size(100, 25);
                         dateLabel.Name = "date" + row["CODICE"].ToString();
-                        //dateLabel.BackColor = Color.Red;
-
 
                         Label avatarLabel = new Label();
                         avatarLabel.Left = insideLeft + 350;
@@ -168,7 +171,7 @@ namespace Reserver.Forms
                         avatarLabel.Name = "icon" + row["CODICE"].ToString();
 
                         if (row["STATO"].ToString() == "OCCUPATO")
-                        {                            
+                        {
                             dateLabel.Text = RelativeDate(Convert.ToDateTime(row["DATAINIZIO"].ToString()));
                             SetToolTip(dateLabel, row["DATAINIZIO"].ToString());
 
@@ -194,47 +197,10 @@ namespace Reserver.Forms
                 }
                 finally
                 {
-                    // Serviva per aggiungere lo spazio in fondo, ora no
-                    //Panel paddingBottomPanel = new Panel();
-                    //paddingBottomPanel.Top = (6*10) + (6*60);
-                    //paddingBottomPanel.Left = 75;
-                    //paddingBottomPanel.Size = new Size(540, 25);
-                    //panelServerStatus.Controls.Add(paddingBottomPanel);
                     connection.Close();
                     UpdateStatus();
                 }
             }
-            
-            /*
-            //indipendentemente da questo lo scroll funzionava abilitando lo scroll lato pannello
-
-            metroScrollBar1.Scroll += (sender, e) => {
-                //Normally the if statement whouldn't be needed but the metro srollbar
-                //has a weird behaviour when the scroll value becomes max
-                if (metroScrollBar1.Value > panelServerStatus.Height - this.Height)
-                {
-                    panelServerStatus.Top = -(panelServerStatus.Height - this.Height);
-                }
-                else
-                {
-                    panelServerStatus.Top = -metroScrollBar1.Value;
-                };
-            };
-
-            int maxVertical = this.Height;
-
-            // SmallChange is typically 1%.
-            int smallChangeVertical = Math.Max((int)(450 / 100), 1);
-
-            // LargeChange is one page.
-            int largeChangeVertical = 450; //this.Height;
-
-            metroScrollBar1.Minimum = 0;
-            metroScrollBar1.Maximum = 450; // maxVertical;
-            metroScrollBar1.SmallChange = smallChangeVertical;
-            metroScrollBar1.LargeChange = largeChangeVertical;
-            */
-
         }
 
 
@@ -253,6 +219,13 @@ namespace Reserver.Forms
                         IniziaRilascio(connection, buttonName);
                         UpdateStatus();
                     }
+                    else if (buttonText == "Collaudo in corso")
+                    {
+                        // dovrebbe prima verificare se effettivamente il collaudo è finito
+                        MessageBox.Show("Collaudo in corso.", "Attenzione", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                        UpdateStatus();
+                    }
+                    // gestione stato concludi collaudo
                     else
                     {
                         ConcludiRilascio(connection, buttonName);
@@ -273,40 +246,60 @@ namespace Reserver.Forms
 
         private void IniziaRilascio(FbConnection connection, string buttonName)
         {
-            string queryGetServerID = string.Format(@"SELECT s.idserver, ss.stato FROM servers s JOIN statiservers ss ON ss.idserver = s.idserver WHERE s.codice = '{0}'", buttonName);
+            string queryGetServerID = string.Format(@"
+                SELECT 
+                    s.idserver,
+                    ss.stato,
+                    ss.statocollaudo
+                FROM 
+                    servers s 
+                    JOIN statiservers ss ON ss.idserver = s.idserver 
+                WHERE s.codice = '{0}'", buttonName
+            );
             FbCommand getServerID = new FbCommand(queryGetServerID, connection);
             FbDataReader readerGetServerID = getServerID.ExecuteReader();
 
             if (readerGetServerID.Read())
             {
-                int serverID = readerGetServerID.GetInt32(0);
-                string serverStatus = readerGetServerID.GetString(1);
-
-                if (serverStatus == "LIBERO")
+                if(readerGetServerID.GetInt32(2) > 0)
                 {
-                    string queryUpdateServerStatus = string.Format(@"UPDATE STATISERVERS SET STATO = 'OCCUPATO', IDUTENTE = {1} WHERE IDSERVER = {0}", serverID, reserverForm.CurrentUserID);
-                    FbCommand updateServerStatus = new FbCommand(queryUpdateServerStatus, connection);
-                    updateServerStatus.ExecuteNonQuery();
+                    MessageBox.Show("Collaudo in corso", "Attenzione", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
 
                     Button currentButton = this.Controls.Find(buttonName, true).FirstOrDefault() as Button;
-                    currentButton.Text = "Rilascio concluso";
-
-                    Label currentLabel = this.Controls.Find("status" + buttonName, true).FirstOrDefault() as Label;
-                    currentLabel.BackColor = Color.Red;
-
-                    string queryStatusInfo = string.Format(@"INSERT INTO STORICORILASCI (IDSERVER, IDUTENTE, attivo, DESCRIZIONE, DATAINIZIO) VALUES ({0}, {1}, {2}, '', '{3}')", serverID, reserverForm.CurrentUserID, 1, DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss"));
-                    FbCommand getStatusInfo = new FbCommand(queryStatusInfo, connection);
-                    getStatusInfo.ExecuteNonQuery();
-                }
+                    currentButton.Text = "Collaudo in corso";
+                } 
                 else
                 {
-                    MessageBox.Show("Rilascio in corso, aspettare o effettuare una prenotazione", "Attenzione", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                    int serverID = readerGetServerID.GetInt32(0);
+                    string serverStatus = readerGetServerID.GetString(1);
+
+                    if (serverStatus == "LIBERO")
+                    {
+                        string queryUpdateServerStatus = string.Format(@"UPDATE STATISERVERS SET STATO = 'OCCUPATO', IDUTENTE = {1} WHERE IDSERVER = {0}", serverID, reserverForm.CurrentUserID);
+                        FbCommand updateServerStatus = new FbCommand(queryUpdateServerStatus, connection);
+                        updateServerStatus.ExecuteNonQuery();
+
+                        Button currentButton = this.Controls.Find(buttonName, true).FirstOrDefault() as Button;
+                        currentButton.Text = "Rilascio concluso";
+
+                        Label currentLabel = this.Controls.Find("status" + buttonName, true).FirstOrDefault() as Label;
+                        currentLabel.BackColor = Color.Red;
+
+                        string queryStatusInfo = string.Format(@"INSERT INTO STORICORILASCI (IDSERVER, IDUTENTE, attivo, DESCRIZIONE, DATAINIZIO) VALUES ({0}, {1}, {2}, '', '{3}')", serverID, reserverForm.CurrentUserID, 1, DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss"));
+                        FbCommand getStatusInfo = new FbCommand(queryStatusInfo, connection);
+                        getStatusInfo.ExecuteNonQuery();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Rilascio in corso, aspettare o effettuare una prenotazione", "Attenzione", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                    }
                 }
             }
             else
             {
                 MessageBox.Show("Errore query lettura", "Attenzione", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
             }
+
         }
 
         private void ConcludiRilascio(FbConnection connection, string buttonName)
@@ -350,9 +343,11 @@ namespace Reserver.Forms
             {
                 try
                 {
+                    // Al posto di buttonname abbiamo s.codice
+                    // Button currentButton = this.Controls.Find(S.CODICE, true).FirstOrDefault() as Button;
                     connection.Open();
                     string queryStatusInfo = string.Format(@"
-                        SELECT r.STATO, s.CODICE, u.DENOMINAZIONE, u.AVATAR, sr.DATAINIZIO
+                        SELECT r.STATO, s.CODICE, u.DENOMINAZIONE, u.AVATAR, sr.DATAINIZIO, r.STATOCOLLAUDO
                         FROM STATISERVERS r
                         JOIN SERVERS s ON s.IDSERVER = r.IDSERVER
                         LEFT OUTER JOIN UTENTI u ON u.IDUTENTE = r.IDUTENTE
@@ -378,14 +373,23 @@ namespace Reserver.Forms
                         {
                             currentDateLabel.Text = RelativeDate(Convert.ToDateTime(readerGetServerID.GetString(4)));
                             currentDateLabel.Font = new Font(privateFontCollection.Families[0], 11, FontStyle.Regular);
+                            // QUI PROBLEMA PER TOOLTIP 
                             SetToolTip(currentDateLabel, readerGetServerID.GetString(4));
                             Image updatedStatusImg = Image.FromFile(Directory.GetCurrentDirectory() + readerGetServerID.GetString(3));
                             updatedStatusImg = ResizeImage(updatedStatusImg, new Size(50, 50));
                             currentIconLabel.Image = updatedStatusImg;
+                            // QUI PROBLEMA PER TOOLTIP 
                             SetToolTip(currentIconLabel, readerGetServerID.GetString(2));
+                        }
+                        else if (readerGetServerID.GetInt32(5) > 0)
+                        {
+                            Button currentButton = this.Controls.Find(readerGetServerID.GetString(1), true).FirstOrDefault() as Button;
+                            currentButton.Text = "Collaudo in corso";
                         }
                         else
                         {
+                            Button currentButton = this.Controls.Find(readerGetServerID.GetString(1), true).FirstOrDefault() as Button;
+                            currentButton.Text = "Rilascia";
                             currentDateLabel.Text = string.Empty;
                             currentIconLabel.Image = null;
                         }
@@ -403,13 +407,13 @@ namespace Reserver.Forms
             }
         }
 
-
         private string RelativeDate(DateTime theDate)
         {
-            Dictionary<long, string> thresholds = new Dictionary<long, string>();
             int minute = 60;
             int hour = 60 * minute;
             int day = 24 * hour;
+            long since = (DateTime.Now.Ticks - theDate.Ticks) / 10000000;
+            Dictionary<long, string> thresholds = new Dictionary<long, string>();
             thresholds.Add(60, "{0} secondi fa");
             thresholds.Add(minute * 2, "1 minuto fa");
             thresholds.Add(45 * minute, "{0} minuti fa");
@@ -417,9 +421,6 @@ namespace Reserver.Forms
             thresholds.Add(day, "{0} ore fa");
             thresholds.Add(day * 2, "ieri");
             thresholds.Add(day * 30, "{0} giorni fa");
-            //thresholds.Add(day * 365, "{0} months ago");
-            //thresholds.Add(long.MaxValue, "{0} years ago");
-            long since = (DateTime.Now.Ticks - theDate.Ticks) / 10000000;
             foreach (long threshold in thresholds.Keys)
             {
                 if (since < threshold)

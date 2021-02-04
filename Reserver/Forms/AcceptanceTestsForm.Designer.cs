@@ -32,7 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroGridAcceptanceTests = new MetroFramework.Controls.MetroGrid();
-            this.CONCLUDI = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.metroTextBoxAcceptanceTestDescription = new MetroFramework.Controls.MetroTextBox();
             this.metroButtonSave = new MetroFramework.Controls.MetroButton();
@@ -68,8 +67,6 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.metroGridAcceptanceTests.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.metroGridAcceptanceTests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.metroGridAcceptanceTests.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CONCLUDI});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -100,16 +97,6 @@
             this.metroGridAcceptanceTests.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.metroGridAcceptanceTests.Size = new System.Drawing.Size(706, 308);
             this.metroGridAcceptanceTests.TabIndex = 44;
-            // 
-            // CONCLUDI
-            // 
-            this.CONCLUDI.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.CONCLUDI.HeaderText = " STOP ";
-            this.CONCLUDI.Name = "CONCLUDI";
-            this.CONCLUDI.ReadOnly = true;
-            this.CONCLUDI.Text = "X";
-            this.CONCLUDI.UseColumnTextForButtonValue = true;
-            this.CONCLUDI.Width = 43;
             // 
             // groupBox1
             // 
@@ -299,6 +286,5 @@
         private MetroFramework.Controls.MetroComboBox metroComboBoxStartHour;
         private MetroFramework.Controls.MetroComboBox metroComboBoxEndHour;
         private MetroFramework.Controls.MetroDateTime metroDateTimeEndDate;
-        private System.Windows.Forms.DataGridViewButtonColumn CONCLUDI;
     }
 }
