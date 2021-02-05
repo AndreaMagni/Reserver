@@ -125,3 +125,11 @@ C:\Users\Andrea\Desktop\GitHub_V2\Reserver\Reserver\bin\Debug\System.Configurati
 C:\Users\Andrea\Desktop\GitHub_V2\Reserver\Reserver\bin\Debug\System.Security.AccessControl.xml
 C:\Users\Andrea\Desktop\GitHub_V2\Reserver\Reserver\bin\Debug\System.Security.Permissions.xml
 C:\Users\Andrea\Desktop\GitHub_V2\Reserver\Reserver\bin\Debug\System.Security.Principal.Windows.xml
+D:\Progetti GitHub\Reserver\Reserver\bin\Debug\System.Configuration.ConfigurationManager.dll
+D:\Progetti GitHub\Reserver\Reserver\bin\Debug\System.Security.AccessControl.dll
+D:\Progetti GitHub\Reserver\Reserver\bin\Debug\System.Security.Permissions.dll
+D:\Progetti GitHub\Reserver\Reserver\bin\Debug\System.Security.Principal.Windows.dll
+D:\Progetti GitHub\Reserver\Reserver\bin\Debug\System.Configuration.ConfigurationManager.xml
+D:\Progetti GitHub\Reserver\Reserver\bin\Debug\System.Security.AccessControl.xml
+D:\Progetti GitHub\Reserver\Reserver\bin\Debug\System.Security.Permissions.xml
+D:\Progetti GitHub\Reserver\Reserver\bin\Debug\System.Security.Principal.Windows.xml

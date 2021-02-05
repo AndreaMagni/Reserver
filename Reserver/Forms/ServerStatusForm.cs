@@ -171,7 +171,11 @@ namespace Reserver.Forms
                         MessageBox.Show("Collaudo in corso.", "Attenzione", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                         UpdateStatus();
                     }
-                    // gestione stato concludi collaudo
+                    else if (buttonText == "Concludi collaudo")
+                    {
+                        ConcludiCollaudo(connection, buttonName);
+                        UpdateStatus();
+                    }
                     else
                     {
                         ConcludiRilascio(connection, buttonName);
@@ -209,6 +213,19 @@ namespace Reserver.Forms
 
                     Button currentButton = this.Controls.Find(buttonName, true).FirstOrDefault() as Button;
                     currentButton.Text = "Collaudo in corso";
+
+                    string queryGetUserAcceptanceTest = string.Format(@"
+                                SELECT c.idutente
+                                FROM collaudi c 
+                                WHERE c.stato = 'ATTIVO'
+                                    AND c.idserver = {0}", readerGetServerID.GetInt32(0));
+                    FbCommand getUserAcceptanceTest = new FbCommand(queryGetUserAcceptanceTest, connection);
+                    int idUtenteCollaudo = (int)getUserAcceptanceTest.ExecuteScalar();
+
+                    if (idUtenteCollaudo == reserverForm.CurrentUserID)
+                    {
+                        currentButton.Text = "Concludi collaudo";
+                    }
                 } 
                 else
                 {
@@ -292,7 +309,29 @@ namespace Reserver.Forms
             readerGetServerID.Close();
         }
 
-        private void ButtonUpdateStatus_Click(object sender, EventArgs e)
+        private void ConcludiCollaudo(FbConnection connection, string buttonName)
+        {
+            string queryGetServerID = string.Format(@"
+                SELECT s.idserver 
+                FROM servers s  
+                WHERE s.codice = '{0}'", buttonName);
+            FbCommand getServerID = new FbCommand(queryGetServerID, connection);
+            FbDataReader readerGetServerID = getServerID.ExecuteReader();
+
+            if (readerGetServerID.Read())
+            {
+                string queryUpdateFineCollaudo = string.Format(@"
+                    UPDATE collaudi 
+                    SET finecollaudo = CURRENT_TIMESTAMP 
+                    WHERE idserver = {0} 
+                        AND stato = 'ATTIVO'", readerGetServerID.GetInt32(0));
+                FbCommand updateFineCollaudo = new FbCommand(queryUpdateFineCollaudo, connection);
+                updateFineCollaudo.ExecuteNonQuery();
+            }
+            readerGetServerID.Close();
+        }
+
+            private void ButtonUpdateStatus_Click(object sender, EventArgs e)
         {
             UpdateStatus();
         }
@@ -308,7 +347,7 @@ namespace Reserver.Forms
                 {
                     connection.Open();
                     string queryStatusInfo = string.Format(@"
-                        SELECT r.stato, s.codice, u.denominazione, u.avatar, sr.datainizio, r.statocollaudo
+                        SELECT r.stato, s.codice, u.denominazione, u.avatar, sr.datainizio, r.statocollaudo, r.idserver
                         FROM statiservers r
                         JOIN servers s ON s.idserver = r.idserver
                         LEFT OUTER JOIN utenti u ON u.idutente = r.idutente
@@ -322,7 +361,20 @@ namespace Reserver.Forms
                     while (readerGetServerID.Read())
                     {
                         Label currentLabel = this.Controls.Find("status" + readerGetServerID.GetString(1), true).FirstOrDefault() as Label;
-                        Image statusImg = (readerGetServerID.GetString(0) == "OCCUPATO") ? Image.FromFile(Directory.GetCurrentDirectory() + "\\img\\remove.png") : Image.FromFile(Directory.GetCurrentDirectory() + "\\img\\check.png");
+                        Image statusImg;
+                        if (readerGetServerID.GetInt32(5)>0)
+                        {
+                            statusImg = Image.FromFile(Directory.GetCurrentDirectory() + "\\img\\warning.png");
+                        }
+                        else if(readerGetServerID.GetString(0) == "OCCUPATO")
+                        {
+                            statusImg = Image.FromFile(Directory.GetCurrentDirectory() + "\\img\\busy.png");
+                        }
+                        else
+                        {
+                            statusImg = Image.FromFile(Directory.GetCurrentDirectory() + "\\img\\free.png");
+                        }
+
                         statusImg = ResizeImage(statusImg, new Size(25, 25));
                         currentLabel.BackColor = Color.Transparent;
                         currentLabel.Image = statusImg;
@@ -336,14 +388,12 @@ namespace Reserver.Forms
 
                             currentDateLabel.Text = RelativeDate(Convert.ToDateTime(readerGetServerID.GetString(4)));
                             currentDateLabel.Font = new Font(privateFontCollection.Families[0], 11, FontStyle.Regular);
-
                             toolTipDateLabel = new ToolTip();
                             toolTipDateLabel.SetToolTip(currentDateLabel, readerGetServerID.GetString(4));
 
                             Image updatedStatusImg = Image.FromFile(Directory.GetCurrentDirectory() + readerGetServerID.GetString(3));
                             updatedStatusImg = ResizeImage(updatedStatusImg, new Size(50, 50));
                             currentIconLabel.Image = updatedStatusImg;
-
                             toolTipStatusImg = new ToolTip();
                             toolTipStatusImg.SetToolTip(currentIconLabel, readerGetServerID.GetString(2));
                         }
@@ -351,6 +401,19 @@ namespace Reserver.Forms
                         {
                             Button currentButton = this.Controls.Find(readerGetServerID.GetString(1), true).FirstOrDefault() as Button;
                             currentButton.Text = "Collaudo in corso";
+
+                            string queryGetUserAcceptanceTest = string.Format(@"
+                                SELECT c.idutente
+                                FROM collaudi c 
+                                WHERE c.stato = 'ATTIVO'
+                                    AND c.idserver = {0}", readerGetServerID.GetInt32(6));
+                            FbCommand getUserAcceptanceTest = new FbCommand(queryGetUserAcceptanceTest, connection);
+                            int idUtenteCollaudo = (int)getUserAcceptanceTest.ExecuteScalar();
+
+                            if (idUtenteCollaudo == reserverForm.CurrentUserID)
+                            {
+                                currentButton.Text = "Concludi collaudo";
+                            }
                         }
                         else
                         {
