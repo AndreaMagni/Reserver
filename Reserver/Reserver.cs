@@ -142,6 +142,7 @@ namespace Reserver
                     break;
 
                 case "btnSideMenuAcceptanceTests":
+                    acceptanceTestsForm.AcceptanceTests_Load();
                     OpenChildForm(acceptanceTestsForm, sender);
                     break;
 

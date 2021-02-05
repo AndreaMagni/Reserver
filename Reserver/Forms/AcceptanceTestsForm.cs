@@ -61,7 +61,7 @@ namespace Reserver.Forms
             }
         }
 
-        private void AcceptanceTests_Load()
+        public void AcceptanceTests_Load()
         {
             using (FbConnection connection = new FbConnection(reserverForm.ConnectionString))
             {
@@ -74,7 +74,8 @@ namespace Reserver.Forms
                             u.DENOMINAZIONE as UTENTE, 
                             c.DESCRIZIONE, 
                             c.INIZIOCOLLAUDO as DATAINIZIO, 
-                            c.FINECOLLAUDO as DATAFINE
+                            c.FINECOLLAUDO as DATAFINE,
+                            c.stato
                         from COLLAUDI c
                         join SERVERS s on s.IDSERVER = c.IDSERVER
                         join UTENTI u on u.IDUTENTE = c.IDUTENTE
@@ -96,6 +97,7 @@ namespace Reserver.Forms
                 }
             }
         }
+
 
         // ATTENZIONE!! Durante l'inserimento di un nuovo collaudo risulterà in stato ATTIVO. Concluso il collaudo l'operatore andrà a cliccare un bottone?? E lo stato passerà a CONCLUSO
         // Giocare sulle ore presenti nel collaudo e quelle attuali per verificare se è possibile fare un rilascio ad esempio
