@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO;
 
 namespace Reserver
@@ -14,13 +11,6 @@ namespace Reserver
         static Logger()
         {
             Logger.OpenLogger();
-
-            /*
-            if(!Directory.Exists("Log"))
-            {
-                Directory.CreateDirectory("Log");
-            }
-            */
         }
 
         public static void OpenLogger()
