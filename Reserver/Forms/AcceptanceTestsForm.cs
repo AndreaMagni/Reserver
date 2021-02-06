@@ -114,12 +114,16 @@ namespace Reserver.Forms
                     {
                         MessageBox.Show("Dati inseriti non congrui o mancanti.", "Attenzione", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                     }
+                    else if (!CheckUniqueAcceptanceTest(connection))
+                    {
+                        MessageBox.Show("Collaudo presente nel range indicato.", "Attenzione", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                    }
                     else
                     {
                         connection.Open();
                         string queryInsertNewAcceptanceTest = string.Format(@"
-                            INSERT INTO COLLAUDI(IDSERVER, IDUTENTE, INIZIOCOLLAUDO, FINECOLLAUDO, STATO, DESCRIZIONE, DATAINSERIMENTO)
-                            VALUES({0}, {1}, '{2}', '{3}', 'ATTIVO', '{4}', CURRENT_TIMESTAMP)",
+                            INSERT INTO COLLAUDI(IDSERVER, IDUTENTE, INIZIOCOLLAUDO, FINECOLLAUDO, DESCRIZIONE, DATAINSERIMENTO)
+                            VALUES({0}, {1}, '{2}', '{3}', '{4}', CURRENT_TIMESTAMP)",
                             metroComboBoxServers.SelectedValue,
                             reserverForm.CurrentUserID,
                             (metroDateTimeStartDate.Value.Date.ToString("dd.MM.yyyy ") + metroComboBoxStartHour.Text ).ToString(),
@@ -168,11 +172,22 @@ namespace Reserver.Forms
             return true;
         }
 
-        private void GridAcceptanceTests_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private bool CheckUniqueAcceptanceTest(FbConnection connection)
         {
-
+            connection.Open();
+            string queryCheckUnique = string.Format(@"
+                SELECT count(c.idcollaudo)
+                FROM collaudi c 
+                WHERE c.idserver = {0}
+                    AND (c.iniziocollaudo BETWEEN '{1}' AND '{2}'
+                    OR c.finecollaudo BETWEEN '{1}' AND '{2}')", 
+                metroComboBoxServers.SelectedValue,
+                (metroDateTimeStartDate.Value.Date.ToString("dd.MM.yyyy ") + metroComboBoxStartHour.Text).ToString(),
+                (metroDateTimeEndDate.Value.Date.ToString("dd.MM.yyyy ") + metroComboBoxEndHour.Text).ToString());
+            FbCommand checkUnique = new FbCommand(queryCheckUnique, connection);
+            bool isOk = (int)checkUnique.ExecuteScalar() == 0;
+            connection.Close();
+            return isOk;
         }
-
-
     }
 }
