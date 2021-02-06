@@ -43,7 +43,6 @@ namespace Reserver.Forms
                         comboBoxServers.DisplayMember = "descrizione";
                         comboBoxServers.ValueMember = "idserver";
                     }
-
                     using (FbDataAdapter dataAdapterServerList = new FbDataAdapter("SELECT idutente, denominazione FROM utenti", connection))
                     {
                         DataTable dataTableServerList = new DataTable();
@@ -57,7 +56,6 @@ namespace Reserver.Forms
                         comboBoxUsers.DisplayMember = "denominazione";
                         comboBoxUsers.ValueMember = "idutente";
                     }
-
                     ReleaseHistoryGrid_Load();
                 }
                 catch (Exception ex)
@@ -78,18 +76,22 @@ namespace Reserver.Forms
             {
                 try
                 {
+                    /*
+                     * string 
                     connection.Open();
                     using (FbDataAdapter dataAdapterGrid = new FbDataAdapter(@"
-                        select first 100 s.DESCRIZIONE as AMBIENTE, u.DENOMINAZIONE as UTENTE, sr.DATAINIZIO, sr.DATAFINE
-                        from STORICORILASCI sr 
-                        join SERVERS s on s.IDSERVER = sr.IDSERVER
-                        join UTENTI u on u.IDUTENTE = sr.IDUTENTE
-                        order by sr.DATAINIZIO desc, sr.DATAFINE nulls first", connection))
+                        SELECT s.descrizione AS ambiente, u.denominazione AS utente, sr.datainizio, sr.datafine
+                        FROM storicorilasci sr 
+                        JOIN servers s ON s.idserver = sr.idserver
+                        JOIN utenti u ON u.idutente = sr.idutente
+                        WHERE sr.datainizio > '{0}'
+                        ORDER BY sr.datainizio DESC, sr.datafine NULLS FIRST", "02-02-2021", connection))
                     {
                         dataTableGrid = new DataTable();
                         dataAdapterGrid.Fill(dataTableGrid);
                         gridReleaseHistory.DataSource = dataTableGrid;
                     }
+                    */
                 }
                 catch (Exception ex)
                 {
@@ -111,59 +113,61 @@ namespace Reserver.Forms
             {
                 if (!comboBoxUsers.Text.Equals(""))
                 {
-                    filtro = "UTENTE = '" + comboBoxUsers.Text + "'";
-                    filtro = filtro + " and DATAINIZIO >= '" + dateTimeDa.Text + "' and DATAFINE <= '" + Convert.ToDateTime(dateTimeA.Text).AddDays(1) + "'";
+                    filtro = "utente = '" + comboBoxUsers.Text + "'";
+                    filtro = filtro + " AND datainizio >= '" + dateTimeDa.Text + "' AND datafine <= '" + Convert.ToDateTime(dateTimeA.Text).AddDays(1) + "'";
                 }
                 else
                 {
-                    filtro = " DATAINIZIO >= '" + dateTimeDa.Text + "' and DATAFINE <= '" + Convert.ToDateTime(dateTimeA.Text).AddDays(1) + "'";
+                    filtro = " datainizio >= '" + dateTimeDa.Text + "' AND datafine <= '" + Convert.ToDateTime(dateTimeA.Text).AddDays(1) + "'";
                 }
             }
             else
             {
-                filtro = "AMBIENTE = '" + comboBoxServers.Text + "'";
+                filtro = "ambiente = '" + comboBoxServers.Text + "'";
                 if (!comboBoxUsers.Text.Equals(""))
                 {
-                    filtro = filtro + " and UTENTE = '" + comboBoxUsers.Text + "'";
+                    filtro = filtro + " AND utente = '" + comboBoxUsers.Text + "'";
                 }
-                filtro = filtro + " and DATAINIZIO >= '" + dateTimeDa.Text + "' and DATAFINE <= '" + Convert.ToDateTime(dateTimeA.Text).AddDays(1) + "'";
+                filtro = filtro + " AND datainizio >= '" + dateTimeDa.Text + "' AND datafine <= '" + Convert.ToDateTime(dateTimeA.Text).AddDays(1) + "'";
             }
             dataTableGrid.DefaultView.RowFilter = filtro;
-            dataTableGrid.DefaultView.Sort = "DATAINIZIO desc";
+            dataTableGrid.DefaultView.Sort = "datainizio DESC";
         }
     }
 
-    //public class myGroupBox : GroupBox
-    //{
-    //    private Color borderColor;
+    /*
+    public class myGroupBox : GroupBox
+    {
+        private Color borderColor;
 
-    //    public Color BorderColor
-    //    {
-    //        get { return this.borderColor; }
-    //        set { this.borderColor = value; }
-    //    }
+        public Color BorderColor
+        {
+            get { return this.borderColor; }
+            set { this.borderColor = value; }
+        }
 
-    //    public myGroupBox()
-    //    {
-    //        this.borderColor = Color.Black;
-    //    }
+        public myGroupBox()
+        {
+            this.borderColor = Color.Black;
+        }
 
-    //    protected override void OnPaint(PaintEventArgs e)
-    //    {
-    //        Size tSize = TextRenderer.MeasureText(this.Text, this.Font);
-    //        Rectangle borderRect = e.ClipRectangle;
-    //        borderRect.Y += tSize.Height / 2;
-    //        borderRect.Height -= tSize.Height / 2;
-    //        ControlPaint.DrawBorder(e.Graphics, borderRect, this.borderColor, ButtonBorderStyle.Solid);
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            Size tSize = TextRenderer.MeasureText(this.Text, this.Font);
+            Rectangle borderRect = e.ClipRectangle;
+            borderRect.Y += tSize.Height / 2;
+            borderRect.Height -= tSize.Height / 2;
+            ControlPaint.DrawBorder(e.Graphics, borderRect, this.borderColor, ButtonBorderStyle.Solid);
 
-    //        Rectangle textRect = e.ClipRectangle;
-    //        textRect.X += 6;
-    //        textRect.Width = tSize.Width;
-    //        textRect.Height = tSize.Height;
+            Rectangle textRect = e.ClipRectangle;
+            textRect.X += 6;
+            textRect.Width = tSize.Width;
+            textRect.Height = tSize.Height;
 
-    //        e.Graphics.FillRectangle(new SolidBrush(this.BackColor), textRect);
-    //        e.Graphics.DrawString(this.Text, this.Font, new SolidBrush(this.ForeColor), textRect);
-    //    }
-    //}
+            e.Graphics.FillRectangle(new SolidBrush(this.BackColor), textRect);
+            e.Graphics.DrawString(this.Text, this.Font, new SolidBrush(this.ForeColor), textRect);
+        }
+    }
+    */
 
 }

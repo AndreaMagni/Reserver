@@ -29,7 +29,11 @@ namespace Reserver.Forms
                 try
                 {
                     connection.Open();
-                    string queryUserInfo = string.Format("SELECT idutente, denominazione, avatar FROM utenti WHERE username = '{0}' and psw = '{1}'", metroTextBoxLoginFormUsername.Text, metroTextBoxLoginFormPassword.Text);
+                    string queryUserInfo = string.Format(@"
+                        SELECT idutente, denominazione, avatar 
+                        FROM utenti 
+                        WHERE username = '{0}' 
+                            AND psw = '{1}'", metroTextBoxLoginFormUsername.Text, metroTextBoxLoginFormPassword.Text);
                     FbCommand getUserInfo = new FbCommand(queryUserInfo, connection);
                     FbDataReader readerUserInfo = getUserInfo.ExecuteReader();
                     if (readerUserInfo.Read())

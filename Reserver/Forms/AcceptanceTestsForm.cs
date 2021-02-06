@@ -35,7 +35,7 @@ namespace Reserver.Forms
                 try
                 {
                     connection.Open();
-                    using (FbDataAdapter dataAdapterServerList = new FbDataAdapter("select IDSERVER, DESCRIZIONE from SERVERS", connection))
+                    using (FbDataAdapter dataAdapterServerList = new FbDataAdapter("SELECT idserver, descrizione FROM servers", connection))
                     {
                         DataTable dataTableServerList = new DataTable();
                         dataAdapterServerList.Fill(dataTableServerList);
