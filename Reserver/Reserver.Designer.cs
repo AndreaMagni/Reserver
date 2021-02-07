@@ -30,6 +30,7 @@ namespace Reserver
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reserver));
             this.panelHeader = new MetroFramework.Controls.MetroPanel();
             this.panelHeaderInfo = new MetroFramework.Controls.MetroPanel();
@@ -47,6 +48,7 @@ namespace Reserver
             this.panelSideMenuServerStatus = new MetroFramework.Controls.MetroPanel();
             this.btnSideMenuServerStatus = new System.Windows.Forms.Button();
             this.panelPage = new MetroFramework.Controls.MetroPanel();
+            this.reserverNotifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.panelHeader.SuspendLayout();
             this.panelHeaderInfo.SuspendLayout();
             this.panelSideMenu.SuspendLayout();
@@ -100,19 +102,6 @@ namespace Reserver
             this.labelCurrentUserV2.Size = new System.Drawing.Size(300, 26);
             this.labelCurrentUserV2.TabIndex = 11;
             this.labelCurrentUserV2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(596, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(20, 20);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "[]";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label1.Visible = false;
-            this.label1.Click += new System.EventHandler(this.BtnMaximize_Click);
             // 
             // minimizeProgram
             // 
@@ -328,6 +317,13 @@ namespace Reserver
             this.panelPage.VerticalScrollbarHighlightOnWheel = false;
             this.panelPage.VerticalScrollbarSize = 10;
             // 
+            // reserverNotifyIcon
+            // 
+            this.reserverNotifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("reserverNotifyIcon.Icon")));
+            this.reserverNotifyIcon.Text = "Reserver";
+            this.reserverNotifyIcon.Visible = true;
+            this.reserverNotifyIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseClick);
+            // 
             // Reserver
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -370,6 +366,7 @@ namespace Reserver
         private System.Windows.Forms.Label minimizeProgram;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelCurrentUserV2;
+        public System.Windows.Forms.NotifyIcon reserverNotifyIcon;
     }
 }
 

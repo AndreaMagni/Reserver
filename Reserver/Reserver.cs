@@ -38,6 +38,7 @@ namespace Reserver
             btnSideMenuReleaseHistory.Font = new Font(privateFontCollection.Families[0], 15, FontStyle.Bold);
             btnSideMenuAcceptanceTests.Font = new Font(privateFontCollection.Families[0], 15, FontStyle.Bold);
             labelCurrentUserV2.Font = new Font(privateFontCollection.Families[0], 11, FontStyle.Regular);
+            reserverNotifyIcon.Visible = true;
         }
 
         #region Getter and Setter
@@ -88,19 +89,20 @@ namespace Reserver
 
         private void BntMinimize_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            Hide();
+            reserverNotifyIcon.Visible = true;
         }
 
-        private void BtnMaximize_Click(object sender, EventArgs e)
+        private void notifyIcon_MouseClick(object sender, MouseEventArgs e)
         {
-            if (WindowState == FormWindowState.Normal)
-                this.WindowState = FormWindowState.Maximized;
-            else
-                this.WindowState = FormWindowState.Normal;
+            Show();
+            this.WindowState = FormWindowState.Normal;
+            reserverNotifyIcon.Visible = false;
         }
 
         private void BtnClose_Click(object sender, EventArgs e)
         {
+            reserverNotifyIcon.Visible = false;
             Application.Exit();
         }
 

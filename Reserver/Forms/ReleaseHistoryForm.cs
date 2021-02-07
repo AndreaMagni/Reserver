@@ -76,22 +76,20 @@ namespace Reserver.Forms
             {
                 try
                 {
-                    /*
-                     * string 
                     connection.Open();
-                    using (FbDataAdapter dataAdapterGrid = new FbDataAdapter(@"
+                    string queryGetReleaseHistory = string.Format(@"
                         SELECT s.descrizione AS ambiente, u.denominazione AS utente, sr.datainizio, sr.datafine
                         FROM storicorilasci sr 
                         JOIN servers s ON s.idserver = sr.idserver
                         JOIN utenti u ON u.idutente = sr.idutente
-                        WHERE sr.datainizio > '{0}'
-                        ORDER BY sr.datainizio DESC, sr.datafine NULLS FIRST", "02-02-2021", connection))
+                        WHERE sr.datainizio >= '{0}'
+                        ORDER BY sr.datainizio DESC, sr.datafine NULLS FIRST", DateTime.Now.AddMonths(-4).ToString("MM-dd-yyyy"));
+                    using (FbDataAdapter dataAdapterGrid = new FbDataAdapter(queryGetReleaseHistory, connection))
                     {
                         dataTableGrid = new DataTable();
                         dataAdapterGrid.Fill(dataTableGrid);
                         gridReleaseHistory.DataSource = dataTableGrid;
                     }
-                    */
                 }
                 catch (Exception ex)
                 {
