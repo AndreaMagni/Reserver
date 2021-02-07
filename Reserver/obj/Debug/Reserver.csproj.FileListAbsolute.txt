@@ -133,3 +133,8 @@ D:\Progetti GitHub\Reserver\Reserver\bin\Debug\System.Configuration.Configuratio
 D:\Progetti GitHub\Reserver\Reserver\bin\Debug\System.Security.AccessControl.xml
 D:\Progetti GitHub\Reserver\Reserver\bin\Debug\System.Security.Permissions.xml
 D:\Progetti GitHub\Reserver\Reserver\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\Andrea\Desktop\GitHub_V2\Reserver\Reserver\obj\Debug\Interop.IWshRuntimeLibrary.dll
+C:\Users\Andrea\Desktop\GitHub_V2\Reserver\Reserver\obj\Debug\Interop.Shell32.dll
+C:\Users\Andrea\Desktop\GitHub_V2\Reserver\Reserver\obj\Debug\Reserver.csproj.ResolveComReference.cache
+C:\Users\Andrea\Desktop\GitHub_V2\Reserver\Reserver\bin\Debug\Interop.IWshRuntimeLibrary.dll
+C:\Users\Andrea\Desktop\GitHub_V2\Reserver\Reserver\bin\Debug\Interop.Shell32.dll
