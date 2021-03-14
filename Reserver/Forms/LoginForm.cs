@@ -48,14 +48,14 @@ namespace Reserver.Forms
                     else
                     {
                         MessageBox.Show("Utente non censito a sistema", "Attenzione", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                        Logger.Log("Tenativo di accesso fallito. Credenziali non censite a sistema.");
                         metroTextBoxLoginFormUsername.Text = null;
                         metroTextBoxLoginFormPassword.Text = null;
-                        Logger.Log("Tenativo di accesso fallito. Credenziali non censite a sistema.");
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Richiesta fallita.", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    MessageBox.Show("Richiesta fallita", "Errore di comunicazione con il server", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                     Logger.LogStack("Errore durante la fase di login.", ex.StackTrace.ToString());
                 }
                 finally

@@ -51,8 +51,8 @@ namespace Reserver.Forms
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Richiesta fallita.", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                    Logger.LogStack("Errore.", ex.StackTrace.ToString());
+                    MessageBox.Show("Richiesta fallita", "Errore di comunicazione con il server", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    Logger.LogStack("Errore durante il caricamento della pagina di collaudo.", ex.StackTrace.ToString());
                 }
                 finally
                 {
@@ -88,8 +88,8 @@ namespace Reserver.Forms
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Richiesta fallita.", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                    Logger.LogStack("Errore.", ex.StackTrace.ToString());
+                    MessageBox.Show("Richiesta fallita", "Errore di comunicazione con il server", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    Logger.LogStack("Errore durante il caricamento della pagina di collaudo.", ex.StackTrace.ToString());
                 }
                 finally
                 {
@@ -97,7 +97,6 @@ namespace Reserver.Forms
                 }
             }
         }
-
 
         // ATTENZIONE!! Durante l'inserimento di un nuovo collaudo risulterà in stato ATTIVO. Concluso il collaudo l'operatore andrà a cliccare un bottone?? E lo stato passerà a CONCLUSO
         // Giocare sulle ore presenti nel collaudo e quelle attuali per verificare se è possibile fare un rilascio ad esempio
@@ -131,12 +130,11 @@ namespace Reserver.Forms
                             metroTextBoxAcceptanceTestDescription.Text);
                         FbCommand insertNewAcceptanceTest = new FbCommand(queryInsertNewAcceptanceTest, connection);
                         insertNewAcceptanceTest.ExecuteNonQuery();
-                        //DateTime test =  Convert.ToDateTime("30.09.2020, 20:00:00.000");
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Richiesta fallita.", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    MessageBox.Show("Richiesta fallita", "Errore di comunicazione con il server", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                     Logger.LogStack("Errore.", ex.StackTrace.ToString());
                 }
                 finally
@@ -174,19 +172,33 @@ namespace Reserver.Forms
 
         private bool CheckUniqueAcceptanceTest(FbConnection connection)
         {
-            connection.Open();
-            string queryCheckUnique = string.Format(@"
+            bool isOk = false;
+
+            try
+            {
+                connection.Open();
+                string queryCheckUnique = string.Format(@"
                 SELECT count(c.idcollaudo)
                 FROM collaudi c 
                 WHERE c.idserver = {0}
                     AND (c.iniziocollaudo BETWEEN '{1}' AND '{2}'
-                    OR c.finecollaudo BETWEEN '{1}' AND '{2}')", 
-                metroComboBoxServers.SelectedValue,
-                (metroDateTimeStartDate.Value.Date.ToString("dd.MM.yyyy ") + metroComboBoxStartHour.Text).ToString(),
-                (metroDateTimeEndDate.Value.Date.ToString("dd.MM.yyyy ") + metroComboBoxEndHour.Text).ToString());
-            FbCommand checkUnique = new FbCommand(queryCheckUnique, connection);
-            bool isOk = (int)checkUnique.ExecuteScalar() == 0;
-            connection.Close();
+                    OR c.finecollaudo BETWEEN '{1}' AND '{2}')",
+                    metroComboBoxServers.SelectedValue,
+                    (metroDateTimeStartDate.Value.Date.ToString("dd.MM.yyyy ") + metroComboBoxStartHour.Text).ToString(),
+                    (metroDateTimeEndDate.Value.Date.ToString("dd.MM.yyyy ") + metroComboBoxEndHour.Text).ToString());
+                FbCommand checkUnique = new FbCommand(queryCheckUnique, connection);
+                isOk = (int)checkUnique.ExecuteScalar() == 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Richiesta fallita", "Errore di comunicazione con il server", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                Logger.LogStack("Errore.", ex.StackTrace.ToString());
+            }
+            finally
+            {
+                connection.Close();
+            }
+
             return isOk;
         }
     }

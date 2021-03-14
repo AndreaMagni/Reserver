@@ -147,7 +147,7 @@ namespace Reserver.Forms
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Richiesta fallita.", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    MessageBox.Show("Richiesta fallita", "Errore di comunicazione con il server", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                     Logger.LogStack("Errore.", ex.StackTrace.ToString());
                 }
                 finally
@@ -192,7 +192,7 @@ namespace Reserver.Forms
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Richiesta fallita.", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    MessageBox.Show("Richiesta fallita", "Errore di comunicazione con il server", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                     Logger.LogStack("Errore.", ex.StackTrace.ToString());
                 }
                 finally
@@ -269,7 +269,8 @@ namespace Reserver.Forms
             }
             else
             {
-                MessageBox.Show("Errore query lettura", "Attenzione", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                // Serve?
+                MessageBox.Show("Richiesta fallita", "Errore di comunicazione con il server", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
             }
             readerGetServerID.Close();
         }
@@ -312,7 +313,8 @@ namespace Reserver.Forms
             }
             else
             {
-                MessageBox.Show("Errore query lettura", "Attenzione", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                // Serve?
+                MessageBox.Show("Richiesta fallita", "Errore di comunicazione con il server", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
             }
             readerGetServerID.Close();
         }
@@ -431,7 +433,7 @@ namespace Reserver.Forms
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Richiesta fallita.", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    MessageBox.Show("Richiesta fallita", "Errore di comunicazione con il server", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                     Logger.LogStack("Errore.", ex.StackTrace.ToString());
                 }
                 finally

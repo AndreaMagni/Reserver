@@ -149,7 +149,6 @@ C:\Users\Andrea\Documents\GitHub\Reserver\Reserver\bin\Debug\System.Configuratio
 C:\Users\Andrea\Documents\GitHub\Reserver\Reserver\bin\Debug\System.Security.AccessControl.dll
 C:\Users\Andrea\Documents\GitHub\Reserver\Reserver\bin\Debug\System.Security.Permissions.dll
 C:\Users\Andrea\Documents\GitHub\Reserver\Reserver\bin\Debug\System.Security.Principal.Windows.dll
-C:\Users\Andrea\Documents\GitHub\Reserver\Reserver\bin\Debug\Tulpep.NotificationWindow.dll
 C:\Users\Andrea\Documents\GitHub\Reserver\Reserver\bin\Debug\System.Configuration.ConfigurationManager.xml
 C:\Users\Andrea\Documents\GitHub\Reserver\Reserver\bin\Debug\System.Security.AccessControl.xml
 C:\Users\Andrea\Documents\GitHub\Reserver\Reserver\bin\Debug\System.Security.Permissions.xml
@@ -160,17 +159,12 @@ C:\Users\Andrea\Documents\GitHub\Reserver\Reserver\obj\Debug\Reserver.csprojAsse
 C:\Users\Andrea\Documents\GitHub\Reserver\Reserver\obj\Debug\Interop.IWshRuntimeLibrary.dll
 C:\Users\Andrea\Documents\GitHub\Reserver\Reserver\obj\Debug\Interop.Shell32.dll
 C:\Users\Andrea\Documents\GitHub\Reserver\Reserver\obj\Debug\Reserver.csproj.ResolveComReference.cache
-C:\Users\Andrea\Documents\GitHub\Reserver\Reserver\obj\Debug\Reserver.AcceptanceTests.resources
 C:\Users\Andrea\Documents\GitHub\Reserver\Reserver\obj\Debug\Reserver.Forms.AcceptanceTestsForm.resources
 C:\Users\Andrea\Documents\GitHub\Reserver\Reserver\obj\Debug\Reserver.Forms.LoginForm.resources
 C:\Users\Andrea\Documents\GitHub\Reserver\Reserver\obj\Debug\Reserver.Forms.ReleaseHistoryForm.resources
 C:\Users\Andrea\Documents\GitHub\Reserver\Reserver\obj\Debug\Reserver.Forms.ServerStatusForm.resources
-C:\Users\Andrea\Documents\GitHub\Reserver\Reserver\obj\Debug\Reserver.Login.resources
 C:\Users\Andrea\Documents\GitHub\Reserver\Reserver\obj\Debug\Reserver.Properties.Resources.resources
-C:\Users\Andrea\Documents\GitHub\Reserver\Reserver\obj\Debug\Reserver.ReleaseHistory.resources
 C:\Users\Andrea\Documents\GitHub\Reserver\Reserver\obj\Debug\Reserver.Reserver.resources
-C:\Users\Andrea\Documents\GitHub\Reserver\Reserver\obj\Debug\Reserver.ServerStatus.resources
-C:\Users\Andrea\Documents\GitHub\Reserver\Reserver\obj\Debug\Reserver.SlotReservation.resources
 C:\Users\Andrea\Documents\GitHub\Reserver\Reserver\obj\Debug\Reserver.csproj.GenerateResource.cache
 C:\Users\Andrea\Documents\GitHub\Reserver\Reserver\obj\Debug\Reserver.csproj.CoreCompileInputs.cache
 C:\Users\Andrea\Documents\GitHub\Reserver\Reserver\obj\Debug\Reserver.csproj.CopyComplete

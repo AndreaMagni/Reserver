@@ -60,7 +60,7 @@ namespace Reserver.Forms
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Richiesta fallita.", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    MessageBox.Show("Richiesta fallita", "Errore di comunicazione con il server", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                     Logger.LogStack("Errore.", ex.StackTrace.ToString());
                 }
                 finally
@@ -93,7 +93,7 @@ namespace Reserver.Forms
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Richiesta fallita.", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    MessageBox.Show("Richiesta fallita", "Errore di comunicazione con il server", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                     Logger.LogStack("Errore.", ex.StackTrace.ToString());
                 }
                 finally
@@ -132,40 +132,5 @@ namespace Reserver.Forms
             dataTableGrid.DefaultView.Sort = "datainizio DESC";
         }
     }
-
-    /*
-    public class myGroupBox : GroupBox
-    {
-        private Color borderColor;
-
-        public Color BorderColor
-        {
-            get { return this.borderColor; }
-            set { this.borderColor = value; }
-        }
-
-        public myGroupBox()
-        {
-            this.borderColor = Color.Black;
-        }
-
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            Size tSize = TextRenderer.MeasureText(this.Text, this.Font);
-            Rectangle borderRect = e.ClipRectangle;
-            borderRect.Y += tSize.Height / 2;
-            borderRect.Height -= tSize.Height / 2;
-            ControlPaint.DrawBorder(e.Graphics, borderRect, this.borderColor, ButtonBorderStyle.Solid);
-
-            Rectangle textRect = e.ClipRectangle;
-            textRect.X += 6;
-            textRect.Width = tSize.Width;
-            textRect.Height = tSize.Height;
-
-            e.Graphics.FillRectangle(new SolidBrush(this.BackColor), textRect);
-            e.Graphics.DrawString(this.Text, this.Font, new SolidBrush(this.ForeColor), textRect);
-        }
-    }
-    */
 
 }
