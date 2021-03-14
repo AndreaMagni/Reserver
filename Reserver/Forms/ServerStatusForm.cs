@@ -16,6 +16,8 @@ namespace Reserver.Forms
 
         PrivateFontCollection privateFontCollection;
 
+        ToolTip toolTip;
+
         public ServerStatusForm()
         {
             InitializeComponent();
@@ -123,11 +125,17 @@ namespace Reserver.Forms
                         dateLabel.Size = new Size(100, 25);
                         dateLabel.Name = "date" + row["CODICE"].ToString();
 
+                        toolTip = new ToolTip();
+                        toolTip.SetToolTip(dateLabel, null);
+
                         Label avatarLabel = new Label();
                         avatarLabel.Left = insideLeft + 350;
                         avatarLabel.Top = 5;
                         avatarLabel.Size = new Size(50, 50);
                         avatarLabel.Name = "icon" + row["CODICE"].ToString();
+
+                        toolTip = new ToolTip();
+                        toolTip.SetToolTip(avatarLabel, null);
 
                         panelServerInfo.Controls.Add(button);
                         panelServerInfo.Controls.Add(statusLabel);
@@ -338,9 +346,6 @@ namespace Reserver.Forms
 
         private void UpdateStatus()
         {
-            ToolTip toolTipDateLabel;
-            ToolTip toolTipStatusImg;
-
             using (FbConnection connection = new FbConnection(reserverForm.ConnectionString))
             {
                 try
@@ -384,18 +389,14 @@ namespace Reserver.Forms
 
                         if (readerGetServerID.GetString(0) == "OCCUPATO")
                         {
-                            // QUI PROBLEMA PER TOOLTIP 
-
                             currentDateLabel.Text = RelativeDate(Convert.ToDateTime(readerGetServerID.GetString(4)));
                             currentDateLabel.Font = new Font(privateFontCollection.Families[0], 11, FontStyle.Regular);
-                            toolTipDateLabel = new ToolTip();
-                            toolTipDateLabel.SetToolTip(currentDateLabel, readerGetServerID.GetString(4));
+                            toolTip.SetToolTip(currentDateLabel, readerGetServerID.GetString(4));
 
                             Image updatedStatusImg = Image.FromFile(Directory.GetCurrentDirectory() + readerGetServerID.GetString(3));
                             updatedStatusImg = ResizeImage(updatedStatusImg, new Size(50, 50));
                             currentIconLabel.Image = updatedStatusImg;
-                            toolTipStatusImg = new ToolTip();
-                            toolTipStatusImg.SetToolTip(currentIconLabel, readerGetServerID.GetString(2));
+                            toolTip.SetToolTip(currentIconLabel, readerGetServerID.GetString(2));
                         }
                         else if (readerGetServerID.GetInt32(5) > 0)
                         {
@@ -421,6 +422,9 @@ namespace Reserver.Forms
                             currentButton.Text = "Rilascia";
                             currentDateLabel.Text = string.Empty;
                             currentIconLabel.Image = null;
+
+                            toolTip.SetToolTip(currentDateLabel, null);
+                            toolTip.SetToolTip(currentIconLabel, null);
                         }
                     }
                     readerGetServerID.Close();
