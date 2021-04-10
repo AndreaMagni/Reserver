@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using IWshRuntimeLibrary;
+using Reserver.Utils;
 using Shell32;
 
 namespace Reserver
@@ -41,8 +42,13 @@ namespace Reserver
             btnSideMenuReleaseHistory.Font = new Font(privateFontCollection.Families[0], 15, FontStyle.Bold);
             btnSideMenuAcceptanceTests.Font = new Font(privateFontCollection.Families[0], 15, FontStyle.Bold);
             labelCurrentUserV2.Font = new Font(privateFontCollection.Families[0], 11, FontStyle.Regular);
-            reserverNotifyIcon.Visible = true;
+            labelVersion.Font = new Font(privateFontCollection.Families[0], 8, FontStyle.Regular);
+            closeProgram.Font = new Font(privateFontCollection.Families[0], 11, FontStyle.Bold);
+            minimizeProgram.Font = new Font(privateFontCollection.Families[0], 13, FontStyle.Bold);
+
+            reserverNotifyIcon.Visible = false;
             string fileName = Environment.GetFolderPath(Environment.SpecialFolder.Startup) + "\\" + Application.ProductName + ".lnk";
+
             if (startup)
             {
                 if (string.IsNullOrEmpty(GetShortcutTargetFile(fileName)))
@@ -60,6 +66,33 @@ namespace Reserver
             }
         }
 
+        #region Single Istance
+
+        protected override void WndProc(ref Message message)
+        {
+            if (message.Msg == SingleInstance.WM_SHOWFIRSTINSTANCE)
+            {
+                ShowWindow();
+            }
+            base.WndProc(ref message);
+        }
+
+        public void ShowWindow()
+        {
+            if (reserverNotifyIcon.Visible)
+            {
+                reserverNotifyIcon.Visible = false;
+                this.Show();
+                this.WindowState = FormWindowState.Normal;
+            }
+            else
+            {
+                WinApi.ShowToFront(this.Handle);
+            }
+        }
+
+        #endregion Single Istance
+
         #region Getter and Setter
 
         public Reserver externalReserver
@@ -72,6 +105,12 @@ namespace Reserver
         {
             set { labelCurrentUserV2.Text = value; }
             get { return labelCurrentUserV2.Text; }
+        }
+
+        public string CurrentVersion
+        {
+            set { labelVersion.Text = value; }
+            get { return labelVersion.Text; }
         }
 
         public int CurrentUserID
@@ -112,7 +151,7 @@ namespace Reserver
             reserverNotifyIcon.Visible = true;
         }
 
-        private void notifyIcon_MouseClick(object sender, MouseEventArgs e)
+        private void NotifyIcon_MouseClick(object sender, MouseEventArgs e)
         {
             Show();
             this.WindowState = FormWindowState.Normal;

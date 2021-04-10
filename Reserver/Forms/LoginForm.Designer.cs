@@ -46,8 +46,6 @@
             this.btnLoginForm.Text = "Login";
             this.btnLoginForm.UseSelectable = true;
             this.btnLoginForm.Click += new System.EventHandler(this.BtnLoginForm_Click);
-            this.btnLoginForm.MouseEnter += new System.EventHandler(this.btnLoginForm_MouseEnter);
-            this.btnLoginForm.MouseLeave += new System.EventHandler(this.btnLoginForm_MouseLeave);
             // 
             // metroTextBoxLoginFormPassword
             // 

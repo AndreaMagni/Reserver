@@ -155,7 +155,6 @@ C:\Users\Andrea\Documents\GitHub\Reserver\Reserver\bin\Debug\System.Security.Per
 C:\Users\Andrea\Documents\GitHub\Reserver\Reserver\bin\Debug\System.Security.Principal.Windows.xml
 C:\Users\Andrea\Documents\GitHub\Reserver\Reserver\bin\Debug\Interop.IWshRuntimeLibrary.dll
 C:\Users\Andrea\Documents\GitHub\Reserver\Reserver\bin\Debug\Interop.Shell32.dll
-C:\Users\Andrea\Documents\GitHub\Reserver\Reserver\obj\Debug\Reserver.csprojAssemblyReference.cache
 C:\Users\Andrea\Documents\GitHub\Reserver\Reserver\obj\Debug\Interop.IWshRuntimeLibrary.dll
 C:\Users\Andrea\Documents\GitHub\Reserver\Reserver\obj\Debug\Interop.Shell32.dll
 C:\Users\Andrea\Documents\GitHub\Reserver\Reserver\obj\Debug\Reserver.csproj.ResolveComReference.cache
@@ -170,3 +169,4 @@ C:\Users\Andrea\Documents\GitHub\Reserver\Reserver\obj\Debug\Reserver.csproj.Cor
 C:\Users\Andrea\Documents\GitHub\Reserver\Reserver\obj\Debug\Reserver.csproj.CopyComplete
 C:\Users\Andrea\Documents\GitHub\Reserver\Reserver\obj\Debug\Reserver.exe
 C:\Users\Andrea\Documents\GitHub\Reserver\Reserver\obj\Debug\Reserver.pdb
+C:\Users\Andrea\Documents\GitHub\Reserver\Reserver\obj\Debug\Reserver.csprojAssemblyReference.cache

@@ -20,6 +20,31 @@ namespace Reserver.Forms
             InitializeComponent();
             reserverForm = form;
             metroTextBoxLoginFormPassword.PasswordChar = '*';
+
+            using (FbConnection connection = new FbConnection(reserverForm.ConnectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    string queryGetVersion = string.Format(@"
+                        SELECT FIRST 1 codice
+                        FROM versioni 
+                        ORDER BY data DESC");
+                    FbCommand getVersion = new FbCommand(queryGetVersion, connection);
+                    string versione = (string)getVersion.ExecuteScalar();
+                    reserverForm.CurrentVersion = versione;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Richiesta fallita", "Errore di comunicazione con il server", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    Logger.LogStack("Errore.", ex.StackTrace.ToString());
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
         }
                      
         private void BtnLoginForm_Click(object sender, EventArgs e)
@@ -65,19 +90,21 @@ namespace Reserver.Forms
             }
         }
 
-        private void btnLoginForm_MouseEnter(object sender, EventArgs e)
+        /*
+        private void BtnLoginForm_MouseEnter(object sender, EventArgs e)
         {
             string buttonName = ((Control)sender).Name; 
             MetroFramework.Controls.MetroButton metroButton = this.Controls.Find(buttonName, true).FirstOrDefault() as MetroFramework.Controls.MetroButton;
-            metroButton.BackColor = Color.FromArgb(142, 198, 189);
+            metroButton.BackColor = Color.FromArgb(102, 198, 189);
         }
 
-        private void btnLoginForm_MouseLeave(object sender, EventArgs e)
+        private void BtnLoginForm_MouseLeave(object sender, EventArgs e)
         {
             string buttonName = ((Control)sender).Name;
             MetroFramework.Controls.MetroButton metroButton = this.Controls.Find(buttonName, true).FirstOrDefault() as MetroFramework.Controls.MetroButton;
             metroButton.BackColor = Color.FromArgb(142, 198, 189);
         }
+        */
 
     }
 }

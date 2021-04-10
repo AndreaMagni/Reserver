@@ -34,6 +34,7 @@ namespace Reserver
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reserver));
             this.panelHeader = new MetroFramework.Controls.MetroPanel();
             this.panelHeaderInfo = new MetroFramework.Controls.MetroPanel();
+            this.labelVersion = new System.Windows.Forms.Label();
             this.labelCurrentUserV2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.minimizeProgram = new System.Windows.Forms.Label();
@@ -76,6 +77,7 @@ namespace Reserver
             // panelHeaderInfo
             // 
             this.panelHeaderInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(162)))), ((int)(((byte)(150)))));
+            this.panelHeaderInfo.Controls.Add(this.labelVersion);
             this.panelHeaderInfo.Controls.Add(this.labelCurrentUserV2);
             this.panelHeaderInfo.Controls.Add(this.label1);
             this.panelHeaderInfo.Controls.Add(this.minimizeProgram);
@@ -95,6 +97,15 @@ namespace Reserver
             this.panelHeaderInfo.VerticalScrollbarSize = 10;
             this.panelHeaderInfo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelHeader_MouseDown);
             // 
+            // labelVersion
+            // 
+            this.labelVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelVersion.Location = new System.Drawing.Point(3, 59);
+            this.labelVersion.Name = "labelVersion";
+            this.labelVersion.Size = new System.Drawing.Size(42, 20);
+            this.labelVersion.TabIndex = 13;
+            this.labelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // labelCurrentUserV2
             // 
             this.labelCurrentUserV2.Location = new System.Drawing.Point(368, 62);
@@ -103,13 +114,20 @@ namespace Reserver
             this.labelCurrentUserV2.TabIndex = 11;
             this.labelCurrentUserV2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 23);
+            this.label1.TabIndex = 12;
+            // 
             // minimizeProgram
             // 
             this.minimizeProgram.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.minimizeProgram.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minimizeProgram.Location = new System.Drawing.Point(622, 9);
+            this.minimizeProgram.Location = new System.Drawing.Point(613, 2);
             this.minimizeProgram.Name = "minimizeProgram";
-            this.minimizeProgram.Size = new System.Drawing.Size(20, 20);
+            this.minimizeProgram.Size = new System.Drawing.Size(33, 29);
             this.minimizeProgram.TabIndex = 8;
             this.minimizeProgram.Text = "_";
             this.minimizeProgram.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -322,7 +340,7 @@ namespace Reserver
             this.reserverNotifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("reserverNotifyIcon.Icon")));
             this.reserverNotifyIcon.Text = "Reserver";
             this.reserverNotifyIcon.Visible = true;
-            this.reserverNotifyIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseClick);
+            this.reserverNotifyIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(this.NotifyIcon_MouseClick);
             // 
             // Reserver
             // 
@@ -367,6 +385,7 @@ namespace Reserver
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelCurrentUserV2;
         public System.Windows.Forms.NotifyIcon reserverNotifyIcon;
+        private System.Windows.Forms.Label labelVersion;
     }
 }
 

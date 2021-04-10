@@ -54,6 +54,7 @@ namespace Reserver.Forms
                 try
                 {
                     connection.Open();
+
                     string queryStatusInfo = string.Format(@"
                         SELECT s.descrizione, r.stato, s.codice
                         FROM statiservers r
